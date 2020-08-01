@@ -1,4 +1,4 @@
-# Time
+# 9/5/18 Time 
 
 “Time” is a module that is not a natural part of Python, to use “time” and different functions of time, it must be imported with the following line of code:
 
@@ -14,6 +14,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 ...             return "true"
 ...
 ...
+```
+
+```
 >>> def leap(year):
 ...     if year%400==0:
 ...             return "true"
