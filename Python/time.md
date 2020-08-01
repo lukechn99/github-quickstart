@@ -17,6 +17,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ...
 ```
 
+## Math with time
 ```
 >>> def leap(year):
 ...     if year%400==0:
@@ -37,3 +38,15 @@ false
 >>> time.time()
 1536202229.4774811
 ```
+
+## Travel back in time
+```
+Python 3.8.3 (tags/v3.8.3:6f8c832, May 13 2020, 22:20:19) [MSC v.1925 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from datetime import datetime, timedelta
+>>> time = datetime.now()
+>>> date_one_week_ago = (time - timedelta(days=7)).strftime('%Y-%m-%d')
+>>> date_now = time.strftime('%Y-%m-%d')
+>>> print("a week ago, it was " + date_one_week_ago + ", but now it is " + date_now)
+a week ago, it was 2020-07-25, but now it is 2020-08-01
+>>> 
