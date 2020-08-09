@@ -17,7 +17,7 @@ How do you make sure your reader knows what you’re doing?
 Use comments #
 For a function usually write “def function(argument)”
 
-Loops
+## Loops
 
 Draw a square
 
