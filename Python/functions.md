@@ -4,27 +4,36 @@ What should we be doing for homework?
 Can you harm your computer by accident through writing something in Python?
 
 Function
+```
 def foo(a, b):
-# function foo with arguments a and b, a and b have no value yet
 	return(a + b)
-# now you can use this as a function and call it later:
+```
+function foo with arguments a and b, a and b have no value yet  
+now you can use this as a function and call it later:
+```
 myvalue = foo(10, 1000)
-# now a and b are defined within the function and have a value. myvalue = foo(10, 1000) will yield 1010 as per instructions of the function
-# if you call a or b outside of the function it will show an error, this is because functions are input output. # numbers can be input and then they will give an output, but they cannot be taken out
-# another function also using a and b can also be written and a and b will not intersect
-# you can also make a function inside of a function, but you can’t call the inside function
+```
+now a and b are defined within the function and have a value. myvalue = foo(10, 1000) will yield 1010 as per instructions of the function
+if you call a or b outside of the function it will show an error, this is because functions are input output. 
+numbers can be input and then they will give an output, but they cannot be taken out. This is called __scoping__
+another function also using a and b can also be written and a and b will not intersect
+you can also make a function inside of a function, but you can’t call the inside function
 
 Recursive (chapter 4)
+```
 def fact(n):
 	if n == 1:
 		return (n)
 	else:
 		return (n * (n - 1))
-# when you can simplify the problem then factorial is helpful, like factorials above
-# the function name fact is made up and could be anything else
+```
+when you can simplify the problem then factorial is helpful, like factorials above
+the function name fact is made up and could be anything else
+```
 x = fact(10)
 print(x)
-# when you get to very large numbers, this way is not as efficient
+```
+when you get to very large numbers, this way is not as efficient
 
 Lab
 Make a square with sides 2, and the circle inside the square has radius 1
@@ -33,10 +42,12 @@ Monte Carlo gives random numbers, if you ask for enough random points then it ca
 
 To call a random number:
 
+```
 import random
 	random.random()
-# this calls the package random, and the function from the package random
-# random.random() automatically assumes [0, 1), you can also change the range
+```
+this calls the package random, and the function from the package random
+random.random() automatically assumes [0, 1), you can also change the range
 
 # or 
 
