@@ -18,3 +18,16 @@ section before the pointer is sorted
           ^
 ```
 ---
+
+### code  
+```
+insertion_sort(array)
+   for i = 1 to array.length
+      cur_el = array[i]
+      j = i - 1
+      while j >= 0 and array[j] > cur_el
+         array[j + 1] = array[j]
+         j = j - 1
+      array[j + 1] = cur_el
+```
+This sorting algorithm uses *i* as the index of the first unsorted element while *j* is the last sorted element. The while loop moves down the sorted portion until it finds a number in the sorted portion that is bigger than or equal to *cur_el* and inserts *cur_el* there.
