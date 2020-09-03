@@ -7,8 +7,8 @@
 ### example
 bolded section is sorted and unbolded is unsorted section
 <pre>
-<b>[5</b>, 2, 4, 3]
-<b>[2, 5</b>, 4, 3]
+<i>[5</i>, 2, 4, 3]
+<i>[2, 5</i>, 4, 3]
 **[2, 4, 5**, 3]
 **[2, 3, 4, 5]**
 </pre>
