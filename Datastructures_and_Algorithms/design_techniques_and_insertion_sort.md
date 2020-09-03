@@ -6,7 +6,7 @@
 
 ---
 ### example
-bolded section is sorted and unbolded is unsorted section
+section before the pointer is sorted
 ```
 [5, 2, 4, 3]  
  ^
