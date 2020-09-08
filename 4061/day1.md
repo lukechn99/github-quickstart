@@ -36,13 +36,13 @@ ARCHITECTURE
 between the architecture and between applications
 
 ### Roles of the OS
-REFEREE
-it addresses resource allocation among users and applications
-isolate users and applications, communicate between them
-
-ILLUSIONIST
-seems like each application has the entire machine to itself
-makes it seem like there's an infinite amount of memory, storage
-
-HANDY PERSON
-library, drivers
+REFEREE  
+it addresses resource allocation among users and applications  
+isolate users and applications, communicate between them  
+  
+ILLUSIONIST  
+seems like each application has the entire machine to itself  
+makes it seem like there's an infinite amount of memory, storage  
+  
+HANDY PERSON  
+library, drivers  
