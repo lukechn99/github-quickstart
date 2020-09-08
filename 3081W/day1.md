@@ -1,10 +1,12 @@
-### Basics
+### Class Basics
 Weekly labs
 first one on Github, second on Docker
 use Zybooks, section 10, due 9/17, ch. 2-5
 office hours on Discord
 look at course summary for a rundown of what needs to be done
+webinars on tuesdays and thursdays
 
+### C Basics
 C++ has mutable strings
 C++ v11 has auto-keyword which does runtime binding of variables, like Python
 C++ does not have a garbage collector, you must release memory to avoid a memory leak
