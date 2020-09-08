@@ -24,3 +24,20 @@ This demonstrated that taking the first 5 was a winning move for Alex, so we ret
 ```
 
 This seems like an application of a greedy algorithm right away from the description before looking at the example because each player wants to follow a heuristic
+
+### Permutations
+```
+swap(array, i, j)
+	temp = array(i)
+	array(i) = array(j)
+	array(j) = temp
+
+permute (array, i):
+	if i < array.length - 1
+		for j = i to array.length - 1
+			swap(array, i, j)
+			permute(array, i + 1)
+			swap(array, i, j)
+	else
+		print(array)
+		
