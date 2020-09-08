@@ -5,8 +5,8 @@ Zoom office hours
 Watched pre-taped lectures, ask questions on the canvas thread, and then they will be answered in the next live session
 For project questions, ask TAs  
   
-2 midterms, drop 1
-5 projects, drop 1
+2 midterms, drop 1  
+5 projects, drop 1  
 25% participation... you cannot mess this up  
   
 projects must run on CSE labs machines  
