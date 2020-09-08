@@ -13,7 +13,7 @@ projects must run on CSE labs machines
   
 you can go to any lecture or recitation. They are the same (1pm vs 4pm)
 
-***Outcomes***
+***Outcomes***  
 Write code that exploits OS features  
 Write code that is efficient, reliable, and possibly secure  
 Linux/UNIX interface  
