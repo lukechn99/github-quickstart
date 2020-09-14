@@ -6,7 +6,7 @@ office hours on Discord
 look at course summary for a rundown of what needs to be done
 webinars on tuesdays and thursdays
 
-### C Basics
+### C++ Basics
 C++ has mutable strings
 C++ v11 has auto-keyword which does runtime binding of variables, like Python
 C++ does not have a garbage collector, you must release memory to avoid a memory leak
