@@ -75,7 +75,10 @@ structs can be nested within each other, like folders
 Classes
 ```
 class ClassName {
-	
+	private:
+
+        public:
+
 };
 ```
 Structs are basically classes where every member is public. Structs are used to hold information that *everything* needs access to.  
