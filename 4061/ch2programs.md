@@ -66,7 +66,7 @@ top tells you what's running. You can identify memory leaks. Normal programs sho
 top -u <uid>
 ```
 
-### Structure of a C program
+## Structure of a C program
 A C program has many components including functions, structs (like records), arrays, and typedefs (user defined types)  
 One function is called main() and this is where the first *thread* starts  
 Generally, main is written like...
@@ -99,7 +99,7 @@ for arguments like the '10', we need *atoi* to convert it back into an int
 in c programs you can include code from header files and other c files  
 header files will typically contain constants and types  
 
-### Program Structure
+## Program Structure
 A C program has multiple modules which are different files of code/functions grouped by relevance and separately compiled. 
 Typically you will use one header file that has all the types, datastructures, and function prototypes. This will be shared among the other C files
   
@@ -123,8 +123,13 @@ int main {
 }
 ```
 
-### Program scoping
+## Program scoping
 ```
 static int foo;		// can only be accessed globally in this file
-int foo;			// can be accessed globally by any linked file
+int foo;		// can be accessed globally by any linked file
+extern int baz;		// using extern is a promise that baz is allocated elsewhere... what?
+			// when baz IS defined, it must be defined without static so
+			// that it can be accessed in the first function
 ```
+
+## Error Handling
