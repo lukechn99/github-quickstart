@@ -65,3 +65,66 @@ top tells you what's running. You can identify memory leaks. Normal programs sho
 ```
 top -u <uid>
 ```
+
+### Structure of a C program
+A C program has many components including functions, structs (like records), arrays, and typedefs (user defined types)  
+One function is called main() and this is where the first *thread* starts  
+Generally, main is written like...
+```
+int main (int argc, char *argv[])
+	// where argc is the number of command line args
+	// argv is the array of command line args represented as strings
+int main (int argc, char **argv[]) 
+	// uses a pointer to pointers
+```
+There are ***no strings*** in C  
+Instead, we can use definitions like  
+```
+char *s
+typedef char *string;
+typedef char [] string = "something";
+typedef char [maxLength] string;
+```
+strings are terminated with a \0
+
+*argc counts everything including the executable*
+
+```
+>> func -c 10 2.0
+```
+will have an argc of 4 with argv[0] being 'f', 'u', 'n', 'c', '\0'  
+for arguments like the '10', we need *atoi* to convert it back into an int
+
+### header files and c files
+in c programs you can include code from header files and other c files  
+header files will typically contain constants and types  
+
+### Program Structure
+A C program has multiple modules which are different files of code/functions grouped by relevance and separately compiled. 
+Typically you will use one header file that has all the types, datastructures, and function prototypes. This will be shared among the other C files
+  
+foo.h
+```
+#define MaxTokens 10		// this is defined everywhere foo.h is included
+int sortit (char a[100]);	// this is a function prototype
+```
+foo.c
+```
+#include <foo.h>			// like a macro
+int sortit (char a[100]) {	// implementation
+	...
+}
+```
+main.c
+```
+#include <foo.h>
+int main {
+	sortit...
+}
+```
+
+### Program scoping
+```
+static int foo;		// can only be accessed globally in this file
+int foo;			// can be accessed globally by any linked file
+```
