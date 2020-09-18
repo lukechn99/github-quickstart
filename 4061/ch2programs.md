@@ -131,5 +131,44 @@ extern int baz;		// using extern is a promise that baz is allocated elsewhere...
 			// when baz IS defined, it must be defined without static so
 			// that it can be accessed in the first function
 ```
+Most functions we use are in the standard library, which we include.  
+Other libraries like those for using threads are not automatically linked, so we need to  
+manually link with commands like -lpthread when we use gcc
+When compliling with the -o option you are creating an executable. Only 1 main allowed
+Compiling with -c makes a .o file
 
 ## Error Handling
+When an error is hit, extern int *errno* is set to -1  
+there are many possible errno values
+check for errors in system calls
+```
+int close (int fildes);
+
+if (close (fildes) == -1)	// error happened
+	perror ("close failed ...");
+```
+
+### pointers are memory addresses
+```
+int x;		// int
+int *y;		// pointer to int
+
+y = &x;		// y = address of x
+*y = 10;	// dereference of y: what is the address of y? Store 10 in that address, x = 10
+```
+
+## Memory Allocation
+Dynamic memory allocation: malloc allocates bytes and returns a ptr to the space allocated or NULL if nothing is left  
+```
+void *ptr1;
+my_t *ptr2;
+ptr1 = malloc(5);
+ptr2 = (my_t *) malloc (sizeof (my_t));		// automatically allocated bytes to fit the size of my_t
+
+void free(void *ptr_var);
+```
+Memory leaks happen when you don't free all the memory you allocated. Make sure to keep track of all the pointers you malloc and run free on them. 
+
+## Void
+void can be cast to any ptr type  
+void can be used as a return type or an argument  
