@@ -1,3 +1,22 @@
+### Constructors
+There are three different constructors in C++  
+The default constructor is used to set instances to default values  
+```
+Circle(double rad): radius(rad) {}
+```
+```
+// called as
+Circle c;
+
+// not
+Circle c();
+```
+The parametrized constructor sets to parameterized values  
+```
+Circle() {radius = 1;}
+```
+The copy constructor is used for dynamic 
+
 ```
 #include <iostream>
 #include <string>
