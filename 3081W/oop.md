@@ -22,3 +22,12 @@ an instance of Person can be a Friend, Family, Significat Other, or something el
 very closely related to inheritance
 C++, has the advantage of letting you overload many operators
 **protected access** specifier allows children/derived classes to access some data
+
+### Encapsulation
+making things private
+
+### Single responsibility principle
+
+### Open closed principle
+Don't go back to edit your class, otherwise you will have to do regression testing  
+but the class should be open to 
