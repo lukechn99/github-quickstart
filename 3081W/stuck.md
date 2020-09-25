@@ -10,3 +10,6 @@ point2->Print();
 (*point2).Print();
 
 ```
+### Delete
+Can only be used on pointers that were created with *new*  
+Delete does not set pointers to NULL  
