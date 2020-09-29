@@ -127,3 +127,19 @@ int main() {
    return 0;
 }
 ```
+
+### Compilt time binding, run time binding, access specifiers
+Protected, public, private, virtual  
+whenever there is a "is-a" relationship, we use the public classifier to define the derived class
+
+```
+class shape {
+	public:
+		void disp_area();				// if this methos is used
+      	virtual void disp_area();		// allows for polymorphism, can create a pure abstract class
+		virtual void disp_area() = 0; 	// 
+
+class triangle:public shape {
+   public:
+      void disp_area();
+```
