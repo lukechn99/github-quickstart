@@ -47,3 +47,8 @@ class foodTruck : public restaurant {
 }
 ```
 "override" and "virtual" are used together, you override a virtual function
+without the "override" and "virtual", runtime polymorphism would not take place, it would use the base class definition of pay()  
+of course this is only for a restaurant pointer, if it were explicitly declared as a foodTruck, then the compiler will know to use the foodTruck version  
+  
+there are other times when a base class does not need the function, but all derived classes do  
+then we implement the base class as an abstract class
