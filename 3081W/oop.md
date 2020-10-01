@@ -46,3 +46,4 @@ class foodTruck : public restaurant {
 	}
 }
 ```
+"override" and "virtual" are used together, you override a virtual function
