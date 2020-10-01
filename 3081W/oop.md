@@ -31,3 +31,18 @@ making things private
 ### Open closed principle
 Don't go back to edit your class, otherwise you will have to do regression testing  
 but the class should be open to 
+
+### Virtual Functions
+When we have a derived class with the same method name as the superclass and we want the derived class to use its own, we define the superclass method as virtual
+```
+class restaurant {
+	virtual void pay() const {
+		...
+	}
+}	
+class foodTruck : public restaurant {
+	void pay() const override {
+		...
+	}
+}
+```
