@@ -42,3 +42,9 @@ namespace {
 ...
 }
 ```
+# Google Tests
+Automated testing patterns  
+if we modify an existing class then we have to do regression testing, to avoid this, we should write classes that we will not need to change  
+
+
+
