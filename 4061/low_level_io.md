@@ -44,6 +44,18 @@ else {					// child process is basically "cat" but with a different fd table. Ca
 All linux command programs use stdin and stdout, so with redirection, we can customize the use of these command programs without changing what they are  
 redirection can also be used for communication between processes  
 
+```
+in main (int argc, char *argv[]) {
+	int infile, outfile;
+	
+	infile = open("source.txt", O_RDONLY);
+	outfile = open("dest.txt", O_WRONLY | O_CREAT | 
+
+	printf("stdin fd: %d\n", STDIN_FILENO);
+	printf("stdout fd: %d\n", STDOUT_FILENO);
+	printf("stderr fd: %d\n", STDERR_FILENO);
+```
+
 ### IO interrupts
 system calls can be interrupted when more important events come up. It will hand the interrupted program back to the user, and it can be re-executed later  
 if your program is interrupted, it will return 
