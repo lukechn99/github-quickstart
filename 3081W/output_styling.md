@@ -36,3 +36,18 @@ This code will output
 1 year    |   15 years
 -----------------------
 ```
+condensed, this looks like  
+```
+int main() {
+   cout << setw(10) << left  << "Dog age" << "|" << setw(12) << right << "Human age" << endl;   // Dog age  | Human age
+   cout << setfill('-') << setw(23) << "" << endl;                                              // -----------------------
+   cout << setfill(' ');
+   cout << setw(10) << left  << "2 months" << "|" << setw(12) << right << "14 months" << endl;  // 2 months  |  14 months
+   cout << setw(10) << left  << "6 months" << "|" << setw(12) << right << "5 years" << endl;    // 6 months  |    5 years
+   cout << setw(10) << left  << "8 months" << "|" << setw(12) << right << "9 years" << endl;    // 8 months  |    9 years
+   cout << setw(10) << left  << "1 year" << "|" << setw(12) << right << "15 years" << endl;     // 1 year    |   15 years
+   cout << setfill('-') << setw(23) << "" << endl;                                              // -----------------------
+   
+   return 0;
+}
+```
