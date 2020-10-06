@@ -31,6 +31,7 @@ FLAG_1 | FLAG_2 | FLAG_3
 mask is used to turn things off, negation, logical &
 ```
 creat ("name", PERM & (~mask));
+// note that perm is defined with #define or some other declaration
 ```
 one mask is 022  
 mask 300 configures so that everyone can r/w/x, user can only read
