@@ -23,6 +23,7 @@ Permissions are comprised of "read", "write", "execute"
 User permissions are easy to tell based on who's logged into the computer  
 However, how do we know what permissions a process/program has?  
 ex. if Luke executes a program made by Jon, the process is run with the permissions of Luke, not Jon  
+stat calls file metadata, it returns a structure with the metadata  
 
 ### Masks
 Opposite of flags  
