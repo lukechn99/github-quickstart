@@ -32,6 +32,7 @@ mask is used to turn things off, negation, logical &
 ```
 creat ("name", PERM & (~mask));
 // note that perm is defined with #define or some other declaration, an octal constant
+// PERM => octal constant 0<u><g><o>, e.g. 0777 is user, group, and other can r, w, x (3 binary digits)
 ```
 one mask is 022  
 mask 300 configures so that everyone can r/w/x, user can only read
