@@ -25,6 +25,7 @@ You can also add remotes that allow you to access
 In this way, we can use the shortname instead of the whole URL if we want to perform a command onto a repository other than the origin.  
 * __status__  
 ```$ git status``` allows you to check the status of a directory. This command will tell you if the local directory is up to date with the main branch.  
+You can also use it when navigating between branches.  
 * __commit__  
 ```$ git commit``` commits all of the files of the current index.  
 It is typically used with a ``` -m "<message>"``` that is a short explanation of what was committed in this update.  
@@ -36,3 +37,11 @@ The most common is ```--all``` which pushes all of them.
 ```$ git pull``` updates the local directory with the remote repository. It is helpful to use pull before working on code to make sure that the code you're working on is the most up to date.  
 * __add__  
 ```$ git add``` is used to incrementally add changes to the index before committing. It must be used to add all new files to the local repository before commit is used.  
+* __rm__
+removes a specified file  
+* __stash__
+saves your local changes, and takes them off the stage for committing and pushing  
+* __checkout__
+shows which branch you're on. If you use command ```$ git checkout <name>``` then it either switches you over to that branch if it exists or creates it as a new branch and switches you over.
+* __diff__
+compares the differences between your local file(s) and the one(s) on Github.
