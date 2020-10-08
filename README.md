@@ -3,11 +3,13 @@
 what the command does and the typical situations in which it is used  
 * __config__  
 Git config is used to configure Git settings. It is used to setup email, username, and editor in Github the first time you use it.  
-```git config --global core.editor emacs```  
+```$ git config --global core.editor emacs```  
 It is also used to set aliases, which are shortcuts for other commands.  
 ```$ git config --global alias.ci commit```  
 In this way the user can type "ci" as a shortcut every time they need to use commit.  
 ```$ git config --global alias.unstage 'reset HEAD --'```  
+Git config can be used to store your Github username and password so that it does not need to be entered every time you push and pull. After using the command, you will need to enter your username and password one last time.  
+```git config --global credential.helper store```
   
 * __clone__  
 Git clone reproduces a Github repository on your local directory. Navigate into the directory that you want to to clone the repository into and then use  
