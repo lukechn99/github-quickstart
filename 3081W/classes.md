@@ -133,16 +133,20 @@ Protected, public, private, virtual
 whenever there is a "is-a" relationship, we use the public classifier to define the derived class
 
 ```
-class shape {
+class Shape {
 	public:
 		void disp_area();				// if this methos is used
       	virtual void disp_area();		// allows for polymorphism, can create a pure abstract class
 		virtual void disp_area() = 0; 	// 
 
-class triangle:public shape {
+class Triangle : public Shape {
    public:
       void disp_area();
 ```
+In class Triangle, we use public Shape, other alternatives for the access specifier are protected and private.  
+*public* means a derived class object can be treated as a base class object, e.g. you can treat a Triangle as a shape
+*protected* is more restrictive, but still allows the derived class to know details about the base class  
+*private* prevents a derived class from being treated as objects of the base class... AKA disownment of the child
 
 ### Virtual Functions and Abstract Classes
 A class is virtual if it contains at least one virtual function  
