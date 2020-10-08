@@ -144,9 +144,20 @@ class Triangle : public Shape {
       void disp_area();
 ```
 In class Triangle, we use public Shape, other alternatives for the access specifier are protected and private.  
-*public* means a derived class object can be treated as a base class object, e.g. you can treat a Triangle as a shape
+*public* means a derived class object can be treated as a base class object, but does not have access to the private members of the base class  
+e.g. you can treat a Triangle as a shape  
+cannot access private members  
+protected base class members become protected  
+public base class members become public  
+
 *protected* is more restrictive, but still allows the derived class to know details about the base class  
+cannot access private members  
+protected base class members become protected  
+public base class members become protected  
 *private* prevents a derived class from being treated as objects of the base class... AKA disownment of the child
+cannot access private members  
+protected base class members become private  
+public base class members become private  
 
 ### Virtual Functions and Abstract Classes
 A class is virtual if it contains at least one virtual function  
