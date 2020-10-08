@@ -37,11 +37,34 @@ The most common is ```--all``` which pushes all of them.
 ```$ git pull``` updates the local directory with the remote repository. It is helpful to use pull before working on code to make sure that the code you're working on is the most up to date.  
 * __add__  
 ```$ git add``` is used to incrementally add changes to the index before committing. It must be used to add all new files to the local repository before commit is used.  
-* __rm__
+* __rm__  
 removes a specified file  
-* __stash__
+* __stash__  
 saves your local changes, and takes them off the stage for committing and pushing  
-* __checkout__
+* __checkout__  
 shows which branch you're on. If you use command ```$ git checkout <name>``` then it either switches you over to that branch if it exists or creates it as a new branch and switches you over.
-* __diff__
+* __diff__  
 compares the differences between your local file(s) and the one(s) on Github.
+
+# Typical Workflow  
+On creation
+```
+$ git clone <repo> 		// or "git init" if you haven't made the repo yet
+$ git checkout release	// typically you want to work with a relrease branch that holds the code you've tested and finished, and a development branch for code you are working on
+$ git checkout development
+$ nano .gitignore		// a .gitignore details which files should not be tracked by the version control, executables, object files, etc. do not need to be shared because each machine could compile them differently. Nano is an in-terminal text editor that can quickly create and edit .gitignore and other files
+$ git status			// should show that your local branch is ahead of the development branch
+$ git add .gitignore
+$ git commit -m "added .gitignore"
+$ git push
+```
+While working
+```
+$ git pull				// updates your local repo
+$ ...					// work on code
+$ git checkout release	// change to release once you've finalized code and merge from development branch
+$ git merge development
+$ git add --all
+$ git commit -m "feature finished"
+$ git push
+```
