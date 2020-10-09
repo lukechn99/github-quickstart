@@ -1,4 +1,4 @@
-### Constructors
+## Constructors
 There are three different constructors in C++  
 The default constructor is used to set instances to default values  
 ```
@@ -128,7 +128,7 @@ int main() {
 }
 ```
 
-### Compile time binding, run time binding, access specifiers
+## Compile time binding, run time binding, access specifiers
 Protected, public, private, virtual  
 whenever there is a "is-a" relationship, we use the public classifier to define the derived class
 
@@ -154,12 +154,13 @@ public base class members become public
 cannot access private members  
 protected base class members become protected  
 public base class members become protected  
+  
 *private* prevents a derived class from being treated as objects of the base class... AKA disownment of the child
 cannot access private members  
 protected base class members become private  
 public base class members become private  
-
-### Virtual Functions and Abstract Classes
+  
+## Virtual Functions and Abstract Classes
 A class is abstract if it contains at least one virtual function  
 A base class can benefit from being virtual if there is a method all of its children should implement  
 A ***pure virtual function*** is a virtual function that is not implemented in the base class, thus all derived classes must override the function. A pure virtual function is declared with the "virtual" keyword and is assigned with 0. Ex: virtual double ComputeArea() const = 0; declares a pure virtual function ComputeArea(). A virtual method does not have the =0 that the pure virtual one does.  
