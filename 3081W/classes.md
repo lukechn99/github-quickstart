@@ -160,7 +160,7 @@ protected base class members become private
 public base class members become private  
 
 ### Virtual Functions and Abstract Classes
-A class is virtual if it contains at least one virtual function  
+A class is abstract if it contains at least one virtual function  
 A base class can benefit from being virtual if there is a method all of its children should implement  
 A ***pure virtual function*** is a virtual function that is not implemented in the base class, thus all derived classes must override the function. A pure virtual function is declared with the "virtual" keyword and is assigned with 0. Ex: virtual double ComputeArea() const = 0; declares a pure virtual function ComputeArea(). A virtual method does not have the =0 that the pure virtual one does.  
 An ***abstract class*** is a class that cannot be instantiated as an object, but is the superclass for a subclass and specifies how the subclass must be implemented. Any class with one or more pure virtual functions is abstract.
