@@ -24,3 +24,14 @@ int main() {
 ```
 
 We create a 
+Open the file helloWorld.txt for writing ```ofstream outFS;```
+```outFS.open("helloWorld.txt");```
+Check to see if the file opened successfully	
+```if (!outFS.is_open()) {
+   // Do not proceed to code that writes to the file
+}
+```
+Write the string "Hello World!" to the file	
+```outFS << "Hello World!" << endl;```
+Close the file after writing all desired data	
+```outFS.close();```
