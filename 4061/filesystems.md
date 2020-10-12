@@ -55,3 +55,14 @@ fildes = open(...)
 address = mmap (0, len, PROT_READ, MAP_PRIVATE, fildes, off)
 c = (char*) *address;	// this is the equivalent of read(fildes, &c, 1);
 ```
+# Files
+Are an abstration provided by the OS  
+it is a collection of related information  
+```int stat(const char* filename, struct, stat *buf)``` gives you all of the file attributes and stores it in a stat structure *buf*  
+```#include<sys/stat.h>```
+The files must be in directories you have execute permissions for, otherwise it will do nothing  
+some attributes of the stat structure are st_uid, st_size, st_mode, and st_ino (inode)  
+The inode is a 16bit 
+Hard links create the path to the original file with no new inode creation
+A Symbolic link creates a new inode and file when used. A symbolic link is like a desktop shortcut  
+[more on symbolic and hard links](https://medium.com/@set808/symbolic-links-vs-hard-links-aka-what-the-heck-is-an-inode-ef16eb5532e2#:~:text=Essentially%20symbolic%20links%20don't,file%20and%20inode%20are%20created)
