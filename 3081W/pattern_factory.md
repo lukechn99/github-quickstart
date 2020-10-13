@@ -1,4 +1,5 @@
 # Factory Class
+The factory handles the creation logic instead of the program
 ```
 enum PetType {
 	PT_dog, PT_cat
@@ -34,3 +35,12 @@ int main () {
 The purpose of having a factory is that it can generate objects of different things.  
 Use the factory pattern when you have a variety of objects to generate.  
 For our project, the factory will generate packages, persons, and drones.  
+
+### Don't use a factory
+if creation logic is simple
+
+### Use concrete factory
+When there could be an if statement for creation
+
+### Use a factory method 
+if creation logic is tied to specific classes
