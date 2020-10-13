@@ -65,6 +65,10 @@ some attributes of the stat structure are st_uid, st_size, st_mode, and st_ino (
 The inode is a 16bit 
 Hard links create the path to the original file with no new inode creation, it's another name for the same file  
 A Symbolic link creates a new inode and file when used. A symbolic link is like a desktop shortcut  
+you cannot make hard links to directories or files in other file systems  
+a symbolic system can point to another file or directory name
+Hard link ```ln foo bar``` links bar onto whatever foo is  
+Symbolic link ```ln -s foo bar``` links bar onto foo
 [more on symbolic and hard links](https://medium.com/@set808/symbolic-links-vs-hard-links-aka-what-the-heck-is-an-inode-ef16eb5532e2#:~:text=Essentially%20symbolic%20links%20don't,file%20and%20inode%20are%20created)
 
 ### Stat
@@ -81,3 +85,11 @@ ls is just a program someone wrote that calls stat on the files
 
 ### File access
 Reader reads the most recent write  
+
+# Directories
+Don't actually exist, it is an abstraction. 
+The root of everything is the Unix directory tree  
+when navigating directories, we can use full paths and relative paths  
+relative path names are convenient to use when in the directory, however, absolute names are better in programs  
+C language equivalents to ```cd``` is ```int chdir(const char *path);``` and ```pwd``` is ```char *getcwd (char *name, size_t size);```  
+getcwd is useful for getting the absolute working directory in a program  
