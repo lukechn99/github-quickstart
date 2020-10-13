@@ -66,3 +66,12 @@ The inode is a 16bit
 Hard links create the path to the original file with no new inode creation
 A Symbolic link creates a new inode and file when used. A symbolic link is like a desktop shortcut  
 [more on symbolic and hard links](https://medium.com/@set808/symbolic-links-vs-hard-links-aka-what-the-heck-is-an-inode-ef16eb5532e2#:~:text=Essentially%20symbolic%20links%20don't,file%20and%20inode%20are%20created)
+
+### Stat
+```
+struct stat entry_stat; 						// this is a statically declared struct
+stat(this_entry, &entry_stat); 						// stats are put into it
+printf("file size: %lld\n", (long long)(entry_stat.st_size));
+printf("userID: %ld\n", (long)(entry_stat.st_uid));
+printf("inode: %ld\n", (long)(entry_stat.st_ino));
+```
