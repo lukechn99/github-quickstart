@@ -53,3 +53,5 @@ About 65% code oriented
 - how would you modify this
 - implement ```char *fgets(char *s, int n, FILE *stream)``` using low level I/O
 - create a program that creates N children, the parent then inserts tasks into a pipe consistng of a single integer i. A child computes i! and prints it to stdout
+  
+There WILL be a question on I/O and Fork/Exec
