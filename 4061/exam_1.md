@@ -52,6 +52,15 @@ About 65% code oriented
 - how to write a function to do ___?
 - how would you modify this
 - implement ```char *fgets(char *s, int n, FILE *stream)``` using low level I/O
+```
+// s is the buffer to store
+// n is the max number of characters to read
+// stream is a pointer to the file object to read from
+// we can use open(), close(), read(), and write()
+char *myfgets(char *s, int n, FILE *stream){
+	
+}
+```
 - create a program that creates N children, the parent then inserts tasks into a pipe consistng of a single integer i. A child computes i! and prints it to stdout
   
 There WILL be a question on I/O and Fork/Exec
