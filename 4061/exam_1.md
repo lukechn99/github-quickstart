@@ -76,24 +76,32 @@ About 65% code oriented
 // stream is a pointer to the file object to read from
 // we can use open(), close(), read(), and write()
 char *myfgets(char *s, int n, FILE *stream){
-	
+	char buff[n];
+	read(stream, buff, n);
+	return buff
 }
 ```
-- create a program that creates N children, the parent then inserts tasks into a pipe consistng of a single integer i. A child computes i! and prints it to stdout
+- create a program that creates N children, the parent then inserts tasks into a pipe consisting of a single integer i. A child computes i! and prints it to stdout  
 ```
-int fds[2];
+int main() {
 
-// children will inherit the same fds
-pip(fds);
-pid_t pid = fork();
+}
+void 
+	int fds[2];
 
-// creates a one way pipe
-if (pid> 0) {
-	close(fds[1]);
-	write(fds[0], ...);
-else if (pid == 0) {
-	close(fds[0]);
-	write(fds[1], ...);
+	// children will inherit the same fds
+	pip(fds);
+	pid_t pid = fork();
+	// children will only execute code below this line
+
+	// creates a one way pipe
+	if (pid > 0) {
+		close(fds[1]);
+		write(fds[0], ...);
+	else if (pid == 0) {
+		close(fds[0]);
+		write(fds[1], ...);
+}
 ```
   
 There WILL be a question on I/O and Fork/Exec
