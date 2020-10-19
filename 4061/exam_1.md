@@ -10,6 +10,9 @@ Everything through Tuesday, October 13
 
 ### Programs and Processes
 Fork, exec, exit, wait  
+- fork() creates a process, child only shares the code AFTER the fork, so the child will not encounter fork again
+- exec() changes a process image
+- wait() is used for process synchronization, what does it return?
 C programs (pointers, flags, ...)  
 How C programs are transformed into processes  
 Getters and setters, get-modify-set  
@@ -18,7 +21,14 @@ Crashes
 Zombies, orphans  
 
 ### I/O
-Low-level, high-level, redirection  
+Low-level
+- file descriptor like STDIN_FILENO (0), STDOUT_FILENO (1), STDERR_FILENO (2)
+- creat(), open(), close(), read(), write(), lseek()
+High-level
+- fopen(), fclose()
+- getc(), putc(), gets(), puts()
+- fseek() random access
+Redirection  
 Semantics, what happens if you read from a file you just wrote to?  
 Binary  
 Random  
@@ -29,7 +39,15 @@ Formatting, stdio library allows for formatted I/O
 
 ### File Systems
 Files and directories  
+- User/Group/Other
+- A User would be yourself
+- You can log into a system as a "Group" and have group permissions
+- Other is anyone else
+- opendir(), closedir()
 Links  
+- ```link()``` creates a hard link
+- ```symlink()``` creates a symbolic link
+- ```unlink()``` destroys a link
 i-nodes (what is in the metadata, hard links and symbolic links)
 Masks, permissions
 
@@ -62,5 +80,20 @@ char *myfgets(char *s, int n, FILE *stream){
 }
 ```
 - create a program that creates N children, the parent then inserts tasks into a pipe consistng of a single integer i. A child computes i! and prints it to stdout
+```
+int fds[2];
+
+// children will inherit the same fds
+pip(fds);
+pid_t pid = fork();
+
+// creates a one way pipe
+if (pid> 0) {
+	close(fds[1]);
+	write(fds[0], ...);
+else if (pid == 0) {
+	close(fds[0]);
+	write(fds[1], ...);
+```
   
 There WILL be a question on I/O and Fork/Exec
