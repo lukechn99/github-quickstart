@@ -63,7 +63,7 @@ int main (int argc, char* argv[]) {
 	return 0;
 }
 ```
-**Redirection** is used to 
+**Redirection** is used to change where the fd table routes to. More [here](https://github.com/lukechn99/github-quickstart/blob/master/4061/low_level_io.md).  
 Semantics, what happens if you read from a file you just wrote to?  
 Binary  
 Random  
@@ -89,6 +89,7 @@ Masks, permissions
 ### Inter-process Communication (IPC)
 What are issues  
 How do use pipes?  
+
 
 # Exam Structure
 Focus on system and library calls  
