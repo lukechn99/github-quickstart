@@ -13,6 +13,7 @@ Fork, exec, exit, wait
 - fork() creates a process, child only shares the code AFTER the fork, so the child will not encounter fork again
 - exec() changes a process image
 - wait() is used for process synchronization, what does it return?  
+  
 C programs (pointers, flags, ...)  
 How C programs are transformed into processes  
 Getters and setters, get-modify-set  
@@ -28,6 +29,7 @@ High-level
 - fopen(), fclose()
 - getc(), putc(), gets(), puts()
 - fseek() random access  
+  
 Redirection  
 Semantics, what happens if you read from a file you just wrote to?  
 Binary  
