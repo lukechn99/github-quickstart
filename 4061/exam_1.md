@@ -12,15 +12,15 @@ Everything through Tuesday, October 13
 Fork, exec, exit, wait  
 - fork() creates a process, child only shares the code AFTER the fork, so the child will not encounter fork again
 - exec() changes a process image
-- wait() is used for process synchronization, what does it return? wait() is essential to the OS scheduler so that it knows when to run things. The main difference between sleep() and wait() is that sleep() pauses the entire execution, wait() is for interprocess communication. If we don't use wait() or waitpid() then processes will execute in a strange fashion; some children may have not finished when the parent has already exited, thus making the child an *orphan*. Read more about this [section](###-programs-and-processes)
+- wait() is used for process synchronization, what does it return? wait() is essential to the OS scheduler so that it knows when to run things. The main difference between sleep() and wait() is that sleep() pauses the entire execution, wait() is for interprocess communication. If we don't use wait() or waitpid() then processes will execute in a strange fashion; some children may have not finished when the parent has already exited, thus making the child an *orphan*. Read more about this [section](###-programs-and-processes). ```wait(NULL)``` makes parent wait until 1 child process finishes. You can use a for-loop to wait for all child processes
   
 C programs (pointers, flags, ...)  
 How C programs are transformed into processes  
 Getters and setters, get-modify-set  
-PIDs, Child PIDs, identities  
-Crashes  
-Zombies happen when a child finishes long before the parent calls wait(). At this point, it cannot be eliminated from the system yet and wastes resources and memory. The resources are reclaimed once the parent calls wait()  
-Orphans happen when a child process has ```getppid()``` of 1. This means that their parent exited before the child finished, thus abandoning the child. Orphans are always adopted by the root process  
+**PIDs**, Child PIDs, identities  
+**Crashes**  
+**Zombies** happen when a child finishes long before the parent calls wait(). At this point, it cannot be eliminated from the system yet and wastes resources and memory. The resources are reclaimed once the parent calls wait()  
+**Orphans** happen when a child process has ```getppid()``` of 1. This means that their parent exited before the child finished, thus abandoning the child. Orphans are always adopted by the root process  
 
 ### I/O
 **Low-level**
@@ -67,13 +67,13 @@ int main (int argc, char* argv[]) {
 }
 ```
 **Redirection** is used to change where the fd table routes to. More [here](https://github.com/lukechn99/github-quickstart/blob/master/4061/low_level_io.md).  
-Semantics, what happens if you read from a file you just wrote to?  
-Binary  
-Random  
+**Semantics**, what happens if you read from a file you just wrote to?  
+**Binary** 
+**Random**  
 **Buffering** output produced by fprintf() will not immediately be moved to file.txt and is instead placed in a main memory array until the array fills. The low-level read() does not draw from this buffer and finds the file empty. Calling fflush() forces the buffer into the file leading to read() actually seeing the data.  
-Errors  
-Control (behavior of I/O devices, terminal control)  
-Formatting, stdio library allows for formatted I/O
+**Errors**  
+**Control** (behavior of I/O devices, terminal control)  
+**Formatting**, stdio library allows for formatted I/O
 
 ### File Systems
 Files and directories  
@@ -85,7 +85,7 @@ Files and directories
 Links  
 - ```link()``` creates a hard link
 - ```symlink()``` creates a symbolic link
-- ```unlink()``` destroys a link
+- ```unlink()``` destroys a link, if the link was the only link referencing the file, then the file itself is deleted. 
 i-nodes (what is in the metadata, hard links and symbolic links)
 Masks, permissions
 
