@@ -84,23 +84,38 @@ char *myfgets(char *s, int n, FILE *stream){
 - create a program that creates N children, the parent then inserts tasks into a pipe consisting of a single integer i. A child computes i! and prints it to stdout  
 ```
 int main() {
-
-}
-void 
 	int fds[2];
+	int N = atoi(argv[1]);
 
 	// children will inherit the same fds
-	pip(fds);
-	pid_t pid = fork();
+	pipe(fds);
 	// children will only execute code below this line
 
 	// creates a one way pipe
-	if (pid > 0) {
-		close(fds[1]);
-		write(fds[0], ...);
-	else if (pid == 0) {
-		close(fds[0]);
-		write(fds[1], ...);
+	int i;
+	for (int i = 0; i < N; i++) {
+		pid_t pid = fork();
+		if (pid == 0) {
+			// close write
+			close(fds[1]);
+			read(fds[0], &i, 1);
+			printf("%l\n", factorial(i);
+		}
+		else if (pid > 0) {
+			// close read
+			close(fds[0]);
+			write(fds[1], i, 1);
+		}
+	}
+}
+
+long factorial(int i) {
+	if (i == 1) {
+		return 1;
+	}
+	else {
+		return i * factorial(i - 1);
+	}
 }
 ```
   
