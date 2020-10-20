@@ -52,7 +52,7 @@ int main (int argc, char* argv[]) {
 	}
 
 	char buf[128];
-	in nread, cur_pos = 0;
+	int nread, cur_pos = 0;
 	while(1) {
 		nread = read(s_fd, buf, 127);
 		if (nread == 0) {
@@ -139,26 +139,29 @@ char *myfgets(char *s, int n, FILE *stream){
 - create a program that creates N children, the parent then inserts tasks into a pipe consisting of a single integer i. A child computes i! and prints it to stdout  
 ```
 int main() {
-	int fds[2];
 	int N = atoi(argv[1]);
+	if (N < 1) {
+		return -1;
+	}
+	int fds[N][2];
 
 	// children will inherit the same fds
-	pipe(fds);
 	// children will only execute code below this line
 
 	// creates a one way pipe
 	int i;
 	for (int i = 0; i < N; i++) {
+		pipe(fds[i]);
 		pid_t pid = fork();
 		if (pid == 0) {
 			// close write
-			close(fds[1]);
+			close(fds[i][1]);
 			read(fds[0], &i, 1);
 			printf("%l\n", factorial(i);
 		}
 		else if (pid > 0) {
 			// close read
-			close(fds[0]);
+			close(fds[i][0]);
 			write(fds[1], i, 1);
 		}
 	}
