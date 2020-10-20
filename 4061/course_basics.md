@@ -1,4 +1,4 @@
-### Basics
+# Basics
 Check out "this week" every week for content
 Q&A discussion board on canvas
 Zoom office hours
