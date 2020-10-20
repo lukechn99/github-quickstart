@@ -27,7 +27,10 @@ Orphans happen when a child process has ```getppid()``` of 1. This means that th
 - file descriptor like STDIN_FILENO (0), STDOUT_FILENO (1), STDERR_FILENO (2)
 - creat()
 - open() uses flags O_WRONLY, O_RDONLY, O_RDWR, O_TRUNC, ex. ```open(out_file_name, O_WRONLY | O_CREAT)``` Truncate, if writing, will shorten the file to length 0
-- close(), read(), write(), lseek()  
+- close()
+- read()
+- write() takes in a place to write to, what it's writing from, and the size. For example, writing into a pipe would be ```write(fd[1], &message, sizeof(message));
+- lseek()  
   
 **High-level**
 - fopen(), fclose()
@@ -90,6 +93,22 @@ Masks, permissions
 What are issues  
 How do use pipes?  
 
+[array of pipes](https://stackoverflow.com/questions/52679606/creating-pipes-with-array-in-loop)
+```
+int fds[10][2];
+for (int i = 0; i < 10; i++) {
+   	pipe(fds[i]);
+}
+// fds[i][0] is the read end
+// fds[i][1] is the write end
+...
+
+// when finished with work, close the pipes
+for (int i = 0; i < 10; i++) {
+	close(fds[i][0]);
+	close(fds[i][1]);
+}
+```
 
 # Exam Structure
 Focus on system and library calls  
