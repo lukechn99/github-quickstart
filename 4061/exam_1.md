@@ -12,7 +12,7 @@ Everything through Tuesday, October 13
 Fork, exec, exit, wait  
 - fork() creates a process, child only shares the code AFTER the fork, so the child will not encounter fork again
 - exec() changes a process image
-- wait() is used for process synchronization, what does it return? wait() is essential to the OS scheduler so that it knows when to run things. If we don't use wait() or waitpid() then processes will execut in a strange fashion. The main difference between sleep() and wait() is that sleep() pauses the entire execution, wait() is for interprocess communication.
+- wait() is used for process synchronization, what does it return? wait() is essential to the OS scheduler so that it knows when to run things. The main difference between sleep() and wait() is that sleep() pauses the entire execution, wait() is for interprocess communication. If we don't use wait() or waitpid() then processes will execute in a strange fashion; some children may have not finished when the parent has already exited, thus making the child an *orphan*. Read more about this [section] (###-programs-and-processes)
   
 C programs (pointers, flags, ...)  
 How C programs are transformed into processes  
@@ -69,7 +69,7 @@ Redirection
 Semantics, what happens if you read from a file you just wrote to?  
 Binary  
 Random  
-Buffering  
+**Buffering** output produced by fprintf() will not immediately be moved to file.txt and is instead placed in a main memory array until the array fills. The low-level read() does not draw from this buffer and finds the file empty. Calling fflush() forces the buffer into the file leading to read() actually seeing the data.  
 Errors  
 Control (behavior of I/O devices, terminal control)  
 Formatting, stdio library allows for formatted I/O
