@@ -12,7 +12,7 @@ Everything through Tuesday, October 13
 Fork, exec, exit, wait  
 - fork() creates a process, child only shares the code AFTER the fork, so the child will not encounter fork again
 - exec() changes a process image
-- wait() is used for process synchronization, what does it return? wait() is essential to the OS scheduler so that it knows when to run things. The main difference between sleep() and wait() is that sleep() pauses the entire execution, wait() is for interprocess communication. If we don't use wait() or waitpid() then processes will execute in a strange fashion; some children may have not finished when the parent has already exited, thus making the child an *orphan*. Read more about this [section] (###-programs-and-processes)
+- wait() is used for process synchronization, what does it return? wait() is essential to the OS scheduler so that it knows when to run things. The main difference between sleep() and wait() is that sleep() pauses the entire execution, wait() is for interprocess communication. If we don't use wait() or waitpid() then processes will execute in a strange fashion; some children may have not finished when the parent has already exited, thus making the child an *orphan*. Read more about this [section](###-programs-and-processes)
   
 C programs (pointers, flags, ...)  
 How C programs are transformed into processes  
