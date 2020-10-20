@@ -19,8 +19,8 @@ How C programs are transformed into processes
 Getters and setters, get-modify-set  
 PIDs, Child PIDs, identities  
 Crashes  
-Zombies  
-Orphans happen when a child process has ```getppid()``` of 1. This means that their parent exited before the child finished, thus abandoning the child. Orphans are always adopted by the root process
+Zombies happen when a child finishes long before the parent calls wait(). At this point, it cannot be eliminated from the system yet and wastes resources and memory. The resources are reclaimed once the parent calls wait()  
+Orphans happen when a child process has ```getppid()``` of 1. This means that their parent exited before the child finished, thus abandoning the child. Orphans are always adopted by the root process  
 
 ### I/O
 Low-level
@@ -35,6 +35,7 @@ High-level
 - fseek() random access  
   
 ```
+// demo of how to use low-level IO 
 int main (int argc, char* argv[]) {
 	char* source = argv[1];
 	char* dest = argv[2];
@@ -42,30 +43,27 @@ int main (int argc, char* argv[]) {
 	int d_fd = open(dest, O_WRONLY);
 	
 	// error checking
-	if (s_fd == -1) {
+	if (s_fd == -1 || d_fd == -1) {
 		perror("couldn't open file, no such file or firectory");
-	} else if (d_fd == -1) {
-		perror("couldn't open file, no such file or firectory");
+		return(-1);
 	}
 
-	else {
-		char buf[128];
-		in nread, cur_pos = 0;
-		while(1) {
-			nread = read(s_fd, buf, 127);
-			if (nread == 0) {
-				break;
-			}
-			write(d_fd, buf + cur_pos, nread);
-			cur_pos += nread;
+	char buf[128];
+	in nread, cur_pos = 0;
+	while(1) {
+		nread = read(s_fd, buf, 127);
+		if (nread == 0) {
+			break;
 		}
+		write(d_fd, buf + cur_pos, nread);
+		cur_pos += nread;
 	}
 	close(s_fd);
 	close(d_fd);
 	return 0;
 }
 ```
-Redirection  
+**Redirection** is used to 
 Semantics, what happens if you read from a file you just wrote to?  
 Binary  
 Random  
