@@ -12,24 +12,59 @@ Everything through Tuesday, October 13
 Fork, exec, exit, wait  
 - fork() creates a process, child only shares the code AFTER the fork, so the child will not encounter fork again
 - exec() changes a process image
-- wait() is used for process synchronization, what does it return?  
+- wait() is used for process synchronization, what does it return? wait() is essential to the OS scheduler so that it knows when to run things. If we don't use wait() or waitpid() then processes will execut in a strange fashion. The main difference between sleep() and wait() is that sleep() pauses the entire execution, wait() is for interprocess communication.
   
 C programs (pointers, flags, ...)  
 How C programs are transformed into processes  
 Getters and setters, get-modify-set  
 PIDs, Child PIDs, identities  
 Crashes  
-Zombies, orphans  
+Zombies  
+Orphans happen when a child process has ```getppid()``` of 1. This means that their parent exited before the child finished, thus abandoning the child. Orphans are always adopted by the root process
 
 ### I/O
 Low-level
 - file descriptor like STDIN_FILENO (0), STDOUT_FILENO (1), STDERR_FILENO (2)
-- creat(), open(), close(), read(), write(), lseek()
+- creat()
+- open() uses flags O_WRONLY, O_RDONLY, O_RDWR, O_TRUNC, ex. ```open(out_file_name, O_WRONLY | O_CREAT)``` Truncate, if writing, will shorten the file to length 0
+- close(), read(), write(), lseek()  
+  
 High-level
 - fopen(), fclose()
 - getc(), putc(), gets(), puts()
 - fseek() random access  
   
+```
+int main (int argc, char* argv[]) {
+	char* source = argv[1];
+	char* dest = argv[2];
+	int s_fd = open(source, O_RDONLY);
+	int d_fd = open(dest, O_WRONLY);
+	
+	// error checking
+	if (s_fd == -1) {
+		perror("couldn't open file, no such file or firectory");
+	} else if (d_fd == -1) {
+		perror("couldn't open file, no such file or firectory");
+	}
+
+	else {
+		char buf[128];
+		in nread, cur_pos = 0;
+		while(1) {
+			nread = read(s_fd, buf, 127);
+			if (nread == 0) {
+				break;
+			}
+			write(d_fd, buf + cur_pos, nread);
+			cur_pos += nread;
+		}
+	}
+	close(s_fd);
+	close(d_fd);
+	return 0;
+}
+```
 Redirection  
 Semantics, what happens if you read from a file you just wrote to?  
 Binary  
