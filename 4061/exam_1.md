@@ -23,19 +23,19 @@ Zombies happen when a child finishes long before the parent calls wait(). At thi
 Orphans happen when a child process has ```getppid()``` of 1. This means that their parent exited before the child finished, thus abandoning the child. Orphans are always adopted by the root process  
 
 ### I/O
-Low-level
+**Low-level**
 - file descriptor like STDIN_FILENO (0), STDOUT_FILENO (1), STDERR_FILENO (2)
 - creat()
 - open() uses flags O_WRONLY, O_RDONLY, O_RDWR, O_TRUNC, ex. ```open(out_file_name, O_WRONLY | O_CREAT)``` Truncate, if writing, will shorten the file to length 0
 - close(), read(), write(), lseek()  
   
-High-level
+**High-level**
 - fopen(), fclose()
 - getc(), putc(), gets(), puts()
 - fseek() random access  
   
 ```
-// demo of how to use low-level IO 
+// demo of how to use low-level IO to write from one file to another
 int main (int argc, char* argv[]) {
 	char* source = argv[1];
 	char* dest = argv[2];
