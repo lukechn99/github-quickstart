@@ -62,3 +62,16 @@ example of template code use:
 ```
 // .h
 
+```
+```
+// .cc
+template <typename T>
+Complex<T> Complex<T>::add(Complex<T> right) {
+	return (Complex(a_ + right.a_, b_ + right.b_));
+}
+
+template <typename T>
+Complex<T> Complex<T>::display() {
+	std::cout << a_ << (b_ > 0? " + " : " - ") << (b_ < 0 ? -b_ : b_) << "i" << std::endl;
+}
+```
