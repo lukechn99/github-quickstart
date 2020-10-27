@@ -44,3 +44,21 @@ When there could be an if statement for creation
 
 ### Use a factory method 
 if creation logic is tied to specific classes
+
+### Template Class
+Templates cannot be compiled, they have to be written in the header files, do not write code in the header files. 
+```
+template <typename T>
+class EntityFactory {
+	public:
+		Entity* CreateEntity(const picojson::
+		
+};
+int main() {
+	EntityFactory<Drone> = DroneFactory
+```
+
+example of template code use:
+```
+// .h
+
