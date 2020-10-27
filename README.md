@@ -34,7 +34,7 @@ It is typically used with a ``` -m "<message>"``` that is a short explanation of
 It can be used to with tags to specify which branches should be committed. 
 The most common is ```--all``` which pushes all of them. 
 * __pull__  
-```$ git pull``` updates the local directory with the remote repository. It is helpful to use pull before working on code to make sure that the code you're working on is the most up to date.  
+```$ git pull``` updates the local directory with the remote repository. It is helpful to use pull before working on code to make sure that the code you're working on is the most up to date. Local changes must be committed or stashed before a pull can be done.   
 * __add__  
 ```$ git add``` is used to incrementally add changes to the index before committing. It must be used to add all new files to the local repository before commit is used.  
 * __rm__  
