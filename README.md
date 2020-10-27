@@ -39,6 +39,7 @@ The most common is ```--all``` which pushes all of them.
 ```$ git add``` is used to incrementally add changes to the index before committing. It must be used to add all new files to the local repository before commit is used.  
 * __rm__  
 removes a specified file  
+Typically used as ```$ git rm text.txt```  
 * __stash__  
 saves your local changes, and takes them off the stage for committing and pushing  
 * __checkout__  
