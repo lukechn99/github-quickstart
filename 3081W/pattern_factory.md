@@ -61,7 +61,15 @@ int main() {
 example of template code use:
 ```
 // .h
+template <typename T>
+class Complex {
+public:
 
+private:
+	T a_;
+	T b_;
+};
+#endif
 ```
 ```
 // .cc
