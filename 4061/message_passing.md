@@ -7,11 +7,15 @@ int msgget(key_t key, int permflags);
 // we use any random key and hope there's no mailbox already using it
 // returns the queue ID, which is used for sending and receiving later
 
-int msgsnd (int qid, const void *message, size_t size, int flags)
-int msgrcv (int qid, void *message, size_t size, long msg_type, int flags)
+int msgsnd (int qid, const void *message, size_t msgsize, int flags), flags can be , returns 0 on success and -1 for failure
+int msgrcv (int qid, void *message, size_t msgsize, long msg_type, int flags), msg_type is the identifier
+msgctl(int msgid, int cmd, struct msqid_ds *buf) performs controls on the queue; buf points to the msg queue, msgid is the queue identifier
+cmd can bs IPC_STAT, IPC_SET, IPC_RMID, IPC_INFO, MSG_INFO, remove a message is msgctl(msgid, IPC_RMID, NULL)
+msgget(ket_t key, int msgflg), flags can be 
 ```
+**A message has a long mtype and a char mtext**
 
-Message data type  
+### Message data type  
 Uses tags to ensure that the right person receives the message
 ```
 struct mymsg_t {
@@ -38,6 +42,8 @@ key_t key = 100;
 mid = msgget (key, 0666 | IPC_CREAT);
 msgrcv (mid, , sizeof(), 15, 0);
 ```
+Message type 0 just reads the first message  
+mtype can also be a specific code
 ### project tips
 sendChunkData() (heavy code needed)  
 Break them into 1024 byte chunks, tag them with a mapper id, and place them into the queue, after each parse, use memset to zero-out the buffer  
