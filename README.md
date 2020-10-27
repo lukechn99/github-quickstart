@@ -72,4 +72,6 @@ $ git push
 ```
 
 # Common Errors & How to Fix Them
-
+We will use the example file ```text.txt``` as a placeholder.  
+### error: you need to resolve your current index first
+When we try to ```git checkout```, 
