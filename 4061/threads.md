@@ -23,3 +23,10 @@ display to monitor
 manage buffer  
 When one activity blocks, like the user stops typing, the processor could move onto save the doc  
 Each *activity* should have a different *thread*
+
+### Example: A Web Server
+assuming they use dispatcher() and worker() which are both different activities that need to be done. Dispatcher finds web pages to send and the worker returns a page, then they also need to communicate in between them.  
+Threads share buffer, cache, globals, heaps, but not stack
+
+### Drawbacks
+No isolation of failures, threads can be switched without warning based on a system timer, this could interrupt things. 
