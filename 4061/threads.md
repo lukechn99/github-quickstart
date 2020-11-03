@@ -41,4 +41,5 @@ With multiple threads, we can start a new read when the previous serve is still 
                      [read] -> [serve] -> [write]  
 ```
 ### Drawbacks
-No isolation of failures, threads can be switched without warning based on a system timer, this could interrupt things. 
+No isolation of failures, threads can be switched without warning based on a system timer, this could interrupt things.  
+Due to race conditions, we need to implement thread safety with locks. However, locks reduce concurrency because it is a blocking operation. 
