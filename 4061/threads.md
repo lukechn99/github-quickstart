@@ -10,7 +10,7 @@ With concurrency, blocking causes thread switches
 Assume that threads can switch at any time when writing threaded programs
 
 ### Benefits of Threads
-Concurrency: blocking points are good times to switch. One thread blocks and we swtich to another  
+Concurrency: blocking points are good times to switch. One thread blocks and we switch to another  
 Modularity: threads can be assigned to different threads. We can decompose the problem into parts.  
 Parallelism: leverage multi-core processors to actually run threads in parallel (as opposed to concurrency where you switch)  
 Scale: threads are more lightweight than processes  
