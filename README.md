@@ -9,7 +9,13 @@ It is also used to set aliases, which are shortcuts for other commands.
 In this way the user can type "ci" as a shortcut every time they need to use commit.  
 ```$ git config --global alias.unstage 'reset HEAD --'```  
 Git config can be used to store your Github username and password so that it does not need to be entered every time you push and pull. After using the command, you will need to enter your username and password one last time.  
-```git config --global credential.helper store```
+```git config --global credential.helper store```  
+If you are paranoid about someone accessing your computer and finding your Github credentials by using ```git config --list``` (which will show your username and password among other things), then use the following and set a timeout:  
+```
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+# times out after one hour, timeout is specified in seconds
+```
   
 ### clone
 Git clone reproduces a Github repository on your local directory. Navigate into the directory that you want to to clone the repository into and then use  
