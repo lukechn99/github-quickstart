@@ -75,3 +75,10 @@ $ git push
 We will use the example file ```text.txt``` as a placeholder.  
 ### error: you need to resolve your current index first
 When we try to ```git checkout```, 
+
+### fatal: unable to access could not resolve host:
+When this comes up, common solutions online ask you to reset proxies and set URL origins, but there are steps to take before making changes you don't know how to reverse:  
+1. Make sure the directory that you are trying to perform the ```git``` action in is the right one  
+2. Make sure the URL is correct, make sure the ```git``` command you are using is correct  
+3. Check your credentials: has the repo you're trying to ```git clone``` include you as a collaborator? Are the credentials stored on your credential store correct? You can check these things with ```git config --list```  
+4. Try those weird online solutions  
