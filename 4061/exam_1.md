@@ -196,13 +196,13 @@ cc -> bb -> aa -> cc - there is a loop, and nothing to point to.
 One disadvantage is that there is a predetermined buffer size that you can't exceed. A buffer that is being written to a file is not immediately written, instead, it will wait until it is full or flushed. This is also a good thing because it means we can gather data in the buffer and then write or read in less system calls. While this answer is more about write buffering, many principles hold for read buffering
 
 ### Question 3
-*Consider the following code snippet. Modify this code to ensure that the terminal output is “world” “hello” and not “hello” “world”. The parent must print “hello” and the child must print “world”.*  
+*Consider the following code snippet. Modify this code to ensure that the terminal output is “world” “hello” and not “hello” “world”. The parent must print “hello” and the child must print “world”. 
 ```
 if (fork() > 0)
    fprintf (stderr, “hello”);
 else
    fprintf (stderr, “world”);
-```
+```*
   
 ```
 pid_t pid = fork()
