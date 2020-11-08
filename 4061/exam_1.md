@@ -182,6 +182,7 @@ There WILL be a question on I/O and Fork/Exec
 *symlink (“bb”, “cc”);*  
 *unlink (“aa”);*  
 *symlink (“cc”, “aa”);*  
+  
 aa was the only link actually pointing to the file on disk, when we unlink it, there are no hard links left and so the file is deleted.  
 cc --> bb --> aa ==> FILE  
 aa =\=> FILE  
@@ -191,4 +192,35 @@ cc -> bb -> aa -> cc - there is a loop, and nothing to point to.
 
 ### Question 2
 *List ONE advantage and ONE disadvantage of read buffering.*  
+  
 One disadvantage is that there is a predetermined buffer size that you can't exceed. A buffer that is being written to a file is not immediately written, instead, it will wait until it is full or flushed. This is also a good thing because it means we can gather data in the buffer and then write or read in less system calls. While this answer is more about write buffering, many principles hold for read buffering
+
+### Question 3
+*Consider the following code snippet. Modify this code to ensure that the terminal output is “world” “hello” and not “hello” “world”. The parent must print “hello” and the child must print “world”.*  
+```
+if (fork() > 0)
+   fprintf (stderr, “hello”);
+else
+   fprintf (stderr, “world”);
+```
+  
+```
+pid_t pid = fork()
+
+if (pid == 0)
+   fprintf (stderr, “world”);
+else
+   wait(NULL)
+   fprintf (stderr, “hello”);
+```
+
+### Question 4
+*Give two examples of terminal control for stdin.*  
+
+### Question 5
+*List two ways that the execl system call can fail (assume the executed program takes 0 args)? ```execl (path, exec_name, (char*)0);```*  
+  
+The path could be invalid, in which case execl would fail.  
+The executed program name could be invalid.  
+
+### Question 6
