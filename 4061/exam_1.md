@@ -196,13 +196,13 @@ cc -> bb -> aa -> cc - there is a loop, and nothing to point to.
 One disadvantage is that there is a predetermined buffer size that you can't exceed. A buffer that is being written to a file is not immediately written, instead, it will wait until it is full or flushed. This is also a good thing because it means we can gather data in the buffer and then write or read in less system calls. While this answer is more about write buffering, many principles hold for read buffering
 
 ### Question 3
-*Consider the following code snippet. Modify this code to ensure that the terminal output is “world” “hello” and not “hello” “world”. The parent must print “hello” and the child must print “world”. 
+*Consider the following code snippet. Modify this code to ensure that the terminal output is “world” “hello” and not “hello” “world”. The parent must print “hello” and the child must print “world”.*  
 ```
 if (fork() > 0)
    fprintf (stderr, “hello”);
 else
    fprintf (stderr, “world”);
-```*
+```
   
 ```
 pid_t pid = fork()
@@ -224,3 +224,68 @@ The path could be invalid, in which case execl would fail.
 The executed program name could be invalid.  
 
 ### Question 6
+*What is the problem with this code fragment? Suppose bar and foo exist with proper permissions.*
+```
+int fd;
+fd = open (“foo”, O_RDONLY);
+fd = open (“bar”, O_RDONLY);
+```
+  
+This code fragment is assigning "fd" to foo and then bar. This means that foo was no longer tracked by the program and was not closed. 
+
+### Question 7
+*You are to provide a function, BottomHalf, that takes a given file named infile that efficiently (both in memory usage and I/O time) copies the bottom-half of the file contents into a newly created file named outfile. The file can be extremely large (e.g. terabytes). Do not modify infile.  For simplicity, you may assume that infile is of even length. For example, if  BottomHalf is called with an  infile that contains HelloSally, the outfile will contain just Sally. Make the I/O code efficient. You may use ANY I/O calls you wish. Close all files when done.*  
+*Do NOT worry about any errors, header files, etc.*  
+
+```
+void BottomHalf(char *infile, char *outfile) {
+	int in_fd = open(infile, O_RDONLY);
+	int out_fd = open(outfile, O_WRONLY);
+
+	// use metadata to figure out the size of the file
+	struct stat file;
+	stat(infile, &file);
+	int halfway = file.st_size / 2;
+
+	// add on chars so the pointer is at the right place
+	// copy everything over
+	char buf;
+	int nread;
+	while(1) {
+		nread = read(s_fd, &buf, 1);
+		if (nread == 0) {
+			break;
+		}
+		write(d_fd, buf + halfway, nread);
+		halfway += nread;
+	}
+	close(in_fd);
+	close(out_fd);
+}
+```
+This implmentation received 13/20 with TA feedback that I should use seek to find the middle of the file.  
+A revised implmentation would be...  
+```
+void BottomHalf(char *infile, char *outfile) {
+	int in_fd = open(infile, O_RDONLY);
+	int out_fd = open(outfile, O_WRONLY);
+
+	// use metadata to figure out the size of the file
+	struct stat file;
+	stat(infile, &file);
+	int halfway = file.st_size / 2;
+
+	if (!fseek(in_fd, halfway, SEET_SET)) {
+		perror("seek failed");
+	}
+	// add on chars so the pointer is at the right place
+	// copy everything over
+	char buf;
+	int nread;
+	while((nread = read(s_fd, &buf, 1)) > 0) {
+		write(d_fd, buf, nread);
+	}
+	close(in_fd);
+	close(out_fd);
+}
+```
