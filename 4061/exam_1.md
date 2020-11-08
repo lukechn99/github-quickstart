@@ -174,3 +174,21 @@ long factorial(int i) {
 ```
   
 There WILL be a question on I/O and Fork/Exec
+
+# Exam Debrief
+### Question 1
+*What is the problem with this code if executed in the sequence below? You can assume “aa” exists and that “bb” and “cc” do not. Use arrows to show links.*
+*symlink (“aa”, “bb”);*  
+*symlink (“bb”, “cc”);*  
+*unlink (“aa”);*  
+*symlink (“cc”, “aa”);*  
+aa was the only link actually pointing to the file on disk, when we unlink it, there are no hard links left and so the file is deleted.  
+cc --> bb --> aa ==> FILE  
+aa =\=> FILE  
+bb --> nothing  
+cc --> nothing  
+cc -> bb -> aa -> cc - there is a loop, and nothing to point to.
+
+### Question 2
+*List ONE advantage and ONE disadvantage of read buffering.*  
+One disadvantage is that there is a predetermined buffer size that you can't exceed. A buffer that is being written to a file is not immediately written, instead, it will wait until it is full or flushed. This is also a good thing because it means we can gather data in the buffer and then write or read in less system calls. While this answer is more about write buffering, many principles hold for read buffering
