@@ -263,7 +263,7 @@ void BottomHalf(char *infile, char *outfile) {
 	close(out_fd);
 }
 ```
-This implmentation received 13/20 with TA feedback that I should use seek to find the middle of the file.  
+This implmentation received 13/20 with TA feedback that I should use seek to find the middle of the file. read/write data as chunks use seek functions to move the file descriptor to the start of bottom half  
 A revised implmentation would be...  
 ```
 void BottomHalf(char *infile, char *outfile) {
@@ -288,4 +288,101 @@ void BottomHalf(char *infile, char *outfile) {
 	close(in_fd);
 	close(out_fd);
 }
+```
+
+### Question 8
+*Write a program called WorkGen that creates K children and a shared pipe. The parent gets a new task_id (represented as an int) from a function  get_next_task and writes the task_id to the pipe. The parent will write M unique task_id's (and this number is unknown to the children). The children will read a task_id from the pipe, pass it to a function called do_work, and will do this repeatedly until there are no more tasks, at that time the child should exit. Do NOT worry about any errors, permissions, header files, etc. Hint: think about how the child can detect there are no more tasks from the parent. Remember to close pipe ends that are not in use and that the parent ensures all children finish.*  
+```
+void do_work (int task_id);
+int get_next_task (); // returns a new task_id
+
+void WorkGen (int K, int M) { 
+// put any declarations here 
+```
+  
+```
+void do_work (int task_id);
+int get_next_task (); // returns a new task_id
+
+void WorkGen (int K, int M) {
+	// create a pipe so that children will inherit
+	int fd[2];
+	pipe(fd);
+
+	// create K children
+	for (int i = 0; i < K; i++) {
+		pid_t pid = fork();
+	}
+
+	// children tasks
+	if (pid == 0) {
+		int task;
+		close(fd[1]);
+		// while tasks come in
+		while (read(fd[0], &task, sizeof(task)) != -1) {
+			do_work(task);
+		}
+	}
+	// parent tasks
+	else if (pid > 0) {
+		int next_task;
+		int task_count = 0;
+		close(fd[0]);
+		while (task_count < M) {
+			next_task = get_next_task();
+			write(fd[1], next_task, sizeof(next_task));
+		}
+		// wait for all children to finish
+		for (int i = 0; i < K; i++) {
+			wait(NULL);
+		}
+	}
+}
+```
+This implementation scored 16/20 with TA feedback of "You generated 2^K child processes (-1) read() will return 0 when there is no writer process attached to the pipe (-2) Parent didn’t close fd[1] and children didn’t close fd[0] after they used is (-1)"  
+
+### Question 9
+*Write the system program find that locates all instances of a search_name (either a regular file or directory name) in a subtree rooted at an absolute path, named start_path. You must traverse all subdirectories as needed starting from this path. For simplicity, we have provided a utility function, called PathBuild that takes an existing absolute path and appends a subdirectory to create a new longer path. When you find the search_name, print out its full path to standard output.*  
+*Do NOT worry about any errors, permissions, header files, etc. You can assume all directories contain only regular files or directories (and no links of any kind including . and ..). For example, find (“/usr/jon”, “foo”) could return (order does not matter):*
+
+```
+// Example usage: PathBuild (“/user/jon”, “dir1”, new_path)
+// This would return new_path with the new absolute path “/user/jon/dir1”)
+// new_path is an output parameter; PathBuild first empties new_path if it contains any prior data
+int PathBuild (char *curr_path, char *subdir name, char *new_path);
+
+// we recommend that you use this provided helper function: returns 1 (or true) if mode in inode (see API) indicates a directory
+int S_ISDIR (mode_t mode);
+
+#define MAX_PATH 1024
+void find (char *start_path, char *search_name) {
+	// we need all instances of the search name, whether it be a file or dir
+	DIR* dir = opendir(start_path);
+	struct dirent* entry;
+
+	// iterating through the files/directories in the root
+	while ((entry = readdir(dir)) != NULL) {
+		if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+			continue;
+		}
+		struct stat entry_stat;
+		char curr_dir[MAX_PATH];
+
+		// curr_dir holds the file/dir we need to look at
+		// PathBuild will attach our current name onto the start_path
+		PathBuild(start_path, entry->d_name, curr_dir);
+
+		// if names match, print out entire path
+		if (strcmp(entry->d_name, search_name) == 0) {
+			printf("%s", curr_dir);
+		}
+
+		// if sub-directory
+		if (entry->d_type == DT_DIR) {
+			find(curr_dir, search_name);
+		}
+	}
+	closedir(dir);
+}
+
 ```
