@@ -51,7 +51,11 @@ Revise and update your iteration 1 Design Document, add 3 paragraphs about a pri
 [Updated Support Code Docs](https://pages.github.umn.edu/umn-csci-3081-f20/project-portal/docs/html/)  
 [Support Code Headers](https://pages.github.umn.edu/umn-csci-3081-f20/project-portal/docs/html/files.html)  
 [Project Portal Wiki](https://github.umn.edu/umn-csci-3081-f20/project-portal/wiki)  
-You need to do **20 points** of work  
+You need to individually do **20 points** of work  
+10 points each - Priority Requirements (e.g. Issue ID: Priority-1-Obs)  
+10 points each - Features (e.g. Issue ID: Feature-1)  
+1 point each (up to 5 points) - Additional Issues (e.g. Issue ID: Bug or Enhancement)  
+1 point each - Test (up to 10 points) (e.g. Issue ID: Test)  
   
 ### Priorities
 Observer: clients can be notified of package delivery. ```AddObserver()``` when you create a package to monitor states scheduled, in route, delivered. Implement the package as the "subject" using the WebSceneViewer and EntityConsoleLogger. Events are reported with ```OnEvent()```. Events are reported on the event log. Packages can have many observers. They can be removed with ```removeObserver```. ***What happens when an observer is removed? Is it destroyed?***  
