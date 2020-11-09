@@ -3,10 +3,9 @@ Incorporate 3D maps, physics, logistics, route planning, malfunctions, security,
 Iteration 2 - Development: In the development phase, we build the actual system to
 make it work and be useful.
 ### Project Timeline:
-Dates & Deadlines Item Description
-11/9/2020 First Deliverable: Peer Reviews Provide feedback for your teammates on their iteration 1 design document.
-11/17/2020 & 11/19/2020 Automated Assessment We will run our extended tests once on each codebase. This will help you fix any issues you might have with our grading scripts.
-11/20/2020 Canvas / GitHub Final Deliverable: Iteration 2 All remaining business requirements. This includes the design document.
+11/9/2020 First Deliverable: Peer Reviews Provide feedback for your teammates on their iteration 1 design document.  
+11/17/2020 & 11/19/2020 Automated Assessment We will run our extended tests once on each codebase. This will help you fix any issues you might have with our grading scripts.  
+11/20/2020 Canvas / GitHub Final Deliverable: Iteration 2 All remaining business requirements. This includes the design document.  
 
 # Background
 ### 2.1 The Planet X Drone Fleet
