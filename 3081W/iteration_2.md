@@ -52,3 +52,7 @@ Team: build doxygen and UML
 Individual: review two team members to suggest improvements to the writing and other comments, review based on the iteration 1 Design Document Rubric, to be uploaded on canvas and emailed to members  
 Revise and update your iteration 1 Design Document, add 3 paragraphs about a priority or feature you implemented, one that a teammate implemented, discuss design tradeoffs.  
 
+### 3.2 Development Requirements
+[Updated Support Code Docs](https://pages.github.umn.edu/umn-csci-3081-f20/project-portal/docs/html/)  
+[Support Code Headers](https://pages.github.umn.edu/umn-csci-3081-f20/project-portal/docs/html/files.html)  
+[Project Portal Wiki](https://github.umn.edu/umn-csci-3081-f20/project-portal/wiki)  
