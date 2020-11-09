@@ -34,7 +34,7 @@ All work is done in the team repo, feedback comes from ```devel``` branch and as
 CREATE A WORKING SOLUTION: Multiple drones should be delivering different sized packages at different speeds. Finally, the visual and other observers should be notified of package delivery events.  
 We need to have **ALL PRIORITIES** and **1 or 2** additional features and **regression, unit, and integration** tests and **bug fixes**  
 
-### Changes
+### 3.1.1 Changes
 Updated the Entity class - Uses a vector<float> instead of a float* for position and direction to prevent the buffer overflow problem.  
 Updated the DroneDeliverySystem abstract class - Added a SetGraph(...) method for graph traversal.  
 Added methods to the Package and Drone classes - These methods allow us to get additional details about drone delivery (movement, capacity, etc…)  
