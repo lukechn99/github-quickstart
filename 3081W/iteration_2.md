@@ -68,3 +68,8 @@ Drone Delivery Functionality: limitations of battery, carrying capacity, max spe
 Schedule Delivery Functionality:  
 Drone Physics: Velocity, acceleration, force  
 
+### Teammates
+Joe: Drone Pool (10)  
+Maaz: Observer (10)  
+Sam: Drone Observer (10)  
+Luke: Dynamic Routing (10), debugging (5)  
