@@ -34,11 +34,6 @@ All work is done in the team repo, feedback comes from ```devel``` branch and as
 CREATE A WORKING SOLUTION: Multiple drones should be delivering different sized packages at different speeds. Finally, the visual and other observers should be notified of package delivery events.  
 We need to have **ALL PRIORITIES** and **1 or 2** additional features and **regression, unit, and integration** tests and **bug fixes**  
 
-### Priorities
-Observer: clients can be notified of package delivery.
-Dynamic Routing: Use the shortest path on a graph for package delivery.
-Drone Pool: Use a diverse set of drones to deliver packages.
-
 ### Changes
 Updated the Entity class - Uses a vector<float> instead of a float* for position and direction to prevent the buffer overflow problem.  
 Updated the DroneDeliverySystem abstract class - Added a SetGraph(...) method for graph traversal.  
@@ -56,3 +51,16 @@ Revise and update your iteration 1 Design Document, add 3 paragraphs about a pri
 [Updated Support Code Docs](https://pages.github.umn.edu/umn-csci-3081-f20/project-portal/docs/html/)  
 [Support Code Headers](https://pages.github.umn.edu/umn-csci-3081-f20/project-portal/docs/html/files.html)  
 [Project Portal Wiki](https://github.umn.edu/umn-csci-3081-f20/project-portal/wiki)  
+You need to do **20 points** of work  
+  
+### Priorities
+Observer: clients can be notified of package delivery. ```AddObserver()``` when you create a package to monitor states scheduled, in route, delivered. Implement the package as the "subject" using the WebSceneViewer and EntityConsoleLogger. Events are reported with ```OnEvent()```. Events are reported on the event log. Packages can have many observers. They can be removed with ```removeObserver```. ***What happens when an observer is removed? Is it destroyed?***  
+Dynamic Routing: Use the shortest path on a graph for package delivery. Replace ```SimpleUMNRouteManager``` with ```DroneDeliverySystem::SetGraph(...)```. Include end points and calculate using Euclidean distance.  
+Drone Pool: Use a diverse set of drones to deliver packages. Using the CSV, cache results in a datastructure for use. Pay attention to the many new attributes of a drone.  
+
+### Features
+Drone Observer: notifies of drone path changes, informs the console log when a drone enters idle, moving.  
+Drone Delivery Functionality: limitations of battery, carrying capacity, max speed, etc. ***Should be last to implement, would complicate others***  
+Schedule Delivery Functionality:  
+Drone Physics: Velocity, acceleration, force  
+
