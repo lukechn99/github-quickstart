@@ -88,3 +88,25 @@ When this comes up, common solutions online ask you to reset proxies and set URL
 2. Make sure the URL is correct, make sure the ```git``` command you are using is correct  
 3. Check your credentials: has the repo you're trying to ```git clone``` include you as a collaborator? Are the credentials stored on your credential store correct? You can check these things with ```git config --list```  
 4. Try those weird online solutions  
+
+### You made changes in the wrong branch... uh-oh
+```$ git stash``` then move to the correct branch and ```$ git stash pop``` then do adds and commits as normal.  
+
+### Git branches are not showing after 'clone'
+Check all branches including hidden ones with ```git branch -a```  
+```
+$ git branch -a
+* master
+  remotes/origin/HEAD
+  remotes/origin/master
+  remotes/origin/devel
+  remotes/origin/release
+```
+Checkout the branch you are looking for using the "full" name  
+```
+$ git checkout origin/devel
+```
+Once switched to that branch, do another checkout and the "short" name will be remembered  
+```
+$ git checkout devel
+```
