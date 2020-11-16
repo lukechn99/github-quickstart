@@ -67,7 +67,7 @@ We set a lock before using a shared resource and we release the lock after using
 [section 2]       [section 2]
 ```
 Compile with ```gcc -pthread -o out main.c``` to use threads. 
-Sample code:
+Sample code with **Mutex and Joinable Threads**:
 ```
 #define NTHREADS 10
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
