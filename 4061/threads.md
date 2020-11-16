@@ -72,6 +72,11 @@ Sample code:
 #define NTHREADS 10
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
+// shared variable
+int counter;
+
+pthread_t tid[NTHREADS]
+
 void* addCount (void *arg) {
   int value = *(int*)arg;
   pthread_mutex_lock(&lock);
@@ -81,6 +86,7 @@ void* addCount (void *arg) {
 }
 
 int main(int argc, char* argv[]) {
+  // create 10 joinable threads
   int i;
   int arg_arr[NTHREADS];
   
@@ -102,4 +108,14 @@ int main(int argc, char* argv[]) {
   return 0;
 // joinable threads
 
+```
+Important functions are...
+```
+pthread_t
+pthread_create
+pthread_join
+
+pthread_mutex_t
+pthread_mutex_lock
+pthread_mutex_unlock
 ```
