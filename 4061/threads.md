@@ -67,3 +67,39 @@ We set a lock before using a shared resource and we release the lock after using
 [section 2]       [section 2]
 ```
 Compile with ```gcc -pthread -o out main.c``` to use threads. 
+Sample code:
+```
+#define NTHREADS 10
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+
+void* addCount (void *arg) {
+  int value = *(int*)arg;
+  pthread_mutex_lock(&lock);
+  counter += value;
+  pthread_mutex_unlock(&lock);
+  return NULL;
+}
+
+int main(int argc, char* argv[]) {
+  int i;
+  int arg_arr[NTHREADS];
+  
+  for (i = 0; i < NTHREADS; i++) {
+    arg_arr[i] = i;
+  }
+  for (i = 0; i < NTHREADS; i++) {
+    // create joinable threads
+    if (pthread_create(&(tid[i]), NULL, addCount, (void*) &arg_arr[i]) != 0) {
+      perror("failed to create");
+    }
+  }
+  
+  // since we use joinable threads, we must call pthread_join to finish
+  for (i = 0; i < NTHREADS; i++) {
+    pthread_join(tid[i], NULL);
+  }
+  
+  return 0;
+// joinable threads
+
+```
