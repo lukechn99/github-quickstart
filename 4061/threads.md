@@ -43,3 +43,27 @@ With multiple threads, we can start a new read when the previous serve is still 
 ### Drawbacks
 No isolation of failures, threads can be switched without warning based on a system timer, this could interrupt things.  
 Due to race conditions, we need to implement thread safety with locks. However, locks reduce concurrency because it is a blocking operation. 
+
+# Multithreading
+Lightweight method of parallelism and concurrency without need for IPD because of their shared resources  
+
+### Thread creation
+``` pthread_create(pthread_t* thread, pthread_attr_t* attr, void* func, void* arg) ```
+Usually creates a thread with a function (3rd param) and arguments to execute on (4th param)  
+Returns 0 on success and error number on failure
+
+### Joinable and Detached Threads
+Joinable threads don't release resources until ```pthread_join(pthread_t thread, void* retval)``` is called by another thread. Processes pause at pthread_join until the thread is finished.  
+Detaches threads automatically release resources on exit
+
+### Mutex locks
+We set a lock before using a shared resource and we release the lock after using the shared resource.  
+```
+ THREAD A          THREAD B
+[section 1]       [section 2]
+     |                 | <-------- Lock pthread_mutex_lock(mutex)
+[shared var]      [shared var]
+     |                 | <-------- Unlock pthread_mutex_unlock(mutex)
+[section 2]       [section 2]
+```
+Compile with ```gcc -pthread -o out main.c``` to use threads. 
