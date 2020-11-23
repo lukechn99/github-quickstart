@@ -131,7 +131,8 @@ The condition is typically created outside of a the functions, and then initiali
 Locks with an internal counters. While mutex locks use values of either 1 or 0, semaphores can have a counter variable for access.  
 Create a semaphore with ```sem_t semaphore``` and ```sem_init(sem_t* sem, int pshared, int value);``` pshared is 0 for threads and a positive int for processes. The value specifies what the counter should be.  
 ```sem_wait(sem_t* sem);``` is a decrement or wait
-```sem_post(sem_t* sem)``` is an increment
+```sem_post(sem_t* sem)``` is an increment  
+Use mutex locks in conjunction with semaphores and place a lock after wait. 
 
 ### Deadlocks
 For example, if thread 1 is accessing resource A and wants to access resource B while thread 2 is using resource B and wants to access resource A, then there could be a lock.  
