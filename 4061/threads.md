@@ -119,3 +119,21 @@ pthread_mutex_t
 pthread_mutex_lock
 pthread_mutex_unlock
 ```
+
+### Conditions
+Conditions are used to determine whether to lock or not. They are created as ```pthread_cond_t cond```  
+initialized as ```pthread_cond_init```  
+The condition is typically created outside of a the functions, and then initialized in main()  
+```pthread_cond_wait``` is very important as it waits on a condition variable before continuing.  
+```pthread_cond_signal``` and ```pthread_cond_broadcast``` let other threads know when they can start after the condition is met. ```pthread_cond_signal``` notifies one and ```pthread_cond_broadcast``` notifies all.
+
+### Semaphores
+Locks with an internal counters. While mutex locks use values of either 1 or 0, semaphores can have a counter variable for access.  
+Create a semaphore with ```sem_t semaphore``` and ```sem_init(sem_t* sem, int pshared, int value);``` pshared is 0 for threads and a positive int for processes. The value specifies what the counter should be.  
+```sem_wait(sem_t* sem);``` is a decrement or wait
+```sem_post(sem_t* sem)``` is an increment
+
+### Deadlocks
+For example, if thread 1 is accessing resource A and wants to access resource B while thread 2 is using resource B and wants to access resource A, then there could be a lock.  
+
+One solution is to throw an exception instead of waiting. 
