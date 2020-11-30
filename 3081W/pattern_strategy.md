@@ -12,22 +12,22 @@ Example of using the strategy pattern with a calculator
 using namespace std;
 
 class opInterface {
-	public:
-		virtual void perfop (int left, int right) = 0;
+public:
+	virtual void perfop (int left, int right) = 0;
 };
 
 class add : public opInterface {
-	public:
-		void perfop (int left, int right) {
-				cout << (left + right) << endl;
-		}
+public:
+	void perfop (int left, int right) {
+		cout << (left + right) << endl;
+	}
 };
 		
 class sub : public opInterface {
-	public:
-		void perfop (int left, int right) {
-				cout << (left - right) << endl;
-		}
+public:
+	void perfop (int left, int right) {
+		cout << (left - right) << endl;
+	}
 };
 		
 int main() {
