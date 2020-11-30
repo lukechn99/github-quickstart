@@ -4,7 +4,7 @@ Bubble sort is good for when data is already presorted, or partially presorted.
 Shell is for datasets with a certain gap size.  
 Heapsort, quicksort, and mergesort are O(logn)  
 
-### Example of using the strategy pattern with a calculator
+Example of using the strategy pattern with a calculator
 ```
 #include <iostream>
 using namespace std;
@@ -66,3 +66,5 @@ int main() {
 	return 0;
 } // end main
 ```
+
+Using the strategy pattern sometimes means that we are replacing places where we would normally use inheritance with composition of the object and the behavior that it uses. 
