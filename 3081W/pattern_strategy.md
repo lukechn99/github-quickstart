@@ -68,5 +68,5 @@ int main() {
 	return 0;
 } // end main
 ```
-
+ 
 Using the strategy pattern sometimes means that we are replacing places where we would normally use inheritance with composition of the object and the behavior that it uses. 
