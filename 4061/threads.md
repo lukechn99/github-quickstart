@@ -264,7 +264,27 @@ int main(int argc, char** argv) {
 	printf("Time (in us) to run = %ld\n\n", ((end.tv_sec - start.tv_sec) * 1000000) + (end.tv_usec - start.tv_usec));
 
 	}
+```
 
+
+```
+#include <pthread.h>
+#include <stdio.h>
+#include <unistd.h>
+
+pthread_cond_t cond;
+
+pthread_mutex_t lock;
+
+int done = 1;
+
+void* demo (void *arg) {
+	int id = (int) *(int*)arg;
+	
+	pthread_mutex_lock(&lock);
+	while(done == 1) {
+		done = 2;
+		pthread_cond_wait(&cond, &lock
 ```
 
 ### Semaphores
