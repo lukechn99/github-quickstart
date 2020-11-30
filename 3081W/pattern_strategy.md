@@ -4,9 +4,9 @@ Bubble sort is good for when data is already presorted, or partially presorted.
 Shell is for datasets with a certain gap size.  
 Heapsort, quicksort, and mergesort are O(logn)  
 
----
+___
 For example, men have a goal of courting women. However, the method they use will be different depending on who they are, who the lady is, and the context. So we might have an abstract interface with the method court(), but the implementation and how it's carried out will be different based on each situation. The method court() for one might mean giving roses while court() for another might manifest as presenting a ring.  
----
+___
 
 Example of using the strategy pattern with a calculator
 ```
