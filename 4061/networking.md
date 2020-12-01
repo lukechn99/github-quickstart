@@ -20,3 +20,14 @@ Once created, they must be joined before communication
 To receive messages, the process must have an identifier because the machine has many IPs and processes  
 Because of this, we use a port number, which is just for that machine. The port number along with an IP address  
 forms the identifier
+
+### TCP service
+connection oriented
+Adjusts sending based on congestion rate, does not necessarily send right away
+
+### UDP service
+message oriented  
+packets are sent as soon as the host sends it  
+Low latency, timing critical, and tolerates loss
+
+# Network Programming
