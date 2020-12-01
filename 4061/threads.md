@@ -159,13 +159,11 @@ Members:
 long condTotal = 0;
 
 struct buffer {
-
 	int vals[100];
 	int index; //indicates the next available spot
 };
 
 struct condBuffer {
-
 	struct buffer* q;
 	pthread_cond_t* cond;
 	pthread_mutex_t* mutex;
@@ -173,13 +171,11 @@ struct condBuffer {
 
 
 void insert(struct buffer* q, int val) {
-
 	q->vals[q->index] = val;
 	++q->index;
 }
 
 int delete(struct buffer* q) {
-
 	--q->index;
 	int val = q->vals[q->index];
 	return val;
@@ -187,17 +183,13 @@ int delete(struct buffer* q) {
 
 // TODO: Insert code to use a condition variable.
 void* condProducer(void* arg) {
-
 	// Random delay. DO NOT REMOVE!
 	usleep(rand() % 1000);
-
 	struct condBuffer* cq = (struct condBuffer*) arg;
-
 	pthread_mutex_lock(cq->mutex);
 	// Counter.
 	static int in = 0;
 	++in;
-
 	// Add an element to the buffer.
 	insert(cq->q, in);
 	pthread_cond_signal(cq->cond);
@@ -206,12 +198,9 @@ void* condProducer(void* arg) {
 
 // TODO: Insert code to use a condition variable.
 void* condConsumer(void* arg) {
-
 	// Random delay. DO NOT REMOVE!
 	usleep(rand() % 1000);
-
 	struct condBuffer* cq = (struct condBuffer*) arg;
-
 	pthread_mutex_lock(cq->mutex);
 	while(cq->q->index == 0){
 		pthread_cond_wait(cq->cond, cq->mutex);
@@ -222,22 +211,16 @@ void* condConsumer(void* arg) {
 }
 
 int main(int argc, char** argv) {
-
 	if (argc != NUM_ARGS + 1) {
-
 		printf("Wrong number of args, expected %d, given %d\n", NUM_ARGS, argc - 1);
 		exit(1);
 	}
-
 	// Seed the random generator.
 	srand(time(NULL));
-
 	// Create threads.
 	pthread_t condPool[100];
-
 	struct timeval start;
 	gettimeofday(&start, NULL);
-
 	// Create the cond variable controlled task buffer.
 	struct condBuffer* cq = (struct condBuffer*) malloc(sizeof(struct condBuffer));
 	cq->q = (struct buffer*) malloc(sizeof(struct buffer));
@@ -246,36 +229,28 @@ int main(int argc, char** argv) {
 	cq->mutex = (pthread_mutex_t*) malloc(sizeof(pthread_mutex_t));
 	pthread_cond_init(cq->cond, NULL);
 	pthread_mutex_init(cq->mutex, NULL);
-
 	// Creating producers and consumers
 	for (int i=0; i < 50; ++i) {
-
 		pthread_create(&condPool[i], NULL, condProducer, (void*) cq); //start 50 producer threads
 		pthread_create(&condPool[50 + i], NULL, condConsumer, (void*) cq); //start 50 consumer threads
 	}
-
 	for (int i=0; i < 100; ++i) pthread_join(condPool[i], NULL); //wait for all the threads to be finished
-
 	struct timeval end;
 	gettimeofday(&end, NULL);
-
 	// Validating the results
 	printf("Cond Test: \nTotal of buffer = %ld\n", condTotal);
 	printf("Time (in us) to run = %ld\n\n", ((end.tv_sec - start.tv_sec) * 1000000) + (end.tv_usec - start.tv_usec));
-
 	}
 ```
 
-
+TA example of a conditional
 ```
 #include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
 
 pthread_cond_t cond;
-
 pthread_mutex_t lock;
-
 int done = 1;
 
 void* demo (void *arg) {
@@ -284,7 +259,36 @@ void* demo (void *arg) {
 	pthread_mutex_lock(&lock);
 	while(done == 1) {
 		done = 2;
-		pthread_cond_wait(&cond, &lock
+		pthread_cond_wait(&cond, &lock);
+	}
+	
+	pthread_cond_signal(&cond);
+	
+	pthread_mutex_unlock(&lock);
+	
+	// thread is done
+	return NULL;
+}
+
+int main() {
+	pthread_t tid1, tid2;
+	int id[] = {1, 2};
+	
+	// initialize condition
+	pthread_cond_init(&cond, NULL);
+	pthread_mutex_init(&lock, NULL);
+	// create thread 1
+	pthread_create(&tid1, NULL, demo, &id[0]);
+	sleep(1);
+	// create thread 2
+	pthread_create(&tid2, NULL, demo, &id[1]);
+	
+	// finish and join the threads
+	pthread_join(tid2, NULL);
+	pthread_join(tid1, NULL);
+	
+	return 0;
+}
 ```
 
 ### Semaphores
