@@ -48,7 +48,16 @@ addr.sin_addr.s_addr = htonl(INADDR_ANY); // default IP address that the OS pick
 addr.sin_port = htons(port);              // server will choose the port
 bind(fd, (struct sockaddr*) &addr, sizeof(addr));
 ```
-Bind errors can be remedied by specifying that the port can be reused because port collisions are prone to happen. If you want to choose a port that is guaranteed to be open, use ```netstat``` in the terminal to see which ports are available. 
+Bind errors can be remedied by specifying that the port can be reused because port collisions are prone to happen. If you want to choose a port that is guaranteed to be open, use ```netstat``` in the terminal to see which ports are available.  
 **Listen** just sets up a queue for incoming connection requests. Use ```int listen (int fd, int backlog);```  
 For example, we can do ```listen (fd, 5);``` which uses fd as the public socket and 5 as the max number of requests to queue.  
 **Accept** returns the fd for a new socket. 
+
+### Client
+A client has to know the port number and IP of the server. It can use DNS to get the IP address based on the symbolic name. 
+```
+#include <netdb.h>
+
+struct hostent* gethostbyname(const char *name);  // name is the URL
+```
+Client creates just one socket. No bind is needed because the OS will use the client's IP and finds a free port. After setting up the socket, the client can connect to the server and communicate with reads and writes. 
