@@ -48,5 +48,7 @@ addr.sin_addr.s_addr = htonl(INADDR_ANY); // default IP address that the OS pick
 addr.sin_port = htons(port);              // server will choose the port
 bind(fd, (struct sockaddr*) &addr, sizeof(addr));
 ```
-Bind errors can be remedied by specifying that the port can be reused because port collisions are prone to happen. 
-```
+Bind errors can be remedied by specifying that the port can be reused because port collisions are prone to happen. If you want to choose a port that is guaranteed to be open, use ```netstat``` in the terminal to see which ports are available. 
+**Listen** just sets up a queue for incoming connection requests. Use ```int listen (int fd, int backlog);```  
+For example, we can do ```listen (fd, 5);``` which uses fd as the public socket and 5 as the max number of requests to queue.  
+**Accept** returns the fd for a new socket. 
