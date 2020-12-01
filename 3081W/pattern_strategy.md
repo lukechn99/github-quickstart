@@ -72,3 +72,6 @@ int main() {
 ```
  
 Using the strategy pattern sometimes means that we are replacing places where we would normally use inheritance with composition of the object and the behavior that it uses. 
+
+### Project example
+![strategy pattern](https://github.com/lukechn99/github-quickstart/blob/master/3081W/strategy.PNG)
