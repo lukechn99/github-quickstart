@@ -31,3 +31,10 @@ packets are sent as soon as the host sends it
 Low latency, timing critical, and tolerates loss
 
 # Network Programming
+Sockets are a ket abstraction for end points of server programming. A socket can be created as ``` int socket(int domain, int type, int protocol)``` which gives us a file descriptor to use. The domain will usually be IPv4 or IPv6 which would be PF_INET, type would be either TCP or UDP using SOCK_STREAM or SOCK_DGRAM respectively. A common socket creation may look like ```fd = socket(PF_INET, SOCK_STREAM)```
+
+### Server
+The **socket** for the server needs to be known by everyone. It needs an open socket that is **binded** to a network address. Then, it needs to set up a queue for incoming connection requests with **listen**. Finally, we need to **accept** connections from the queue.  
+When a server accepts a connection, it creates a new socket to communicate with, after communication with writes and reads, it will close that one-time socket if the connection-accept succeeds (client connects and server accepts).  
+We bind the socket to a port so that clients know where to find it. Clients send connection requests, and once they are accepted, the server creates a private socket just for that client. 
+*This is like when students queue for office hours, the queue is public, but once a student's connection is accepted, the TA creates a private room to communicat with the student in*  
