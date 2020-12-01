@@ -8,6 +8,7 @@ ___
 For example, men have a goal of courting women. However, the method they use will be different depending on who they are, who the lady is, and the context. So we might have an abstract interface with the method court(), but the implementation and how it's carried out will be different based on each situation. The method court() for one might mean giving roses while court() for another might manifest as presenting a ring.  
 ___
 
+### Calculator Example
 Example of using the strategy pattern with a calculator
 ```
 #include <iostream>
@@ -73,5 +74,6 @@ int main() {
  
 Using the strategy pattern sometimes means that we are replacing places where we would normally use inheritance with composition of the object and the behavior that it uses. 
 
-### Project example
+### Project Example
 ![strategy pattern](https://github.com/lukechn99/github-quickstart/blob/master/3081W/strategy.PNG)
+In earlier iterations of the project, the drone used one strategy (simple route manager in iteration 1 and Dijkstra's in iteration 2). However, sometimes drones should be able to adapt to situations that call for different route finding algorithms. The strategy patther here means that the drone can simply ask for a route and the most efficient one will be used. 
