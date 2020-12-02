@@ -60,4 +60,5 @@ A client has to know the port number and IP of the server. It can use DNS to get
 
 struct hostent* gethostbyname(const char *name);  // name is the URL
 ```
-Client creates just one socket. No bind is needed because the OS will use the client's IP and finds a free port. After setting up the socket, the client can connect to the server and communicate with reads and writes. 
+Client creates just one socket. No bind is needed because the OS will use the client's IP and finds a free port. After setting up the socket, the client can connect to the server and communicate with reads and writes.  
+See an example of a [server](https://github.com/lukechn99/github-quickstart/blob/master/4061/tcp_server.c) and a [client](https://github.com/lukechn99/github-quickstart/blob/master/4061/tcp_client.c). The server and client should be run over two different machines (hint: CSE labs is good for this)
