@@ -293,6 +293,7 @@ int main() {
 
 ### Semaphores
 Locks with an internal counters. While mutex locks use values of either 1 or 0, semaphores can have a counter variable for access.  
+Sempahores are good for reads where more than one process can be reading. Semaphores would not be good for writing because you can't take advantage of more than 1 accessor when writing because only one process should write at a time.  
 Create a semaphore with ```sem_t semaphore``` and ```sem_init(sem_t* sem, int pshared, int value);``` pshared is 0 for threads and a positive int for processes. The value specifies what the counter should be.  
 ```sem_wait(sem_t* sem);``` is a decrement or wait
 ```sem_post(sem_t* sem)``` is an increment  
