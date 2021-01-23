@@ -50,7 +50,8 @@ Typically used as ```$ git rm text.txt```
 ### stash
 saves your local changes, and takes them off the stage for committing and pushing  
 ### checkout
-shows which branch you're on. If you use command ```$ git checkout <name>``` then it either switches you over to that branch if it exists or creates it as a new branch and switches you over.
+shows which branch you're on. If you use command ```$ git checkout <name>``` then it either switches you over to that branch if it exists or creates it as a new branch and switches you over. **BRANCH CREATION** uses ```$ git checkout -b <branch name>```  
+  
 ### diff
 compares the differences between your local file(s) and the one(s) on Github.
 
