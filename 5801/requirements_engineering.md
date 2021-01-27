@@ -58,3 +58,13 @@ maintained. I discuss the trade-offs between these requirements in later chapter
 
 ### Use Cases
 Graphical model and structured test describing interactions between users and a system.
+
+### User and System Requirements
+User requirements: what services the system is expected to provide to system users and the constraints they operate under.  
+ex. The Mentcare system shall generate *monthly* (constraint) management reports *showing the cost of drugs* (service) prescribed by each clinic during that month.  
+System requirements: a description of the system's functions, services, and operational constraints.  
+ex. Access to drug cost reports shall be restricted to authorized users as listed on a management access control list.
+
+### Functional and Non-functional Requirements
+
+### Elicitation, Analysis, and Validation
