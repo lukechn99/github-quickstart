@@ -12,7 +12,7 @@ reliability, robustness, and portability.
 **User requirements** and **System requirements** 
 
 ### Case Study: Insulin Pump Control System 1.3.1
-
+![hardware arch](/res/1.3.1.1.PNG)
 
 ### Case Study: Mentcare System 1.3.2
 A patient information system that maintains health care records pertaining to mental health
