@@ -3,13 +3,6 @@ Notations are important. English language itself is not structured and discrete 
 
 ### IEEE Software Requirements
 The I triple E is a set of standards for Software Requirements Specifications  
-We consider **Functional** constraints as the abilities that the service needs such as a login, a search bar, or other specific use case. 
-It is usually pertaining more towards the user than the system. We need *form based specifications* to specify functional requirements. 
-Some of these include a description of the function or entity being specified, a description of inputs and their origin, outputs and their destination, 
-a description of the action to be taken, for functions use a precondition to guarantee a postcondition, preparation for the side-effects
-and  **Non-functional** constrainsts that apply to the *whole* system. Some metrics for non-functional requirements are speed, size, ease of use, 
-reliability, robustness, and portability. 
-**User requirements** and **System requirements** 
 
 ### Case Study: Insulin Pump Control System 1.3.1
 Clearly, this is a safety-critical system. If the pump fails to operate or does not
@@ -62,9 +55,19 @@ Graphical model and structured test describing interactions between users and a 
 ### User and System Requirements
 User requirements: what services the system is expected to provide to system users and the constraints they operate under.  
 ex. The Mentcare system shall generate *monthly* (constraint) management reports *showing the cost of drugs* (service) prescribed by each clinic during that month.  
+  
 System requirements: a description of the system's functions, services, and operational constraints.  
 ex. Access to drug cost reports shall be restricted to authorized users as listed on a management access control list.
 
 ### Functional and Non-functional Requirements
+We consider **Functional** requirements as the abilities that the service needs or statements of service such as a login, a search bar, or other specific use case. 
+It is usually pertaining more towards the user than the system. We need *form based specifications* to specify functional requirements. 
+Some of these include a description of the function or entity being specified, a description of inputs and their origin, outputs and their destination, 
+a description of the action to be taken, for functions use a precondition to guarantee a postcondition, preparation for the side-effects.  
+
+**Non-functional** constraints that apply to the *whole* system. Some metrics for non-functional requirements are speed, size, ease of use, 
+reliability, robustness, and portability. 
+![table of nonfunctional requirements](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/4.1.1.PNG)  
+*Table of non-functional requirements*  
 
 ### Elicitation, Analysis, and Validation
