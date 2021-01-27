@@ -24,11 +24,11 @@ meets these requirements. More detailed requirements and discussions of how to
 ensure that the system is safe are discussed in later chapters.
 
 
-![hardware arch](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/1.3.1.1.PNG)
+![hardware arch](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/1.3.1.1.PNG)  
 *Hardware architecture*  
 
 
-![activity model](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/1.3.1.2.PNG)
+![activity model](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/1.3.1.2.PNG)  
 *Activity model*  
 
 
