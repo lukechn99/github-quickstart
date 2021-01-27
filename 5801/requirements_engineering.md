@@ -16,7 +16,6 @@ The system must therefore be designed and implemented to ensure that it always
 meets these requirements. More detailed requirements and discussions of how to
 ensure that the system is safe are discussed in later chapters.
 
-
 ![hardware arch](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/1.3.1.1.PNG)  
 *Hardware architecture*  
 
@@ -66,7 +65,7 @@ Some of these include a description of the function or entity being specified, a
 a description of the action to be taken, for functions use a precondition to guarantee a postcondition, preparation for the side-effects.  
 
 **Non-functional** constraints that apply to the *whole* system. Some metrics for non-functional requirements are speed, size, ease of use, 
-reliability, robustness, and portability. 
+reliability, robustness, and portability. Nonfunctional requirements arise through user needs because of budget constraints, organizational policies, the need for interoperability with other software or hardware systems, or external factors such as safety regulations or privacy legislation.  
 ![table of nonfunctional requirements](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/4.1.1.PNG)  
 *Table of non-functional requirements*  
 
