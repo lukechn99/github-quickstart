@@ -15,3 +15,12 @@ Twisted Pair (TP): two copper wires twisted together and can go from 10 Mbps (ca
 there directly to serve your home. 
 Fiber Glass: also has to be connected to your home, not as popular  
 Radio Links: These include microwave (needing a relay station and is directional), LAN, wide-area (cellular), and satellite. Satellite has a long end-to-end delay
+
+### Issues in Networks
+Efficient switching to share resources among multiple users (sharing and multiplexing)
+Routing and forwarding: determines how to guide a packet from one place to another, decide which switches to use and where to switch
+Packet switching: we deliver in a packet stream (like a movie being streamed instead of all in one chunk)  
+
+We do store and then forward for packet switching  
+It used to be that you have to buy routers and switches from Cisco, today both switches and routers are white boxes with software put together by yourself. 
+Cisco used to bundle the software and hardware for a markup, now, Cisco and IBM are in trouble because we can buy the hardware and bundle our own software. 
