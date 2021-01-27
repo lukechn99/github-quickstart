@@ -12,11 +12,59 @@ reliability, robustness, and portability.
 **User requirements** and **System requirements** 
 
 ### Case Study: Insulin Pump Control System 1.3.1
+Clearly, this is a safety-critical system. If the pump fails to operate or does not
+operate correctly, then the user’s health may be damaged or they may fall into a
+coma because their blood sugar levels are too high or too low. This system must
+therefore meet two essential high-level requirements:  
+1. The system shall be available to deliver insulin when required.  
+2. The system shall perform reliably and deliver the correct amount of insulin to
+counteract the current level of blood sugar.  
+The system must therefore be designed and implemented to ensure that it always
+meets these requirements. More detailed requirements and discussions of how to
+ensure that the system is safe are discussed in later chapters.
 
+
+![hardware arch](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/1.3.1.1.PNG)  
+*Hardware architecture*  
+
+![activity model](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/1.3.1.2.PNG)  
+*Activity model*  
 
 ### Case Study: Mentcare System 1.3.2
 A patient information system that maintains health care records pertaining to mental health
+The key features of the system are:  
+1. Individual care management Clinicians can create records for patients, edit the
+information in the system, view patient history, and so on. The system supports
+data summaries so that doctors who have not previously met a patient can
+quickly learn about the key problems and treatments that have been prescribed.
+2. Patient monitoring The system regularly monitors the records of patients that
+are involved in treatment and issues warnings if possible problems are detected.
+Therefore, if a patient has not seen a doctor for some time, a warning may be
+issued. One of the most important elements of the monitoring system is to keep
+track of patients who have been sectioned and to ensure that the legally required
+checks are carried out at the right time.
+3. Administrative reporting The system generates monthly management reports
+showing the number of patients treated at each clinic, the number of patients
+who have entered and left the care system, the number of patients sectioned, the
+drugs prescribed and their costs, etc.
 
+The overall design of the system has to take into account privacy and safety
+requirements. The system must be available when needed; otherwise safety may be
+compromised, and it may be impossible to prescribe the correct medication to patients.
+There is a potential conflict here. Privacy is easiest to maintain when there is only a
+single copy of the system data. However, to ensure availability in the event of server
+failure or when disconnected from a network, multiple copies of the data should be
+maintained. I discuss the trade-offs between these requirements in later chapters.  
 
 ### Use Cases
 Graphical model and structured test describing interactions between users and a system.
+
+### User and System Requirements
+User requirements: what services the system is expected to provide to system users and the constraints they operate under.  
+ex. The Mentcare system shall generate *monthly* (constraint) management reports *showing the cost of drugs* (service) prescribed by each clinic during that month.  
+System requirements: a description of the system's functions, services, and operational constraints.  
+ex. Access to drug cost reports shall be restricted to authorized users as listed on a management access control list.
+
+### Functional and Non-functional Requirements
+
+### Elicitation, Analysis, and Validation
