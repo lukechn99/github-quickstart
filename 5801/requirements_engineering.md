@@ -58,8 +58,8 @@ Graphical model and structured test describing interactions between users and a 
 | Brief description | describe the scope of the case |
 | Actors | who can engage in the activity |
 | Preconditions | Basic qualifications of what the program can start with |
-| Basic flow | the steps the actor goes through to get to their goal |
-| Alternate flow | less common user-system interactions |
+| Basic flow (main course) | the steps the actor goes through to get to their goal |
+| Alternate flow (alternate course) | less common user-system interactions |
 | Exception Flows | things that happen that prevent the user from achieving the goal (e.g. incorrect username/password combo) |
 | Postconditions | the range of results promised based on a correct precondition |
 
