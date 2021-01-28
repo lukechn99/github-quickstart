@@ -49,7 +49,20 @@ failure or when disconnected from a network, multiple copies of the data should 
 maintained. I discuss the trade-offs between these requirements in later chapters.  
 
 ### Use Cases
-Graphical model and structured test describing interactions between users and a system.
+Graphical model and structured test describing interactions between users and a system.  
+
+| Content | Description |
+| --- | --- |
+| Name | clear and concise description of the use case |
+| ID number | Must be unique |
+| Brief description | describe the scope of the case |
+| Actors | who can engage in the activity |
+| Preconditions | Basic qualifications of what the program can start with |
+| Basic flow | the steps the actor goes through to get to their goal |
+| Alternate flow | less common user-system interactions |
+| Exception Flows | things that happen that prevent the user from achieving the goal (e.g. incorrect username/password combo) |
+| Postconditions | the range of results promised based on a correct precondition |
+
 
 ### User and System Requirements
 User requirements: what services the system is expected to provide to system users and the constraints they operate under.  
