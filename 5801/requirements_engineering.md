@@ -82,5 +82,6 @@ reliability, robustness, and portability. Nonfunctional requirements arise throu
 ![table of nonfunctional requirements](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/4.1.1.PNG)  
 *Table of non-functional requirements*  
 
-### RE Process: Elicitation, Analysis, and Validation
+### Requirements Engineering Process: Elicitation, Analysis, and Validation
 ![RE Process](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/4.2.1.PNG)
+Throughout this process, we gather the users of the system and what they need to do. These become your use cases
