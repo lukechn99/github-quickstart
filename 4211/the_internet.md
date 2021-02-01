@@ -36,7 +36,7 @@ Packet switching takes L/R seconds to transmit a packet. And this cot repeats fo
 Typically a swtich will have incoming connections and outgoing connections. Some of these connections will go to clients and other will go to other switches.  
 
 ### Calculations on Circuit SWitching and Packet Switching
-
+ask in office hours
 
 ### Frequency division multiplexing
 Divide a single channel into pieces.  
