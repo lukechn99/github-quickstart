@@ -42,7 +42,7 @@ ask in office hours
 Divide a single channel into pieces.  
 **FDM**: requency division multiplexing lets all four channels send simultaneously  
 **TDM**: time division, we split up the time share of who is sending, but each sender can use the full link for their time frame  
-For example, for a 100mbps link, a TDM transciever would need to operate at 100mbps in order to full take advantage of the link. FDM transcievers that are using that 100mbps link split into 4 channels only needs to transmit at 25mbps because that's their channel size. 
+For example, for a 100mbps link, a TDM transciever would need to operate at 100mbps in order to full take advantage of the link. FDM transcievers that are using that 100mbps link split into 4 channels only needs to transmit at 25mbps because that's their channel size.  
 **CDM**: Code division multiplexing
 
 ### 
