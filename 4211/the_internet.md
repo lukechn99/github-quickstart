@@ -51,5 +51,10 @@ Divide a single channel into pieces.
 For example, for a 100mbps link, a TDM transciever would need to operate at 100mbps in order to full take advantage of the link. FDM transcievers that are using that 100mbps link split into 4 channels only needs to transmit at 25mbps because that's their channel size.  
 **CDM**: Code division multiplexing
 
+### Client Server Model
+This is a form of using the network edge. Client host will request service and receive service from an always on server. Email is a good example; instead of directly sending an email from peer to peer, it is sent to a server. This will prevent email loss if the reciver is not powered on.  
+In the peer-to-peer model, there is minimal use of a dedicated server. Instead, clients serve as both client and server. 
+
 ### Other things
 Video streaming is actually done through packet switching rather than circuit switching. In circuit switching, there would have to be a dedicated link for each viewer. Packet switching allows for Multicasting and better utilization of resources.  
+Network edges are computers, applications, and hosts. Network cores include routers and networks of networks. Access networks are small networks in one area, like a campus network. Communication links can be fiber, copper, radio, and satellite.   
