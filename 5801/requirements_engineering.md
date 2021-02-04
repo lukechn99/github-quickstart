@@ -1,5 +1,8 @@
 # Requirements Engineering
-Notations are important. English language itself is not structured and discrete enough to express design. 
+Why do it? Fixing a problem after the fact can cost 100x more than just putting it in earlier.  
+During this process, we check that the system is **valid** and provides the functions which support the customer's need. 
+Notations are important. English language itself is not structured and discrete enough to express design.  
+Some techniques we can use are to review the requirements with the client and analysts, produce a prototype
 
 ### IEEE Software Requirements
 The I triple E is a set of standards for Software Requirements Specifications  
