@@ -1,6 +1,6 @@
 # Requirements Engineering
 Why do it? Fixing a problem after the fact can cost 100x more than just putting it in earlier.  
-During this process, we check that the system is **valid** and provides the functions which support the customer's need. 
+During this process, we check that the system is **valid** and provides the functions which support the customer's need. The three main steps are elicitation, specification, and validation.  
 Notations are important. English language itself is not structured and discrete enough to express design.  
 Some techniques we can use are to review the requirements with the client and analysts, produce a prototype
 
@@ -88,3 +88,17 @@ reliability, robustness, and portability. Nonfunctional requirements arise throu
 ### Requirements Engineering Process: Elicitation, Analysis, and Validation
 ![RE Process](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/4.2.1.PNG)
 Throughout this process, we gather the users of the system and what they need to do. These become your use cases
+
+### Elicitation
+Some key elements that elicitations should capture include:  
+1. come to a middle ground with stakeholders on demands and requirements
+2. agree on terms and implicit knowledge specific to the client's domain needed to operate on this project
+3. discover different sources of requirements (e.g. not all will come from the accounting department, some requirements may come from HR)
+4. negotiation on what's needed
+5. document findings
+Elicitation can be done through interviews (both closed question and open) and ethnographies (where the developer/analyst observes clients). Ethnographies can be useful because people rarely ever actually follow controlled procedures.  
+**After** finding requirements, the engineer can start documenting the requirements through Requirements Specification. These can be expressed in natural language where each sentence expresses an idea or requirement, in a structured language like SRS or use cases, graphical notations (like UML), or even mathematical specifications.  
+In natural language, some basics you need are structure and some sort of standardization, avoidance of jargon, differentiation between mandatory (shall) and desireable features (should).  
+
+### Requirements Validation
+You want to check that the requirements you gathered actually reflect the needs of the client. The documentation of the requirements should be error and conflict free. They should be realistic, and verifiable. To this end, the requirements should be reviewed, prototyped and used, and requirements should be tested using test-driven development. With test driven development, the tests that adhere to requirements are written first so that the code can immediately be tested. 
