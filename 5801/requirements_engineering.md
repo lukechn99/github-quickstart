@@ -89,7 +89,7 @@ reliability, robustness, and portability. Nonfunctional requirements arise throu
 ![RE Process](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/4.2.1.PNG)
 Throughout this process, we gather the users of the system and what they need to do. These become your use cases
 
-### Elicitation
+### Requirements Elicitation
 Some key elements that elicitations should capture include:  
 1. come to a middle ground with stakeholders on demands and requirements
 2. agree on terms and implicit knowledge specific to the client's domain needed to operate on this project
@@ -97,6 +97,8 @@ Some key elements that elicitations should capture include:
 4. negotiation on what's needed
 5. document findings
 Elicitation can be done through interviews (both closed question and open) and ethnographies (where the developer/analyst observes clients). Ethnographies can be useful because people rarely ever actually follow controlled procedures.  
+
+### Requirements Specification
 **After** finding requirements, the engineer can start documenting the requirements through Requirements Specification. These can be expressed in natural language where each sentence expresses an idea or requirement, in a structured language like SRS or use cases, graphical notations (like UML), or even mathematical specifications.  
 In natural language, some basics you need are structure and some sort of standardization, avoidance of jargon, differentiation between mandatory (shall) and desireable features (should).  
 
