@@ -104,3 +104,7 @@ In natural language, some basics you need are structure and some sort of standar
 
 ### Requirements Validation
 You want to check that the requirements you gathered actually reflect the needs of the client. The documentation of the requirements should be error and conflict free. They should be realistic, and verifiable. To this end, the requirements should be reviewed, prototyped and used, and requirements should be tested using test-driven development. With test driven development, the tests that adhere to requirements are written first so that the code can immediately be tested. 
+
+### Requirements Change
+They change because many problems cannot be fully defined, and so as more is discovered, requirements will change. Other reasons for change can inclde mistakes that were in the original code, the advancement of the business environment and technology, and new user imposed requirements.  
+When considering new requirements, we will want to keep track of them by tracking the change management process, traceability policies, 
