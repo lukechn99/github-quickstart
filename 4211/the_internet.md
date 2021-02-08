@@ -41,7 +41,7 @@ Packet switching takes L/R seconds to transmit a packet. And this cot repeats fo
 Typically a swtich will have incoming connections and outgoing connections. Some of these connections will go to clients and other will go to other switches.  
 In packet switching, the entire packet has to arrive at a node before passing forward.  
 
-### Calculations on Circuit SWitching and Packet Switching
+### Calculations on Circuit Switching and Packet Switching
 ask in office hours
 
 ### Frequency division multiplexing
@@ -49,7 +49,9 @@ Divide a single channel into pieces.
 **FDM**: requency division multiplexing lets all four channels send simultaneously  
 **TDM**: time division, we split up the time share of who is sending, but each sender can use the full link for their time frame  
 For example, for a 100mbps link, a TDM transciever would need to operate at 100mbps in order to full take advantage of the link. FDM transcievers that are using that 100mbps link split into 4 channels only needs to transmit at 25mbps because that's their channel size.  
-**CDM**: Code division multiplexing
+**CDM**: Code division multiplexing  
+
+![multiplexing](https://github.com/lukechn99/github-quickstart/blob/master/4211/res/multiplex.PNG)
 
 ### Client Server Model
 This is a form of using the network edge. Client host will request service and receive service from an always on server. Email is a good example; instead of directly sending an email from peer to peer, it is sent to a server. This will prevent email loss if the reciver is not powered on.  
