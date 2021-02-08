@@ -42,8 +42,8 @@ Typically a swtich will have incoming connections and outgoing connections. Some
 In packet switching, the entire packet has to arrive at a node before passing forward.  
 
 ### Calculations on Circuit Switching and Packet Switching
-Example:  
-How long does it take to send a file of 640,000 bits from host A to host B over a circuit-switched network? All links are 1.536 Mbps, each link uses TDM with 24 slots/sec, and it takes 500 msec to establish end-to-end circuit.  
+*Example*:  
+*How long does it take to send a file of 640,000 bits from host A to host B over a circuit-switched network? All links are 1.536 Mbps, each link uses TDM with 24 slots/sec, and it takes 500 msec to establish end-to-end circuit.*  
 The 500 msec is a constant cost, so that's automatically 0.5 seconds. 
 The connection speed of the link is 1.536 megabits per second which is 1,610,612.736 bits per second  
 But since it is divided into 24 slots/sec thn the connection speed is 67,108.864 bits per slot/sec  
