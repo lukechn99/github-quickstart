@@ -45,7 +45,10 @@ In packet switching, the entire packet has to arrive at a node before passing fo
 Example:  
 How long does it take to send a file of 640,000 bits from host A to host B over a circuit-switched network? All links are 1.536 Mbps, each link uses TDM with 24 slots/sec, and it takes 500 msec to establish end-to-end circuit.  
 The 500 msec is a constant cost, so that's automatically 0.5 seconds. 
-The connection speed of the link is 1.536 megabits per second which is 1,610,612.736 bits per second
+The connection speed of the link is 1.536 megabits per second which is 1,610,612.736 bits per second  
+But since it is divided into 24 slots/sec thn the connection speed is 67,108.864 bits per slot/sec  
+At this speed, it will take 9.54 seconds to send the file of 640,000 bits. With the 0.5 seconds taken to establish a connection, the total is 10.04 seconds.  
+One important idea is **Propagation Delay** which is the time it takes for a file of size L to be transmitted to a router at a speed of R. The total propagation delay will be the summation of L/R(1) + L/R(2) + ... L/R(n) where R(n) is the transmission speed. 
 
 ### Frequency and Time Division Multiplexing
 Divide a single channel into pieces.  
