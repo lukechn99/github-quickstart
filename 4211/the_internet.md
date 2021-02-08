@@ -42,9 +42,12 @@ Typically a swtich will have incoming connections and outgoing connections. Some
 In packet switching, the entire packet has to arrive at a node before passing forward.  
 
 ### Calculations on Circuit Switching and Packet Switching
-ask in office hours
+Example:  
+How long does it take to send a file of 640,000 bits from host A to host B over a circuit-switched network? All links are 1.536 Mbps, each link uses TDM with 24 slots/sec, and it takes 500 msec to establish end-to-end circuit.  
+The 500 msec is a constant cost, so that's automatically 0.5 seconds. 
+The connection speed of the link is 1.536 megabits per second which is 1,610,612.736 bits per second
 
-### Frequency division multiplexing
+### Frequency and Time Division Multiplexing
 Divide a single channel into pieces.  
 **FDM**: requency division multiplexing lets all four channels send simultaneously  
 **TDM**: time division, we split up the time share of who is sending, but each sender can use the full link for their time frame  
