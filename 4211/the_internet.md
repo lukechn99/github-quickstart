@@ -54,7 +54,8 @@ One important idea is **Propagation Delay** which is the time it takes for a fil
 *Example*:
 *Packet switching uses a probability of how much traffic you can expect to come through this link. For example, you could have a 1Mb/s link, that serves 35 people, but only 10 are expected to be active at a time, so it only has to handle that many. The probability of more than 10 people active is 0.0004.  
   
-
+The first time you send data through a circuit, it takes time alpha between each router/switch. After the first pass to and back, which is the *circuit setup time*, subsequent transmissions are much faster.  
+For packet switching, packets have propagation delay, however, because multiple packets are sending simultaneously they can overlap. Once they reach the next switch/router, they will wait for all packets to catch up (buffer) and then begin sending to the next router. Each send also has a packet delay of alpha which is the *distance / propagation speed* 
 
 ### Frequency and Time Division Multiplexing
 Divide a single channel into pieces.  
