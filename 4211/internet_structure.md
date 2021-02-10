@@ -10,7 +10,8 @@ At a very high level, if a cable is cut or a system crashes, there can be link a
 
 ### Packet Delay
 Nodal processing (packet-ize the data) -> kernel space (headers) -> Network Interface Card (NI Card) -> queueing (waiting to transmit)  
-Transmission delay (L/R = bits/bps) -> propagation delay (d/s = length of physical link / propagation speed in medium)
+Transmission delay (L/R = bits/bps) -> propagation delay (d/s = length of physical link / propagation speed in medium)  
+Nodal delay = processing delay + queueing delay + transmission delay + propagation delay  
 
 ---
 - ISP: Internet service providers like AT&T, Verizon, etc. 
