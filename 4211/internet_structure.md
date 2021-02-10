@@ -13,7 +13,8 @@ Nodal processing (packet-ize the data) -> kernel space (headers) -> Network Inte
 Transmission delay (L/R = bits/bps) -> propagation delay (d/s = length of physical link / propagation speed in medium)  
 Nodal delay = processing delay + queueing delay + transmission delay + propagation delay  
   
-We measure the speed as throughouput which is the rate in bits/time unit that is transferred between sender and receiver. This can be measured instantaneously at a point in time or on average over a period of time. Throughput is limited by the smaller link called the bottleneck link.  
+We measure the speed as **throughput** which is the rate in bits/time unit that is transferred between sender and receiver. This can be measured instantaneously at a point in time or on average over a period of time. Throughput is limited by the smaller link called the bottleneck link.  
+Good throughput does not guarantee low latency. Congestion means throughput will lower because of the mess caused by collisions, there will also be higher latency. 
 
 ---
 - ISP: Internet service providers like AT&T, Verizon, etc. 
