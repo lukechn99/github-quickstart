@@ -9,11 +9,13 @@ Packet delay, loss, or disordering due to network congestion can cause packet-le
 At a very high level, if a cable is cut or a system crashes, there can be link and node errors  
 
 ### Packet Delay
-Nodal processing (packet-ize the data) -> kernel space (headers) -> Network Interface Card (NI Card) -> queueing
+Nodal processing (packet-ize the data) -> kernel space (headers) -> Network Interface Card (NI Card) -> queueing (waiting to transmit)  
+Transmission delay (L/R = bits/bps) -> propagation delay (d/s = length of physical link / propagation speed in medium)
 
 ---
 - ISP: Internet service providers like AT&T, Verizon, etc. 
 - IXP: Internet exchange points allow tier 1 ISPs to exchange data
 - Peering Point: a point where network traffic is transfered from one network to another
 - Frame: packets are split into frames when they are too big
+- Propagation speed: typically ~2 * 10^8 m/sec for optical signals, electrical is ~5 * 10^6 m/sec
 ---
