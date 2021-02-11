@@ -19,4 +19,6 @@ We need to know the context that our code is being put into. In the case of the 
 ### Process Models
 We use a UML activity diagram to do this: diamonds are decision points, bold bars show a kind of sub-graph that you can do in any order. Each "node" is an individual activity and are not documented in depth on that diagram. This is drawn like a flow diagram. 
 
+![process model](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/processmodel.PNG)
+
 ### Interaction Models
