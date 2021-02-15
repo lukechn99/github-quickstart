@@ -13,9 +13,8 @@ An app needs the transport service to provide:
 3. Throughput
 4. Security, how sensitive is the data?
 
----
 | Application | Data Loss | Bandwidth | Time Sensitive |
----
+| --- | --- | --- | --- |
 | Email | cannot tolerate | elastic | no |
 |audio/video | loss-tolerant, can drop some frames | audio (5Kb), video (10Kb) minimum | yes, 100ms |
 | IM | yes
