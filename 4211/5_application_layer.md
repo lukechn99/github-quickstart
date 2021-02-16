@@ -16,8 +16,12 @@ An app needs the transport service to provide:
 | Application | Data Loss | Bandwidth | Time Sensitive |
 | --- | --- | --- | --- |
 | Email | cannot tolerate | elastic | no |
-|audio/video | loss-tolerant, can drop some frames | audio (5Kb), video (10Kb) minimum | yes, 100ms |
-| IM | yes
+| Web Documents | cannot tolerate | elastic | no |
+| Audio/Video | loss-tolerant, can drop some frames | audio (5Kb), video (10Kb) minimum | yes, 100ms |
+| Games | loss-tolerant | few Kbps up | yes, 100ms |
+| IM | cannot tolerate | elastic | yes and no |
+
+
 
 ### World Wide Web
 When creating a network app, you have to choose which transport layer to use when communicating from one end system to another end system. 
