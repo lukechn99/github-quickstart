@@ -57,11 +57,25 @@ One important idea is **Propagation Delay** which is the time it takes for a fil
 The first time you send data through a circuit, it takes time alpha between each router/switch. After the first pass to and back, which is the *circuit setup time*, subsequent transmissions are much faster.  
 For packet switching, packets have propagation delay, however, because multiple packets are sending simultaneously they can overlap. Once they reach the next switch/router, they will wait for all packets to catch up (buffer) and then begin sending to the next router. Each send also has a packet delay of alpha which is the *distance / propagation speed* 
 
+End-to-end delay for circuit switching:  
+delay = n * (dproc + d/s) + l/r  
+
+Packet Switching:  
+delay = n * (dproc + dqueue + (l/r) + (d/s))
+
+where n is the number of routers  
+dproc is the processing delay  
+dqueue is the queuing delay  
+l is the packet length  
+r is the link bandwidth  
+d is length of physical link  
+s is the propagation speed  
+
 ### Frequency and Time Division Multiplexing
 Divide a single channel into pieces.  
-**FDM**: requency division multiplexing lets all four channels send simultaneously  
+**FDM**: requency division multiplexing lets all four channels send simultaneously. FDM transcievers that are using that 100mbps link split into 4 channels only needs to transmit at 25mbps because that's their channel size.  
 **TDM**: time division, we split up the time share of who is sending, but each sender can use the full link for their time frame  
-For example, for a 100mbps link, a TDM transciever would need to operate at 100mbps in order to full take advantage of the link. FDM transcievers that are using that 100mbps link split into 4 channels only needs to transmit at 25mbps because that's their channel size.  
+For example, for a 100mbps link, a TDM transciever would need to operate at 100mbps in order to full take advantage of the link.   
 **CDM**: Code division multiplexing  
 
 ![multiplexing](https://github.com/lukechn99/github-quickstart/blob/master/4211/res/multiplex.PNG)
