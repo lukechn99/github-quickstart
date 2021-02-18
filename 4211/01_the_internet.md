@@ -57,19 +57,19 @@ One important idea is **Propagation Delay** which is the time it takes for a fil
 The first time you send data through a circuit, it takes time alpha between each router/switch. After the first pass to and back, which is the *circuit setup time*, subsequent transmissions are much faster.  
 For packet switching, packets have propagation delay, however, because multiple packets are sending simultaneously they can overlap. Once they reach the next switch/router, they will wait for all packets to catch up (buffer) and then begin sending to the next router. Each send also has a packet delay of alpha which is the *distance / propagation speed* 
 
-End-to-end delay for circuit switching:  
-delay = n * (dproc + d/s) + l/r  
+**End-to-end delay for circuit switching:  
+delay = n * (dproc + d/s) + l/r**  
 
-Packet Switching:  
-delay = n * (dproc + dqueue + (l/r) + (d/s))
+**End-to-end delay for packet switching:  
+delay = n * (dproc + dqueue + (l/r) + (d/s))**  
 
-where n is the number of routers  
-dproc is the processing delay  
-dqueue is the queuing delay  
-l is the packet length  
-r is the link bandwidth  
-d is length of physical link  
-s is the propagation speed  
+where **n** is the number of routers  
+**dproc** is the processing delay  
+**dqueue** is the queuing delay  
+**l** is the packet length  
+**r** is the link bandwidth  
+**d** is length of physical link  
+**s** is the propagation speed  
 
 ### Frequency and Time Division Multiplexing
 Divide a single channel into pieces.  
