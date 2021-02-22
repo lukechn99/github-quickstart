@@ -28,3 +28,33 @@ Authentication:
 HTTP itself is stateless, so we need to implement this as an extra thing. Servers that are protected will respond with a 401 auth. req.  
 Cookies can also identify you. The server will send a cookie the first time you connect, and in subsequent connections, the client will present the cookie when sending later requests.  
 Security versus safety
+
+### Containers
+
+
+### HTTP/2
+The main goals is to decrease latency to improve page load speed
+It addresses problems in HTTP version 1 like negotiation mechanisms between clients and 
+Pipelining of HTTP requests
+WE allow multiple queues to fixe the head of line problem  
+It uses HTTP push instead of pull. This says that if the server understands who you are, and what you are interested in, then we don't want to wait for you to ask foan object. Instead, they will be pushed to you for fast access in case you eed them. 
+
+### Email
+Mail needs a mail server. Most mail actually goes between mail servers.  
+The major components are user agents, mail servers, and SMTP (RFC 821). While mail servers communicate by SMTP, the user agent does not have to. User agents connect through a different protocol (usually POP3 or )  
+Email uses TCP over port 25.  
+Phases of transfer include handshaking, transfer of message, and closure. 
+Over SMTP, messages had to be sent in 7-bit ASCII.  
+| Header |
+---
+| Blank line |
+---
+| Body | 
+
+### Email vs. HTTP
+HTTP: pull, it is waiting for your request
+email: push
+Both use ASCII command and responde  
+HTTP: each object is iencapsulated in its own response message
+SMTP: multiple object messages sent in a multipart message.  
+These protocols only consider text, not images or videos. They are changed later to accommodate other media.  
