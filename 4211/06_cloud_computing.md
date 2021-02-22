@@ -37,11 +37,11 @@ The main goals is to decrease latency to improve page load speed
 It addresses problems in HTTP version 1 like negotiation mechanisms between clients and 
 Pipelining of HTTP requests
 WE allow multiple queues to fixe the head of line problem  
-It uses HTTP push instead of pull. This says that if the server understands who you are, and what you are interested in, then we don't want to wait for you to ask foan object. Instead, they will be pushed to you for fast access in case you eed them. 
+It uses HTTP push instead of pull. This says that if the server understands who you are, and what you are interested in, then we don't want to wait for you to ask foan object. Instead, they will be pushed to you for fast access in case you need them. 
 
 ### Email
 Mail needs a mail server. Most mail actually goes between mail servers.  
-The major components are user agents, mail servers, and SMTP (RFC 821). While mail servers communicate by SMTP, the user agent does not have to. User agents connect through a different protocol (usually POP3 or )  
+The major components are user agents, mail servers, and SMTP (RFC 821). While mail servers communicate by SMTP, the user agent does not have to. User agents connect through a different protocol (usually POP3 or IMAP) when receiving messages from mail servers. When sending, however, they still use SMTP.   
 Email uses TCP over port 25.  
 Phases of transfer include handshaking, transfer of message, and closure. 
 Over SMTP, messages had to be sent in 7-bit ASCII.  
@@ -50,6 +50,12 @@ Over SMTP, messages had to be sent in 7-bit ASCII.
 | Blank line |
 ---
 | Body | 
+With Multimedia (MIME), we define even more things in the header so that the recipient can properly play out the contents. 
+
+### POP3
+Post Office Protocol uses a authorization phase and a transaction phase.  
+In authorization, declare a user and password. The server will either respond +OK or -ERR  
+In the transaction phase, the client can list out new mail, retrieve a message, or delete messages and then close the connection. 
 
 ### Email vs. HTTP
 HTTP: pull, it is waiting for your request
