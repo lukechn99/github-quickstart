@@ -6,6 +6,9 @@ There is no always-on server. It is highly scalable, but difficult to manage.
 We can use a directory server that can lead from one peer to another, or broadcast outwards to find the peer.  
 Skype is an example of something that uses P2P and client-server
 
+### Containers
+Containers let you run applications and code in an environment that is separate from the computer. It separates concerns of code logic from IT dependencies. 
+
 ### HTTP
 As long as you use HTTP protocol, you can communicate through the web and build your own browser. Regardless of machine, they can communicate to web servers using HTTP.  
 HTTP uses TCP: client initiates RCP connection to server, server accepts TCP connection from client, HTTP messages are exchanged, then the connection is closed.  
@@ -29,9 +32,6 @@ HTTP itself is stateless, so we need to implement this as an extra thing. Server
 Cookies can also identify you. The server will send a cookie the first time you connect, and in subsequent connections, the client will present the cookie when sending later requests.  
 Security versus safety
 
-### Containers
-
-
 ### HTTP/2
 The main goals is to decrease latency to improve page load speed
 It addresses problems in HTTP version 1 like negotiation mechanisms between clients and 
@@ -46,9 +46,9 @@ Email uses TCP over port 25.
 Phases of transfer include handshaking, transfer of message, and closure. 
 Over SMTP, messages had to be sent in 7-bit ASCII.  
 | Header |
----
+| --- |
 | Blank line |
----
+| --- | 
 | Body | 
 With Multimedia (MIME), we define even more things in the header so that the recipient can properly play out the contents. 
 
