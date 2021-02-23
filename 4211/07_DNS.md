@@ -24,15 +24,10 @@ DNS protocol messages are formatted as...
 | identification (a 16-bit number for the query) | flags |
 | --- | --- |
 | number of questions | number of answer RRs |
-| --- | --- |
 | number of authority RRs | number of additional RRs |
-| --- | --- |
 | questions |
-| --- |
 | answers | 
-| --- |
 | authority |
-| --- |
 | additional information |
 
 
