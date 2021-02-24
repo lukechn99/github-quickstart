@@ -19,3 +19,7 @@ Uses group leaders that take the place of super nodes. When one of these go down
 
 ### DHT Distributed Hash Table
 We hash a resource name and store it in a table. We then designate one node as the holder of the resource. 
+First, we assign an integer identifier to every peer in range. 
+The hash table is distributed among you and your 10 neighbors. No single one person needs to hold the whole hash table. We hash the query so that we know which neighbor to go to? Like a two tier hash table? Hash table of hash tables?  
+I don't understand the hypercube example. 3 bit representation, only one bit changes at a time??? 001 -> 011 -> 010?
+![hypercube](https://github.com/lukechn99/github-quickstart/blob/master/4211/res/hypercube.png)
