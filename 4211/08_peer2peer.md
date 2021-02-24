@@ -18,6 +18,7 @@ NATs are for multiple nodes using the same IP address.
 Uses group leaders that take the place of super nodes. When one of these go down, we have to have a secondary backup node. 
 
 ### DHT Distributed Hash Table
+When you want to publish a resource, you cannot just use the name as the identifier because it's not guaranteed unique. So you produce a hash entry with the hashed name and your IP. Then, you find the computer with the same or similar IP hash as your resource hash and store the key value pair there. When someone looks for it, they will know the resource hash and will look at the corresponding peer. Then they will find the key value pair, the value of which will be your IP, so then they know to come to you. 
 We hash a resource name and store it in a table. We then designate one node as the holder of the resource. 
 First, we assign an integer identifier to every peer in range. 
 The hash table is distributed among you and your 10 neighbors. No single one person needs to hold the whole hash table. We hash the query so that we know which neighbor to go to? Like a two tier hash table? Hash table of hash tables?  
