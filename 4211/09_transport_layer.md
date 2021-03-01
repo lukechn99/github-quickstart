@@ -19,3 +19,10 @@ One UDP segment is formatted as a source port #, destination port #, a 16 bit le
 | --- | --- |
 | length | checksum |
 | message |
+
+### TCP
+One to one sender to receiver. Full duplex bi-directional, connection-oriented handshaking.  
+TCP segment is wayyy more complicated.  
+acknowledgement number is the sequence number in reverse  + some other data... whattt?  
+also uses a checksum, control info, 
+Host A, sending a message of 1 byte to host B with sequence number 40 means that host B will send acknowledgement 40+1=41 back to show that it received the full message of length 1 byte. 
