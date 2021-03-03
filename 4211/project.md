@@ -23,4 +23,7 @@ Sockets are IPC end points.
 You need IP address and port
 Client: get IP address and port # of the server, create a TCP socket, send/receive, close  
 Server: Create TCP socket and bind it to an IP address and port number, listen to the port and accept new connections, send/receive, close connection.  
-The server will need to fork() new children to handle the clients
+The server will need to fork() new children to handle the clients  
+```m = ntohl(m)``` is the byte conversion API for network to host bye conversion
+Big endian is used in the network layer, and little endian is used by host
+UDP uses datagram (```SOCK_DGRAM```) and TCP uses socket stream (```SOCK_STREAM```). The difference being that TCP writes many messages to a buffer and it gets read in one read, UDP will send each write separately. 
