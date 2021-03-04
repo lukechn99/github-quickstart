@@ -22,8 +22,8 @@ make clean
 make run
 make all
 ```
-there is a difference between .o and .out
-tehre is a one-to-one relationship between .c and .o files  
+the difference between .o and .out which is that .o is an object file, one or more object files can be linked with one or more libraries to create the executable .out file.   
+there is a one-to-one relationship between .c and .o files  
 but all needed .o files must be included in the .out for the .out to run correctly
 
 ### Exercise/demo
