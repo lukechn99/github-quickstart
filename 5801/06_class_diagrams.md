@@ -11,15 +11,15 @@ Therefore the
 
 ### Relationships
 Inheritance (specialization of an object), is-a, empty arrow  
-Aggregation (grouping of individual objects), has-a, empty diamond
-Composition (inclusion of other objects), contains-a, full diamond
+Aggregation (grouping of individual objects), has-a, empty diamond  
+Composition (inclusion of other objects), contains-a, full diamond  
+![uml class relationships](https://github.com/lukechn99/github-quickstart/blob/master/5801/res/umlclassrelationships.png)
 
+The differnce between aggregation and composition is what happens when an object is destroyed. In aggregation , each object is standalone and won't be affected. For a composition, if the composition is destroyed, then the objects are destroyed too.  
 
-The differnce between aggregation and composition is what happens when an object is destroyed. In aggregation , each object is standalone and won't be affected. For a composition, if the composition is destroyed, then the objects are destroyed too. 
+Classes can be combined and related  
 
-Classes can be combined and related
-
-Polymorphism: A squirrel is a rat which is an object. Therefore, if any method of space asks for an object, a squirrel will do. 
+Polymorphism: A squirrel is a rat which is an object. Therefore, if any method of space asks for an object, a squirrel will do.  
 
 Overload is redefining a same-named function, different input parameters and different use  
 Overriding is 
