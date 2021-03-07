@@ -21,8 +21,6 @@ An app needs the transport service to provide:
 | Games | loss-tolerant | few Kbps up | yes, 100ms |
 | IM | cannot tolerate | elastic | yes and no |
 
-
-
 ### World Wide Web
 When creating a network app, you have to choose which transport layer to use when communicating from one end system to another end system. 
 
