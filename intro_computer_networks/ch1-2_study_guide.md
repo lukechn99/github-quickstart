@@ -14,8 +14,9 @@ Compute the time required for circuit switching and packet switching with the fo
 •The transmission speed of each link is 100Megabits per second.  
 •The circuit setup time is 10-1second for the case of circuit switching.  
 •The processing time for routing decision at each node is negligible.  
-
-Circuit switching:Required time = setup time + transmission time + propagationtime
+  
+*circuit switching DOES NOT calculate packets*
+Circuit switching:Required time = setup time + transmission time + propagationtime  
 ```𝑇𝑜𝑡𝑎𝑙 = 10^−1 + (10 ∗ 10^6) / (100 ∗ 10^6) + (15∗1000) / (5 ∗ 10^5) = 0.1 + 0.1 + 0.03 = 0.23```
 
 Packet Switching:  
