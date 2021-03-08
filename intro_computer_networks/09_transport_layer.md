@@ -25,4 +25,10 @@ One to one sender to receiver. Full duplex bi-directional, connection-oriented h
 TCP segment is wayyy more complicated.  
 acknowledgement number is the sequence number in reverse  + some other data... whattt?  
 also uses a checksum, control info, 
-Host A, sending a message of 1 byte to host B with sequence number 40 means that host B will send acknowledgement 40+1=41 back to show that it received the full message of length 1 byte. 
+Host A, sending a message of 1 byte to host B with sequence number 40 means that host B will send acknowledgement 40+1=41 back to show that it received the full message of length 1 byte. Acknowledgement comes in the form of the SEQ number + how many bytes were received.  
+In the case of an errors, packets are resent.  
+However, if Host B actually receives Host A's message, but the acknowledgement is lost, then there would be a duplicate packet sent. Another case that could cause duplication is if the connection takes too long and Host A times out, then Host A will resend before Host B even responds.  
+
+### TCP Stop and Wait Protocol
+
+
