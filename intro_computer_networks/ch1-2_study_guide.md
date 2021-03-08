@@ -104,3 +104,5 @@ TCP and UDP examples
 Stateless protocol : the server remembers nothing about you (DNS, HTTP are the application level stateless protocols, UDP is a transport layer stateless)  
 Stateful protocol : keeps track of the connection information (FTP, telnet, SMTP are all application level stateful protocols, and TCP is a transport layer stateful)  
 Web caching : storing certain traffic that comes through a server so that it can be quickly retrieved if needed again  
+MIME : a SMTP format that allows for multimedia messages beyond the regular ASCII 7bit  
+
