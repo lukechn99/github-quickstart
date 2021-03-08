@@ -33,6 +33,8 @@ Required time = transmission time from source for all the packets + propagation 
 
 # The Application Layer
 ### Principles of network applications
+Network applications are written for edge devices, not for the network core. Applications need an application layer protocol which acts as the part of the brain that lets you speak to others. Applications on different machines communicate through the different network layers; IP is used to locate the device (the DNS assists in this), the once the message reaches the right machine, it needs to find the right process. Each IP address (machine) supports many processes and applications running at once, so the next step is locating the correct port
+
 ### The web and HTTP
 ### Electronic mail in the internet
 ### DNS
