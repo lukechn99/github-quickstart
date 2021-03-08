@@ -88,9 +88,13 @@ Email uses SMTP when a server is receiving a message, but uses POP3 or IMAP when
 In POP3, there is a phase for the user to authorize using their password (think logging into Gmail), and then there is a transaction phase that is interactive, the user can list emails, retrieve them, delete, or quit, much like an email application. POP3 allows for this between the client and mail server. 
 
 ### DNS
+DNS is not centralized because we don't want a single point of failure, instead, DNS is split up between local name servers, that each ISP owns, and authoritative name servers. Your requests will first go to the local name server, if it cannot be found there, then it elevates up to the authoritative name server, where the authoritative name server will get the mapping to the destination and give it back to the local name server. There are a dozen root name servers worldwide.  
+DNS queries can be iterative or recursive. Recursive burdens the previous DNS server even after it hands off to the next because it will eventually be responsible for returning the request to the requestor.  
+
 ### P2P applications
 Client server means always on host and permanent IP address. Clients can be off or on, have dynamic IP addresses, and don't have to communicate with other clients.  
 In P2P, there is no always on server and connections are intermittent. P2P needs a central directory server still to find peers.  
+In P2P, there will often be distributed hash tables. See 
 
 ### Video streaming and content distribution networks
 ### Socket programming
