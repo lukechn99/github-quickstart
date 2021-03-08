@@ -8,11 +8,11 @@ EXAMPLE
 Compute the time required for circuit switching and packet switching with the following conditions:  
 •The destination is 3 hops away from the source (2 intermediate routers between the source and the destination, with 3 links).  
 •The distance between any two adjacent nodes is 5 Km.  
-•The signal propagation speed is 5*105m per second.  
-•The message size is 10Megabits (1 Mega = 106).  
-•The maximum packet size is 100k bits (1k = 103,You can ignore the size of the header).  
+•The signal propagation speed is 5*10^5m per second.  
+•The message size is 10Megabits (1 Mega = 10^6).  
+•The maximum packet size is 100k bits (1k = 10^3,You can ignore the size of the header).  
 •The transmission speed of each link is 100Megabits per second.  
-•The circuit setup time is 10-1second for the case of circuit switching.  
+•The circuit setup time is 10^-1second for the case of circuit switching.  
 •The processing time for routing decision at each node is negligible.  
   
 *circuit switching DOES NOT calculate packets*
