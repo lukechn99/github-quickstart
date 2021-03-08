@@ -86,7 +86,8 @@ HTTP/2 improves on HTTP/1 and HTTP/1.1 by compressing headers, pipelining HTTP r
 TCP port 25  
 Whereas HTTP waits for a pull to give data, email works as a push, pushing emails to servers without them asking.  
 Email uses SMTP when a server is receiving a message, but uses POP3 or IMAP when a client is receiving the message.  
-In POP3, there is a phase for the user to authorize using their password (think logging into Gmail), and then there is a transaction phase that is interactive, the user can list emails, retrieve them, delete, or quit, much like an email application. POP3 allows for this between the client and mail server. 
+In POP3, there is a phase for the user to authorize using their password (think logging into Gmail), and then there is a transaction phase that is interactive, the user can list emails, retrieve them, delete, or quit, much like an email application. POP3 allows for this between the client and mail server.  
+IMAP (port 143) allows for even more functionality beyond just retrieving and readling/deleting text emails. Once you download the message, it will no longer be on the server. With IMAP, your emails stay on the server, mail can be organized into servers, email search happens on the server, 
 
 ### DNS
 DNS is not centralized because we don't want a single point of failure, instead, DNS is split up between local name servers, that each ISP owns, and authoritative name servers. Your requests will first go to the local name server, if it cannot be found there, then it elevates up to the authoritative name server, where the authoritative name server will get the mapping to the destination and give it back to the local name server. There are a dozen root name servers worldwide.  
