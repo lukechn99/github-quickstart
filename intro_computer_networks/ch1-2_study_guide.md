@@ -79,12 +79,18 @@ Content-Type: text/html; charset=ISO-8859-1\r\n
 data data data data data ...
 ```
 ---
+HTTP/2 improves on HTTP/1 and HTTP/1.1 by compressing headers, pipelining HTTP requests, using server push, backward compatibility, and overall speediness of service. 
 
 ### Electronic mail in the internet
+TCP port 25  
+Whereas HTTP waits for a pull to give data, email works as a push, pushing emails to servers without them asking.  
+Email uses SMTP when a server is receiving a message, but uses POP3 or IMAP when a client is receiving the message.  
+In POP3, there is a phase for the user to authorize using their password (think logging into Gmail), and then there is a transaction phase that is interactive, the user can list emails, retrieve them, delete, or quit, much like an email application. POP3 allows for this between the client and mail server. 
+
 ### DNS
 ### P2P applications
 Client server means always on host and permanent IP address. Clients can be off or on, have dynamic IP addresses, and don't have to communicate with other clients.  
-In P2P, there is no always on server and connections are intermittent. P2P needs a central directory server still to find peers. 
+In P2P, there is no always on server and connections are intermittent. P2P needs a central directory server still to find peers.  
 
 ### Video streaming and content distribution networks
 ### Socket programming
