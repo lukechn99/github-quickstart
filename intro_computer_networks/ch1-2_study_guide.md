@@ -94,7 +94,7 @@ DNS queries can be iterative or recursive. Recursive burdens the previous DNS se
 ### P2P applications
 Client server means always on host and permanent IP address. Clients can be off or on, have dynamic IP addresses, and don't have to communicate with other clients.  
 In P2P, there is no always on server and connections are intermittent. P2P needs a central directory server still to find peers.  
-In P2P, there will often be distributed hash tables. See 
+In P2P, there will often be distributed hash tables. See the [peer 2 peer notes](https://github.com/lukechn99/github-quickstart/blob/master/intro_computer_networks/08_peer2peer.md) for more on those. 
 
 ### Video streaming and content distribution networks
 ### Socket programming
