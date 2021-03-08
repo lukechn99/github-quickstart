@@ -41,6 +41,7 @@ Applications communicates down to the transport layer through an API which defin
 
 ### The web and HTTP
 HTTP is the web's application layer protocol and operates on a client server model. The client sends a http request and the server gives an http response.  
+HTTP uses Transport Layer Security (TLS) or, formerly, Secure Sockets Layer (SSL) for encryption.  
 HTTP uses TCP to sustain a connection from server to client while exchanging messages. After closing the TCP connection, however, all memory of the client is lost, thus HTTP is known as stateless. Nowadays, cookies are given to clients to give some semblance of recognition and statefulness.  
 In *persistent* http, the connection stays open for multiple objects to be sent, in *non-persistent* http, the connection is only for one object and then the server closes the connection. In non-persistent HTTP, the response time is ```2RTT + file transmission time```. One RTT (time for a packet to travel from client to server and back) is used to initiate the TCP connection and then another is used for the file request and transfer.  
 Persistent HTTP can do as little as one RTT for all referenced objects.  
