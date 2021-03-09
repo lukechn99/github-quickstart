@@ -27,6 +27,8 @@ Required time = transmission time from source for all the packets + propagation 
 𝑇𝑜𝑡𝑎𝑙 = 0.132  
 ```
 ---
+More on [switching delays](https://github.com/lukechn99/github-quickstart/blob/master/intro_computer_networks/01_the_internet.md)  
+
 ### Protocol layers and their service models
 ### Networks under attack
 ### History
