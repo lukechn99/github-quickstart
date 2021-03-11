@@ -1,6 +1,8 @@
 # github-quickstart  
 
 what the command does and the typical situations in which it is used  
+make sure to commit before doing anything...  (don't try resolving merge conflicts without committing........)
+
 ### config
 Git config is used to configure Git settings. It is used to setup email, username, and editor in Github the first time you use it.  
 ```$ git config --global core.editor emacs```  
