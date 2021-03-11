@@ -28,7 +28,17 @@ also uses a checksum, control info,
 Host A, sending a message of 1 byte to host B with sequence number 40 means that host B will send acknowledgement 40+1=41 back to show that it received the full message of length 1 byte. Acknowledgement comes in the form of the SEQ number + how many bytes were received.  
 In the case of an errors, packets are resent.  
 However, if Host B actually receives Host A's message, but the acknowledgement is lost, then there would be a duplicate packet sent. Another case that could cause duplication is if the connection takes too long and Host A times out, then Host A will resend before Host B even responds.  
+Connection setup works with a three way handshake. The client sends SYN, seq=x to the server, the server responds with SYN+ACK, seq=y, ack=x back to the client. At this point the connection is established. At this point, the client sends another message back to say that  
+Client opens and closes connection. The FIN bit, which is usually set to 0, will be set to 1 by the client which signifies to the server that the connection should close. Once received, the server will half close, and once the client receives the ACK it will also half close. The server will send a final FIN and fully close. The half closing is so that both server and client are finished before closing. This is because the first FIN that's sent is not guaranteed to arrive, so it requires an acknowledgement. 
 
 ### TCP Stop and Wait Protocol
+TCP is much more complicated than UDP because responses are required. The sender algorithm includes a send phase where we send the data with a sequence number, buffer data segment, and a timer. During the wait phase, the receiver will wait for acknowledgement x + n - 1 where n is the number of bytes. If the number received does not equal x + n, then something went wrong so we might resend a message. We expect x + n - 1 because x + n is one more byte than received.  
+Stop and wait has round trip propagation delay to just and the timeout duration is calculated based on that. The round trip time is the end of the time at which the first packet is transmitted until the ACK comes back is called the **RTT** which is the response "round trip time". We make sure that the timeout is longer than the expected RTT. 
 
+### SRDTP
+Finite state machines have a number of states that a 
 
+### Pipelined Protocols
+Allows multiple data segments to be in transit at once, the receiver needs a buffer to receive
+
+Go back to N makes sure that if one packet is wrong, all subsequent packets have to be repeated
