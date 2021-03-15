@@ -41,4 +41,8 @@ Finite state machines have a number of states that a
 ### Pipelined Protocols
 Allows multiple data segments to be in transit at once, the receiver needs a buffer to receive
 
-Go back to N makes sure that if one packet is wrong, all subsequent packets have to be repeated
+### Flow control and Congestion control
+**Go-back-to-N** makes sure that if one packet is wrong, all subsequent packets have to be repeated. Every packet after the Nth packet is discarded and re-sent. The sender sets up a timer for re-sending. The sender continuously sends packets without waiting for ACK. It uses a sliding window of size N which is the maximum amount of packets that can be sent without acknowledgement. Once the window has been finished, the sender has to wait for receiver acknowledgement. The receiver also has a window size that limits how many packets the receiver can accept. 
+
+**Selective Repeat** if the Nth one is missing, the subsequent ones will just be stored in a buffer and wait for the Nth one to resend. The receiver acknowledges packets before the lost packet, but will not acknowledge the ones that come after because they are out of order. Instead, those will be stored in a buffer to wait for the sender to re-send the missing packet. Only the missing one is re-sent.  
+For example, we could have a window of size N = 5 covering packets 0, 1, 2, 3, 4. Once packet 0 has been acknowledged, then the window moves onto 1, 2, 3, 4, 5
