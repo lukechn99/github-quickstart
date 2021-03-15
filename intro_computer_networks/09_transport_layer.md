@@ -46,3 +46,10 @@ Allows multiple data segments to be in transit at once, the receiver needs a buf
 
 **Selective Repeat** if the Nth one is missing, the subsequent ones will just be stored in a buffer and wait for the Nth one to resend. The receiver acknowledges packets before the lost packet, but will not acknowledge the ones that come after because they are out of order. Instead, those will be stored in a buffer to wait for the sender to re-send the missing packet. Only the missing one is re-sent.  
 For example, we could have a window of size N = 5 covering packets 0, 1, 2, 3, 4. Once packet 0 has been acknowledged, then the window moves onto 1, 2, 3, 4, 5
+
+### Timeout
+We have to periodically measure RTT because too long of a timeout will slow down your program and too short will make you miss things due to a premature timeout.  
+```EstimatedRTT = (1 - alpha) * EstimatedRTT. + alpha * sampleRTT``` typically alpha is 0.125  
+In other words, the updated RTT is 7/8 of the previous RTT and 1/8 of a sample RTT  
+```DevRTT = (1 - beta) * DevRTT  + beta * abs(SampleRTT - EstimatedRTT)``` where beta typically equals 0.25  
+```TimeoutInterval = EstimatedRTT + 4*DevRTT```
