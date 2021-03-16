@@ -37,7 +37,7 @@ Sockets are a ket abstraction for end points of server programming. A socket can
 The **socket** for the server needs to be known by everyone. It needs an open socket that is **binded** to a network address. Then, it needs to set up a queue for incoming connection requests with **listen**. Finally, we need to **accept** connections from the queue.  
 When a server accepts a connection, it creates a new socket to communicate with, after communication with writes and reads, it will close that one-time socket if the connection-accept succeeds (client connects and server accepts).  
 We bind the socket to a port so that clients know where to find it. Clients send connection requests, and once they are accepted, the server creates a private socket just for that client. 
-*This is like when students queue for office hours, the queue is public, but once a student's connection is accepted, the TA creates a private room to communicat with the student in*  
+*This is like when students queue for office hours, the queue is public, but once a student's connection is accepted, the TA creates a private room to communicate with the student in*  
 **Bind** takes a socket andbinds it to a domain. ```int bind(int sockfd, struct sockaddr *my_addr, socklen_t addrlen);```
 An example could be
 ```
@@ -61,4 +61,4 @@ A client has to know the port number and IP of the server. It can use DNS to get
 struct hostent* gethostbyname(const char *name);  // name is the URL
 ```
 Client creates just one socket. No bind is needed because the OS will use the client's IP and finds a free port. After setting up the socket, the client can connect to the server and communicate with reads and writes.  
-See an example of a [server](https://github.com/lukechn99/github-quickstart/blob/master/4061/tcp_server.c) and a [client](https://github.com/lukechn99/github-quickstart/blob/master/4061/tcp_client.c). The server and client should be run over two different machines (hint: CSE labs is good for this)
+See an example of a [server](https://github.com/lukechn99/github-quickstart/blob/master/intro_operating_systems/tcp_server.c) and a [client](https://github.com/lukechn99/github-quickstart/blob/master/intro_operating_systems/tcp_client.c). The server and client should be run over two different machines (hint: CSE labs is good for this)
