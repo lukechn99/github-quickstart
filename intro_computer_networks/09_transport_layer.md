@@ -84,3 +84,6 @@ We have to periodically measure RTT because too long of a timeout will slow down
 In other words, the updated RTT is 7/8 of the previous RTT and 1/8 of a sample RTT  
 ```DevRTT = (1 - beta) * DevRTT  + beta * abs(SampleRTT - EstimatedRTT)``` where beta typically equals 0.25  
 ```TimeoutInterval = EstimatedRTT + 4*DevRTT```
+
+---
+Data loss: happens when data is dropped
