@@ -67,9 +67,16 @@ Sender: send 0, 1, 2, 3, 4, 5, [6, 7, 8], 9
 ```
 
 **Rate control**  
+```Rate = CongWin/RTT * byes/sec```  
 
 **Congestion Control** is an issue guided by morals because we can't really restrict greedy senders from sending too much and hogging the whole network.  
-Approaches include end-to-end control and network-assisted congestion control. TCP does not use these; each source determines network capacity for itself, uses implicit feedback, and uses ACKs to pace transmission. Since this works largely on feedback, it's hard to gauge a starting value for congestion windows to use. The TCP congestion algorithm uses *slow start* and then *congestion avoidance*. This algorithm transmits as fast as possible until data gets lost. At that point the congestion window (congwin) will decrease in size, and then slowly build up again. 
+Approaches include end-to-end control and network-assisted congestion control. TCP does not use these; each source determines network capacity for itself, uses implicit feedback, and uses ACKs to pace transmission. Since this works largely on feedback, it's hard to gauge a starting value for congestion windows to use. The TCP congestion algorithm uses *slow start* and then *congestion avoidance*. This algorithm transmits as fast as possible until data gets lost. At that point the congestion window (congwin) will decrease in size, and then slowly build up again. Before you reach a predefined threshold, the window size increases by a factor of 2, and after reaching the threshold it increases by 1. Slow start begins with a congWin = 1 and doubles on every successful acknowledgement.    
+TCP AIMD: additive increase, multiplicative decrease  
+The maximum window size is decided on by looking at the congestion window and the receiving window size and becomes the lesser of the two because it will be the limiting factor.  
+In TCP Reno, when a loss happens, the new threshold becomes the number of segments being sent at its height divided by 2 and then increases by 1 again. Reno with fast recovery drops bak down to the threshold instead of 1.  
+One way to do congestion control is to assign credits based on what the path can handle.  
+
+The three mechanisms can be summed as AIMD, slow start, and conservative after timeout evens.  
 
 ### Timeout
 We have to periodically measure RTT because too long of a timeout will slow down your program and too short will make you miss things due to a premature timeout.  
