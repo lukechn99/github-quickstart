@@ -66,7 +66,11 @@ Receiver: [3, 4, 5] ack 5
 Sender: send 0, 1, 2, 3, 4, 5, [6, 7, 8], 9
 ```
 
-Rate control
+**Rate control**  
+
+**Congestion Control** is an issue guided by morals because we can't really restrict greedy senders from sending too much and hogging the whole network.  
+Approaches include end-to-end control and network-assisted congestion control. TCP does not use these; each source determines network capacity for itself, uses implicit feedback, and uses ACKs to pace transmission. Since this works largely on feedback, it's hard to gauge a starting value for congestion windows to use. The TCP congestion algorithm uses *slow start* and then *congestion avoidance*. This algorithm transmits as fast as possible until data gets lost. At that point the congestion window (congwin) will decrease in size, and then slowly build up again. 
+
 ### Timeout
 We have to periodically measure RTT because too long of a timeout will slow down your program and too short will make you miss things due to a premature timeout.  
 ```EstimatedRTT = (1 - alpha) * EstimatedRTT. + alpha * sampleRTT``` typically alpha is 0.125  
