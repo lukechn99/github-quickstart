@@ -25,4 +25,22 @@ if (x < 10) {
 }
 Statement4
 ```  
-The code above needs at least two test cases. The first path that a test case would go through is ```Statement1 -> Statement2 -> x < 10 == False -> Statement4``` and the second path is ```Statement1 -> Statement2 -> x < 10 == True -> Statement3 -> Statement4```
+The code above needs at least two test cases. The first path that a test case would go through is ```Statement1 -> Statement2 -> x < 10 == False -> Statement4``` and the second path is ```Statement1 -> Statement2 -> x < 10 == True -> Statement3 -> Statement4```. Structured basis testing only needs to touch every line of code, But for defined use combination, we need to add more tests. For example:  
+```
+if (condition1) {
+  x += 1
+} else {
+  y += 1
+}
+if (condition2) {
+  y += 1
+} else {
+  x += 1
+}
+```  
+With Structured base testing, we only need two tests; one for true true and one for false false. For defined use, we need to test 4 cases which are  true true, true false, false true, and false false. 
+
+### Equivalence Partitioning
+
+### Testing with Data States
+You don't want data defined more than once, defined and then exit out, or defined and then killed. Logic errors like killing a variable and then trying to use it or using it before it's defined. 
