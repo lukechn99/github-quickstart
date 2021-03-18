@@ -16,3 +16,13 @@ White box testing is more like unit testing and integration testing, knowledge o
 
 ### How to do unit testing
 Do the basic flow first and then move onto edge cases
+Test each statement at least once, this means every loop and every call. We want to have a test for every possible return value.  
+```
+Statement1;
+Statement2;
+if (x < 10) {
+  Statement3;
+}
+Statement4
+```  
+The code above needs at least two test cases. The first path that a test case would go through is ```Statement1 -> Statement2 -> x < 10 == False -> Statement4``` and the second path is ```Statement1 -> Statement2 -> x < 10 == True -> Statement3 -> Statement4```
