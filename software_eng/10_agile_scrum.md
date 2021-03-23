@@ -29,3 +29,21 @@ Objective: create independent, negotiable, valuable, estimable, small, and testa
 Look at the product owner's goals and pick which ones are reasonable to do in the next sprint, team members can togehter determine how difficult that item will be. Sometimes the item will need to be split up because it's as big as an epic. At this point you need to split the epic into individual stories.  
 In refining the item, you need to determine what's most important based on INVEST. Definition of done will need to be determined for each story.  
 The backlog refinement is a non-commital meeting and actual commitments are made in sprint planning. 
+Acceptance criteria is for individual stories and definition of done is for the epic or bigger chunk as a whole.  
+
+---
+
+### Sprint planning meeting
+Product owner and development team will negotiate which items to tackel in the current sprint.  
+During this meeting, it is impossible to have items set in stone as dependencies will be discovered along the way.  
+You take products from the backlog and split into tasks.  
+Definition of done is that it is tested and shippable. There is continual analysis of whether the PBIs can be finished without compromise of done and without OT.  
+
+---
+
+### Daily standup
+What did I do yesterday? What will I do today? What are my impediments? The team should create consequences for other team members not following what they need to do. 
+
+---
+
+### Sprint review meeting
