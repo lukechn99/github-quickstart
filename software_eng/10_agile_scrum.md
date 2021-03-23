@@ -47,3 +47,11 @@ What did I do yesterday? What will I do today? What are my impediments? The team
 ---
 
 ### Sprint review meeting
+OPen to any interested stakeholder, live product demostration, product owner will outline which items are done. Those are counted as velocity which can help gauge how long it will take to finish the rest. Then the stakeholders will give input. Stakeholders can also add to the product backlog. Over time, the product backlog will keep growing. 
+
+---
+
+### Sprint retrospective meeting
+The previous was to improve and adapt the product, but this is for improving the process. We want to aim for a learning team over an efficient team. People need to feel safe in the environment.  
+People should negotiate based on core interests rather than desired outcomes.  
+Timeline retrospectives are useful for helping the team identify what happened throughout the sprint and how to resolve conflict in the future. 
