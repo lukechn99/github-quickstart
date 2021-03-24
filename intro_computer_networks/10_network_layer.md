@@ -54,5 +54,15 @@ Directs to the port based on the prefix of the destination address.
 | 11001000 00010111 00011*** ********* | 2 |
 For example, 11001000 00010111 00010110 10100001 goes to interface 0  
 and 11001000 00010111 00011000 10101010 goes to interface 1  
+  
+Anything that matches the longest prefix will go to that interface link.  
+This table will be continually updated. 
 
-anything that matches the longest prefix will go to that interface link. 
+### IP Datagram Forwarding Model
+The next hop is the least specific one. 
+The datagram format has a 32 bit format. They have an IP protocol version, a header of length 32 bits, the type of service (delay, throughput, reliability bits), total length (max of 65535 bytes), identification, flags, fragment offset, time to live (to prevent the packet from just bouncing around the internet if it doesn't find its destination), protocol type.  
+IP fragmentation is what happens when the data hits an ethernet switch going into a smaller network. They are reassembled at the destination.  
+For example, you start with a datagram of size 4000 bytes and a fragflag = 0 because no fragmentation has happened yet. If it goes through the ethernet, which only allows sizes of 1500 bytes, but it must be in multiples of 8 bytes, so it will be split into 3 chunks of 1480 (185 * 8), 1480, and 1040. With offsets of 0, 185, and 370 and fragflags of 1, 1, and 0 respectively. 
+
+### NAT (Network Address Translation) 
+All hosts under a local network can just use the same IP address but can be identified with a port number instead. For example we have 1.0.0.1, 1.0.0.2, and 1.0.0.3 connected to 1.0.0.4 which is the router. The router can then use a NAT translation table to just use 138.76.29.7 and have a unique port number. For example, 1.0.0.1 can send traffic out as 138.76.29.7, 5001
