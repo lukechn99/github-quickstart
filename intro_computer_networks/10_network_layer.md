@@ -47,10 +47,12 @@ Datagram only determines next hop while virtual circuit determines the entire pa
 ### Forwarding table
 Directs to the port based on the prefix of the destination address. 
 
-| IP | Link Interface |
+| IP Destination | Link Interface |
 | --- | --- |
 | 11001000 00010111 00010*** ********* | 0 |
 | 11001000 00010111 00011000 ********* | 1 |
 | 11001000 00010111 00011*** ********* | 2 |
+For example, 11001000 00010111 00010110 10100001 goes to interface 0  
+and 11001000 00010111 00011000 10101010 goes to interface 1  
 
 anything that matches the longest prefix will go to that interface link. 
