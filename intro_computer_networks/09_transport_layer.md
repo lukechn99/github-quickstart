@@ -80,10 +80,10 @@ The three mechanisms can be summed as AIMD, slow start, and conservative after t
 
 ### Timeout
 We have to periodically measure RTT because too long of a timeout will slow down your program and too short will make you miss things due to a premature timeout.  
-```EstimatedRTT = (1 - alpha) * EstimatedRTT. + alpha * sampleRTT``` typically alpha is 0.125  
+```EstimatedRTT' = (1 - alpha) * EstimatedRTT + alpha * sampleRTT``` typically alpha is 0.125  
 In other words, the updated RTT is 7/8 of the previous RTT and 1/8 of a sample RTT  
-```DevRTT = (1 - beta) * DevRTT  + beta * abs(SampleRTT - EstimatedRTT)``` where beta typically equals 0.25  
-```TimeoutInterval = EstimatedRTT + 4*DevRTT```
+```DevRTT' = (1 - beta) * DevRTT  + beta * abs(SampleRTT - EstimatedRTT)``` where beta typically equals 0.25  
+```TimeoutInterval = EstimatedRTT' + 4*DevRTT'```
 
 ---
 Data loss: happens when data is dropped
