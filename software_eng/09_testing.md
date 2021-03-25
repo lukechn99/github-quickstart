@@ -60,5 +60,8 @@ Try to guess where errors might be with intuition to target areas that are susce
 
 ### Boundary Analysis
 Think about one-off errors. Test below the boundary, at the boundary, and above the boundary.  
-<------0-----------n------>  
-   ^   ^    ^      ^  ^  
+<------0-----------n------> test -1, 0, n/2, n, n+1  
+Pay attention to compound boundaries. Sometimes your individual values will be okay, but when you add two values together you get something longer than an int, or more than a byte, or some other kind of overflow that might mess up the data or index out of bounds because of two or more pieces of data together. 
+
+### Classes of Good Data
+You should aim to test the nominal case, maximum configuration, minimum, and old data. 
