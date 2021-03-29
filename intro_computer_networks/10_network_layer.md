@@ -67,7 +67,18 @@ For example, you start with a datagram of size 4000 bytes and a fragflag = 0 bec
 
 ### NAT (Network Address Translation) 
 All hosts under a local network can just use the same IP address but can be identified with a port number instead. For example we have 1.0.0.1, 1.0.0.2, and 1.0.0.3 connected to 1.0.0.4 which is the router. The router can then use a NAT translation table to just use 138.76.29.7 and have a unique port number. For example, 1.0.0.1 can send traffic out as 138.76.29.7, 5001  
-Of course, usually the port number tells you which process on the host to go to, but since the port number is to indicate decive from server, the NAT router needs to change the dest addr datagram to the actual IP addr. When you come down to the transport layer, you only have a port number, when you come down from transport to network layer, you get th eIP Address. 
+Of course, usually the port number tells you which process on the host to go to, but since the port number is to indicate device from server, the NAT router needs to change the dest addr datagram to the actual IP addr. When you come down to the transport layer, you only have a port number, when you come down from transport to network layer, you get th eIP Address. 
+The mapping is maintained for the port number of the host so that there is a unique port for 
+
+| What outsiders see | What host it actually connects to | What process/port it actually connects to |
+| --- | --- | --- |
+| 138.76.29.7 / 10 | 1.0.0.1 | 80 |
+| 138.76.29.7 / 20 | 1.0.0.1 | 25 |
+| ... | ... | ... |
+| 138.76.29.7 / 90 | 1.0.0.2 | 80 |
+| 138.76.29.7 / 110 | 1.0.0.2 | 995 |
+| ... | ... | ... |
+| 138.76.29.7 / 130 | 1.0.0.3 | 25 |
 
 ### IPv6
 No checksum, because every time the hop limit gets decreased they have to recalculate. No fragmentation, instead you will . This means that IPv6 is faster.  
