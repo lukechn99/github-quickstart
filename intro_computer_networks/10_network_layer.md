@@ -4,6 +4,7 @@ Data plane is how the data gets moved and the control plane determines how we do
 Out of band control is when the control is done through the control plane, we also have in-band control where control is done with the data plane.  
 
 ### The data plane
+Uses the forwarding table to handle the moves from hop to hop. 
 Network service models here are virtual circuit (TCP) or datagram (UDP). The router and switches are treated the same. In the data plane, we talk more about the forwarding table which is the data ...  
 DHCP: ISP will reassign your IP to be used when you are offline. 
 You could track a cell phone is you know the MAC address, which is permanent on the NIC Card, and then track the IP address it is coming from and then the location of the IP address.  
@@ -11,7 +12,7 @@ Look at destination IP address, compare with routing table and see what output p
 Key functions of the networking layer include forwarding and routing. 
 
 ### The control Plane
-Network-wide logic, determine what needs to be in the routing table.  
+Network-wide logic, determine what needs to be in the routing table. Looks at how to colllect data for the routing table.   
 Traditional routing algorithms vs software-defined networking. Shortest path to intelligent path. We are no longer routing data just based on IP address instead it will base it on other parts of the data.  
 In traditional routing algorithms, routers use forwarding tables to decide what port to direct you towards next using header values. The worwarding table is based on the routing algorithm and the routing algorithm is based on the routing table.  
 In Logically centralized control (not actually centralized), there is a remote controller that interacts with local agents. One flaw is that any changes that happen take a long time to become known over the population of routers. It travels by propagation and is limited by transmission speeds and distance. The logically centered controller has a global view that can see everything, which gives consistency to the network.  
@@ -65,4 +66,18 @@ IP fragmentation is what happens when the data hits an ethernet switch going int
 For example, you start with a datagram of size 4000 bytes and a fragflag = 0 because no fragmentation has happened yet. If it goes through the ethernet, which only allows sizes of 1500 bytes, but it must be in multiples of 8 bytes, so it will be split into 3 chunks of 1480 (185 * 8), 1480, and 1040. With offsets of 0, 185, and 370 and fragflags of 1, 1, and 0 respectively. 
 
 ### NAT (Network Address Translation) 
-All hosts under a local network can just use the same IP address but can be identified with a port number instead. For example we have 1.0.0.1, 1.0.0.2, and 1.0.0.3 connected to 1.0.0.4 which is the router. The router can then use a NAT translation table to just use 138.76.29.7 and have a unique port number. For example, 1.0.0.1 can send traffic out as 138.76.29.7, 5001
+All hosts under a local network can just use the same IP address but can be identified with a port number instead. For example we have 1.0.0.1, 1.0.0.2, and 1.0.0.3 connected to 1.0.0.4 which is the router. The router can then use a NAT translation table to just use 138.76.29.7 and have a unique port number. For example, 1.0.0.1 can send traffic out as 138.76.29.7, 5001  
+Of course, usually the port number tells you which process on the host to go to, but since the port number is to indicate decive from server, the NAT router needs to change the dest addr datagram to the actual IP addr. When you come down to the transport layer, you only have a port number, when you come down from transport to network layer, you get th eIP Address. 
+
+### IPv6
+No checksum, because every time the hop limit gets decreased they have to recalculate. No fragmentation, instead you will . This means that IPv6 is faster.  
+However, most nodes will handle both IPv4 and IPv6. IPv6 users will tunnel through the network, skipping by all of the IPv4 parts of the network. 
+
+### Routing Algorithms
+Intra-domain routing is simple: Like UMN to UMN. But outside of a domain is trickier. Interdomain routing has to avoid things like foreign countries for safety reasons.  
+Instead of routers talking to neighboring routers to exchange info, they talk to a single remote controller so that there is a central point of communication.  
+In considering a routing algorithm, we look at cost graphs as an abstraction of the network. In these graphs, paths are represented as bi-directional, but in reality the paths are directional with their own cost even if they are going between A to B and B to A.  
+The cost of a path is the sum of the cost of the edges it passes through.  
+Routes can be decided on heuristics like not corssing into .gov or simply looking for shortest path.  
+When a node disappears or goes down, the network needs to self-heal without human intervention.  
+Types of routing includes hop-by-hop where the packet is given its next hop by every router it passes through. The alternative is source routing where the sender includes, in the header of the packet, the exact path that the packet will take. In source routing the header size is larger. Currently, we do hop-by-hop, but we would like to move into source routing because it enables us to avoid nodes that we don't want to go into. Source routing means less work for routers but more work for the sender. 
