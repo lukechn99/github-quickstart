@@ -78,7 +78,8 @@ The mapping is maintained for the port number of the host so that there is a uni
 | 138.76.29.7 / 90 | 1.0.0.2 | 80 |
 | 138.76.29.7 / 110 | 1.0.0.2 | 995 |
 | ... | ... | ... |
-| 138.76.29.7 / 130 | 1.0.0.3 | 25 |
+| 138.76.29.7 / 130 | 1.0.0.3 | 25 |  
+We can see from the example above that all outgoing traffic comes from IP address 138.76.29.7 and all incoming traffic comes to 138.76.29.7 but each port of 138.76.29.7 is mapped to another host inside of that network and a specific port on that host.  
 
 ### IPv6
 No checksum, because every time the hop limit gets decreased they have to recalculate. No fragmentation, instead you will . This means that IPv6 is faster.  
