@@ -36,3 +36,4 @@ Acceptance Criteria (what is required for the business and product owner to acce
 Definition of Done (what is required by the team before sending out for review? This should be the same for all stories; it's more of an overall "team goal")
 Size Estimate (I've previously used 1pt = 2 hours)
 ```
+When working on PBIs and stories, prioritize quality over quantity; it is better to get the top priority done and nothing else than to finish 5 non-essential tasks. 
