@@ -6,12 +6,12 @@ TCP first sets up a path before sending data out. Important functions include er
 Hosts have 5 layers, but the nodes (switches and routers) and the network runs on 3 layers for routing. This means that applications (application layer) runs on hosts and not the network. 
 The data link layer is used between any two switches or routers to make sure the data is safely transmitted.  
 ```
- HOST A             Node A
-[Application]
-[Transport  ]
+ HOST A             Node                        Node               Host B
+[Application]                                                     [Application]
+[Transport  ]                                                     [Transport  ]
 [Network    ] ---> [Network    ] ---> ... ---> [Network    ] ---> [Network    ]
-[Data Link  ]      [Data Link  ]      [Data Link  ]      [Data Link  ]
-[Physical   ]      [Physical   ]      [Physical   ]      [Physical   ]
+[Data Link  ]      [Data Link  ]      ...      [Data Link  ]      [Data Link  ]
+[Physical   ]      [Physical   ]      ...      [Physical   ]      [Physical   ]
 ```
 
 Need to set up a path. 
