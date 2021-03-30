@@ -28,10 +28,10 @@ Need to set up a path.
 Multiplexing can be where data from multiple applications are bundled into one package to be sent. 
 
 ### UDP
-One UDP segment is formatted as a source port #, destination port #, a 16 bit length, and 16 bit checksum. IP address is put in at the network layer. Checksum is all about error checking. You create a checksum to send with the packet, and then upon the receiver receiving, the receiver will compute the checksum and verify that the data was not changed in transit. Checksums are generated with binary addition with overflows wrapped around back. Then take the 1's complement which is where 0s become 1 and 1s become 0 then. The checksum adds up every single 16 bit piece of data from the segment. This means adding the 16 bit source port + 16 bit destination port + 16 bit length + the entire message in 16 bit pieces. 
+One UDP segment is formatted as a source port #, destination port #, a 16 bit length, and 16 bit checksum. IP address is put in at the network layer. Checksum is all about error checking. You create a checksum to send with the packet, and then upon the receiver receiving, the receiver will compute the checksum and verify that the data was not changed or corrupted in transit. Checksums are generated with binary addition with overflows wrapped around back. The checksum adds up every single 16 bit piece of data from the segment. This means adding the 16 bit source port + 16 bit destination port + 16 bit length + the entire message in 16 bit pieces. Then take the 1's complement which is where 0s become 1 and 1s become 0 then.  
 ```
-<---------------16 bits------------------>
-<--------8----------><--------8---------->
+<---------------32 bits------------------>
+<--------16---------><--------16--------->
 
 /-------------------\/-------------------\
 | Source Port #     | Destination Port # |
@@ -54,7 +54,7 @@ Connection setup works with a three way handshake. The client sends SYN, seq=x t
 Client opens and closes connection. The FIN bit, which is usually set to 0, will be set to 1 by the client which signifies to the server that the connection should close. Once received, the server will half close, and once the client receives the ACK it will also half close. The server will send a final FIN and fully close. The half closing is so that both server and client are finished before closing. This is because the first FIN that's sent is not guaranteed to arrive, so it requires an acknowledgement. 
 
 ### TCP Stop and Wait Protocol
-TCP is much more complicated than UDP because responses are required. The sender algorithm includes a send phase where we send the data with a sequence number, buffer data segment, and a timer. During the wait phase, the receiver will wait for acknowledgement x + n - 1 where n is the number of bytes. If the number received does not equal x + n, then something went wrong so we might resend a message. We expect x + n - 1 because x + n is one more byte than received.  
+TCP is much more complicated than UDP because responses are required. The sender algorithm includes a send phase where we send the data with a sequence number, buffer data segment, and a timer. During the wait phase, the receiver will wait for acknowledgement x + n - 1 where n is the number of bytes sent. If the number received does not equal x + n, then something went wrong so we might resend a message. We expect x + n - 1 because x + n is one more byte than received.  
 Stop and wait has round trip propagation delay to just and the timeout duration is calculated based on that. The round trip time is the end of the time at which the first packet is transmitted until the ACK comes back is called the **RTT** which is the response "round trip time". We make sure that the timeout is longer than the expected RTT. 
 
 ### SRDTP
@@ -63,11 +63,10 @@ Finite state machines have a number of states that a
 ### Pipelined Protocols
 Allows multiple data segments to be in transit at once, the receiver needs a buffer to receive
 
-### Flow control and Congestion control
+### Flow control
 **Go-back-to-N** makes sure that if one packet is wrong, all subsequent packets have to be repeated. Every packet after the Nth packet is discarded and re-sent. The sender sets up a timer for re-sending. The sender continuously sends packets without waiting for ACK. It uses a sliding window of size N which is the maximum amount of packets that can be sent without acknowledgement. Once the window has been finished, the sender has to wait for receiver acknowledgement. The receiver also has a window size that limits how many packets the receiver can accept. 
 
 **Selective Repeat** if the Nth one is missing, the subsequent ones will just be stored in a buffer and wait for the Nth one to resend. The receiver acknowledges packets before the lost packet, but will not acknowledge the ones that come after because they are out of order. Instead, those will be stored in a buffer to wait for the sender to re-send the missing packet. Only the missing one is re-sent.  
-
 
 For example, we could have a window of size N = 5 covering packets 0, 1, 2, 3, 4. Once packet 0 has been acknowledged, then the window moves onto 1, 2, 3, 4, 5.  
 The sender has a window and the receiver has a window. The sender window moves when it has received acknowledgement. Its window size depends on what the receiver says it can handle and some other factors. The sender will send data in bursts of the window size. If the sender sends more than the receiver can buffer, it is dropped by the receiver. If the receiver gets packets 2, 3 then it will save them in the buffer until 1 arrives. The receiver will not acknowledge anything because the sender assumes cumulative acknowledgement. In essence this means that ack of 3 implies ack 2, 1, and 0.  
@@ -91,7 +90,8 @@ Sender: send 0, 1, 2, 3, 4, 5, [6, 7, 8], 9
 **Rate control**  
 ```Rate = CongWin/RTT * byes/sec```  
 
-**Congestion Control** is an issue guided by morals because we can't really restrict greedy senders from sending too much and hogging the whole network.  
+### Congestion Control
+Congestion Control is an issue guided by morals because we can't really restrict greedy senders from sending too much and hogging the whole network.  
 Approaches include end-to-end control and network-assisted congestion control. TCP does not use these; each source determines network capacity for itself, uses implicit feedback, and uses ACKs to pace transmission. Since this works largely on feedback, it's hard to gauge a starting value for congestion windows to use. The TCP congestion algorithm uses *slow start* and then *congestion avoidance*. This algorithm transmits as fast as possible until data gets lost. At that point the congestion window (congwin) will decrease in size, and then slowly build up again. Before you reach a predefined threshold, the window size increases by a factor of 2, and after reaching the threshold it increases by 1. Slow start begins with a congWin = 1 and doubles on every successful acknowledgement.    
 TCP AIMD: additive increase, multiplicative decrease  
 The maximum window size is decided on by looking at the congestion window and the receiving window size and becomes the lesser of the two because it will be the limiting factor.  
