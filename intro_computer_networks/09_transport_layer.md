@@ -7,18 +7,19 @@ Hosts have 5 layers, but the nodes (switches and routers) and the network runs o
 The data link layer is used between any two switches or routers to make sure the data is safely transmitted.  
 ```
  HOST A             Node                        Node               Host B
-[Application]                                                     [Application]
-[Transport  ]                                                     [Transport  ]
-[Network    ] ---> [Network    ] ---> ... ---> [Network    ] ---> [Network    ]
-[Data Link  ]      [Data Link  ]      ...      [Data Link  ]      [Data Link  ]
+[Application]--\                                                  [Application]--\
+               |message                                                          |message
+[Transport  ]<-/                                                  [Transport  ]<-/
+[Network    ] ---> [Network    ]      ...      [Network    ] ---> [Network    ]
+[Data Link  ]      [Data Link  ] ---> ... ---> [Data Link  ]      [Data Link  ]
 [Physical   ]      [Physical   ]      ...      [Physical   ]      [Physical   ]
 ```
 
 Need to set up a path. 
 Multiplexing can be where data from multiple applications are bundled into one package to be sent. 
 
-The application layer chooses whether to use UDP or TCP which is then carried out in the transport layer. Application layer will use port numbers because each application has a different port number
-The terms Frame, datagram, segment and message coordinate respectively with the Link, network, transport and application layers
+Application layer will use port numbers because each application has a different port number
+The terms frame, datagram, segment and message coordinate respectively with the link, network, transport and application layers
 
 ### UDP
 One UDP segment is formatted as a source port #, destination port #, a 16 bit length, and 16 bit checksum. IP address is put in at the network layer. Checksum is all about error checking. You create a checksum to send with the packet, and then upon the receiver receiving, the receiver will compute the checksum and verify that the data was not changed in transit. Checksums are generated with binary addition with overflows wrapped around back. Then take the 1's complement which is where 0s become 1 and 1s become 0 then. The checksum adds up every single 16 bit piece of data from the segment. This means adding the 16 bit source port + 16 bit destination port + 16 bit length + the entire message in 16 bit pieces. 
