@@ -41,9 +41,9 @@ Can be applied to vectors and functions
 Can be used in norms
 
 ### The Famous Inequalities
-Cauchy-Schwarz
-Orthogonal
-Triangle
+Cauchy-Schwarz: | v * w | <= ||v|| * ||w||  
+Orthogonal: 
+Triangle: || v + w || <= ||v|| + ||w|| and they are equal if cv = w (v is a multiple of w)  
 
 ### Norms
 Unit vectors
