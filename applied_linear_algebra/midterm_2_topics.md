@@ -1,7 +1,24 @@
-Fundamental Matrix Subspaces
-Image: after finding the ref, the rows with pivots correspond to the columns in original matrix 
-Coimage
-Kernel
+### Fundamental Matrix Subspaces
+Given a matrix A where is m by n  
+```
+example
+    |  1  5  0 |                     |  1  5  0 |
+A = | -2  5  2 |       ---> ref(A) = |  0 15  2 |
+    | -1 10  2 | m x n               |  0  0  0 |
+```
+Image: after finding the ref, the rows with pivots correspond to the columns in original matrix that form the basis for the img(A)  
+Coimage: coimage also uses the positions of the pivots in ref form 
+```
+first pivot,  a(1,1) = 1                   | 1|  | 5|
+second pivot, a(2,2) = 15 --->   img(A) = {|-2|, | 5|}
+                                           |-1|  |10|
+                                           
+                                           | 1|  |-2|
+                          ---> coimg(A) = {| 5|, | 5|}
+                                           | 0|  | 2|
+```
+
+Kernel: 
 Cokernel
 
 Inner Products
