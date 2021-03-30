@@ -1,10 +1,18 @@
 # Transport Layer (TCP and UDP)
-Before going to the transport layer, you just specify TCP or UDP and then everything below that is abstracted. 
-UPD sends out packet by packet with eah packet not following necessarily the same path.  
-TCP first sets up a path before sending data out. Important functions include error handling, sequence, flow control (for a particular session) and congestion control. Flow control means the sender won't overwhelm the receiver   
+Before going to the transport layer from the application layer, you must specify TCP or UDP. What happens below that and how the data is actually transferred around is abstracted as far as the application layer is concerned.  
+UPD sends out packet by packet with each packet not following necessarily the same path.  
+TCP first sets up a path before sending data out. Important functions include error handling, sequence, flow control (for a particular session) and congestion control.   
 
-Hosts have 5 layers, but the nodes and the network runs on 3 layers for routing. This means that applications (application layer) runs on hosts and not the network. 
+Hosts have 5 layers, but the nodes (switches and routers) and the network runs on 3 layers for routing. This means that applications (application layer) runs on hosts and not the network. 
 The data link layer is used between any two switches or routers to make sure the data is safely transmitted.  
+```
+ HOST A             Node A
+[Application]
+[Transport  ]
+[Network    ] ---> [Network    ] ---> ... ---> [Network    ] ---> [Network    ]
+[Data Link  ]      [Data Link  ]      [Data Link  ]      [Data Link  ]
+[Physical   ]      [Physical   ]      [Physical   ]      [Physical   ]
+```
 
 Need to set up a path. 
 Multiplexing can be where data from multiple applications are bundled into one package to be sent. 
@@ -87,3 +95,4 @@ In other words, the updated RTT is 7/8 of the previous RTT and 1/8 of a sample R
 
 ---
 Data loss: happens when data is dropped
+Flow control: measures to make sure the sender won't overwhelm the receiver
