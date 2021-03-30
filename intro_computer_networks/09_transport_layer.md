@@ -108,5 +108,5 @@ In other words, the updated RTT is 7/8 of the previous RTT and 1/8 of a sample R
 ```TimeoutInterval = EstimatedRTT' + 4*DevRTT'```
 
 ---
-Data loss: happens when data is dropped
+Data loss: happens when data is dropped  
 Flow control: measures to make sure the sender won't overwhelm the receiver
