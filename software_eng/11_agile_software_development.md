@@ -26,4 +26,13 @@ Roman Pichler's Persona Template
 |                                | attitudes, and brand loyalty.  |                                |
 |                                | Only list relevant details.    |                                |
 \--------------------------------|--------------------------------|--------------------------------/
+```  
+
+### PBI (Product Backlog Item)
+```
+Story Name
+Value Statement (paragraph form)
+Acceptance Criteria (what is required for the business and product owner to accept the finished story?
+Definition of Done (what is required by the team before sending out for review? This should be the same for all stories; it's more of an overall "team goal")
+Size Estimate (I've previously used 1pt = 2 hours)
 ```
