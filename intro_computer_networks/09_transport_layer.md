@@ -14,11 +14,19 @@ The data link layer is used between any two switches or routers to make sure the
 [Data Link  ]      [Data Link  ] ---> ... ---> [Data Link  ]      [Data Link  ]
 [Physical   ]      [Physical   ]      ...      [Physical   ]      [Physical   ]
 ```
+In the diagram above, the application layer is sending a message to the transport layer. This message will be attached to a port number which is the "address" of the application process so that the return message knows which process to go to.  
+The application layer sends messages with a port number, which is passed to the transport layer which sends "segments" each with an IP address. If needed, this will go down into the network layer where segments are enveloped in "datagrams" and finally the link layer uses "frames"  
+| Layer | Data Type | 
+| --- | --- |
+| Application | messages |
+| Transport | segment | 
+| Network | datagram | 
+| Data Link | frame | 
+| Physical |  |
 
 Need to set up a path. 
 Multiplexing can be where data from multiple applications are bundled into one package to be sent. 
 
-Application layer will use port numbers because each application has a different port number
 The terms frame, datagram, segment and message coordinate respectively with the link, network, transport and application layers
 
 ### UDP
