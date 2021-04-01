@@ -34,6 +34,21 @@ Story Name
 Value Statement (paragraph form)
 Acceptance Criteria (what is required for the business and product owner to accept the finished story?
 Definition of Done (what is required by the team before sending out for review? This should be the same for all stories; it's more of an overall "team goal")
-Size Estimate (I've previously used 1pt = 2 hours)
+Effort Size Estimate (I've previously used 1pt = 2 hours)
+PBI Authors
 ```
 When working on PBIs and stories, prioritize quality over quantity; it is better to get the top priority done and nothing else than to finish 5 non-essential tasks. 
+
+### Example
+```
+Prompt
+Election officials need another type of voting algorithm. They want to be able to determine a single winner based on the
+candidate receiving the most ballots with a fair coin toss if there is a tie or ties between candidates. This will be called
+Popularity Only (PO).
+```  
+
+```
+User story
+As an election official, I need to be able to run a Popularity Only election
+```
+This story can be one single PBI. The acceptance criteria could be that it can fairly run the popularity algorithm. 
