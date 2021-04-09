@@ -11,4 +11,5 @@ Memory ratings are provided some time after consumption.
 Expectation ratings are used for items that most users won't have much experience with, such as a house.  
 
 ### Implicit (implicit feedback recommenders)
-Tracking clicks and purchases show the user's action based on preference (theoretically). Although there isn't explicit feedback, the volume of feedback is much greater. Metrics on a user's listening or watching is usually a good predictor of how much they will likely rate it even if they don't actually rate it. Alongside tracking clicks, there is implicit implicit data where links that the user *doesn't* click may be downgraded. 
+Tracking clicks and purchases show the user's action based on preference (theoretically). Although there isn't explicit feedback, the volume of feedback is much greater. Metrics on a user's listening or watching is usually a good predictor of how much they will likely rate it even if they don't actually rate it. Alongside tracking clicks, there is implicit implicit data where links that the user *doesn't* click may be downgraded.  
+Implicit data is more natural to collect than explicit data and can often be just as meaningful. 
