@@ -11,7 +11,7 @@ Personalization level? Usually we start with non-personalized or attached to a d
 Interface is the presentation  
 
 ### Recommender Algorithms
-All systems use users, items, and ratings as the three basic building blocks.  
+**All** systems use *users*, *items*, and *ratings* as the three basic building blocks.  
 Each user has a user attribute (that describes their characteristics) and a user model that we build based on their preferences. Items also have attributes. Ratings connect the users and items.  
 Recommendation algorithms include non-personalized, content-based, collaborative, and others.  
 
@@ -34,3 +34,10 @@ User models will have a keyword vector or taste vector. After a few movie rating
 | Melodrama |-0.7 |
 |-----------|-----|
 ```
+Later on, other items will be compared to the model to see if it is a possible match for the user. This will be a vector dot product between the attributes of the potential item and the user model.  
+
+### Personalized Collaborative Filtering
+Uses the opinions of other people. We use a "common core" which is a sparse matrix of ratings with users on the rows and items on the columns. This is realistic because each given user is unlikely to have rated every item. In real life, a user may have rated <1% of the total items. 
+User-User Collaborative filtering lets users select other users that have similar taste and then fills in the blanks for the user based on their community. Trust-based recommendations allows you to use your social network (people you trust).   
+Item-Item Collaborative filtering precomputes similarity among items and triagulates for recommendations. Use the items that I have rated, and see what other items are similar to that one. When examining a new item, it looks at whether the item is similar or dissimilar to other items you have liked or disliked.   
+Dimensionality Reduction takes the tastes of the user and reduces the number of choices to compare against using a lower-dimensionality matrix.  
