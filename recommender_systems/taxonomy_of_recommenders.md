@@ -7,7 +7,7 @@ What's the purpose of the recommendation?
 Recommendation context, who is the person or group?  
 Whose opinions? Recommendations are often not based on just your opinions  
 Personalization level? Usually we start with non-personalized or attached to a demographic. We can map to long term interests or ephemeral recommender.  
-
+Privacy and trustworthiness  
 Interface is the presentation  
 
 ### Recommender Algorithms
@@ -41,3 +41,10 @@ Uses the opinions of other people. We use a "common core" which is a sparse matr
 User-User Collaborative filtering lets users select other users that have similar taste and then fills in the blanks for the user based on their community. Trust-based recommendations allows you to use your social network (people you trust).   
 Item-Item Collaborative filtering precomputes similarity among items and triagulates for recommendations. Use the items that I have rated, and see what other items are similar to that one. When examining a new item, it looks at whether the item is similar or dissimilar to other items you have liked or disliked.   
 Dimensionality Reduction takes the tastes of the user and reduces the number of choices to compare against using a lower-dimensionality matrix.  
+
+---
+Example: Amazon.com  
+Amazon highlights the items that you have purchased before, however, I actually think they should not do that because if you've purchased it it is not likely that you will need it.  
+Unless you are shopping often, it may be difficult to build a profile for you. To remedy this, Amazon could use user models of other people as "characterizations" of who you might be. Based on these user models, Amazon could cycle the recommendations on your home page until they find one that clicks. For example, someone who buys a utility knife could be a DIY person, a utility worker, an avid camper, etc. Each of those people have a distinct model that you could cycle on the Amazon.com home page. 
+
+---
