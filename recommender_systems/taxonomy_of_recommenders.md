@@ -19,7 +19,18 @@ Recommendation algorithms include non-personalized, content-based, collaborative
 Use community trends (either data or ratings). 
 
 ### Content-based Filtering
-Users rate items and we build a model of user preferences based on the item attributes.  
+Users rate items and we build a model of user preferences based on the item attributes.   
 ```
-User likes Item -> Item has attribute [1, 2, 3, 4] -> User might like Item' with attributes [1, 2], Item'' with attibutes [2, 3], etc. 
+Luke likes Star Wars -> Star Wars has attribute [sci-fi, action, adventure, fantasy] -> Luke might like Harry Potter with attributes [action, adventure, fantasy], Fast and Furious with attibute [action], etc. 
+```
+User models will have a keyword vector or taste vector. After a few movie ratings, it may look like the following:  
+```
+|-----------|-----|
+| Action    | 5.0 |
+| Sci-fi    | 4.7 |
+| Adventure | 3.2 |
+| Fantasy   | 4.5 |
+| Romance   | 2.2 |
+| Melodrama |-0.7 |
+|-----------|-----|
 ```
