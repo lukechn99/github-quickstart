@@ -94,4 +94,23 @@ Routes can be decided on heuristics like not corssing into .gov or simply lookin
 When a node disappears or goes down, the network needs to self-heal without human intervention.  
 Types of routing includes hop-by-hop where the packet is given its next hop by every router it passes through. The alternative is source routing where the sender includes, in the header of the packet, the exact path that the packet will take. In source routing the header size is larger. Currently, we do hop-by-hop, but we would like to move into source routing because it enables us to avoid nodes that we don't want to go into. Source routing means less work for routers but more work for the sender.  
 
-Distributed routing algorithm can sense the delay of previous packets. It can operate through link state routing or distance vector routing. Link state routing happens when a router measure the cost of each of its links and then shares this information with all of its neighbors. Distance vector assumes that the neighbor will tell you the cost of getting to the destination. With destination X, A will know the distance from A to B and then B will tell A how much more there is to X from B. 
+Distributed routing algorithm can sense the delay of previous packets. It can operate through link state routing or distance vector routing. Link state routing happens when a router measure the cost of each of its links and then shares this information with all of its neighbors. Distance vector assumes that the neighbor will tell you the cost of getting to the destination. With destination X, A will know the distance from A to B and then B will tell A how much more there is to X from B.  
+
+Link state vs distance vector. Link state tells every other node its distance to its neighbors and distance vector tells its neighbors its distance to every other node.  
+Link state means everyone will have the information, essentially the whole topology is known by everyone. . Distance vectors only share information with neighbors. The weakness of distance vectors is that information may be outdated by the time it is received.  
+Link state will send out small link state packets to other nodes that describe its links to neighbors using controlled flooding. In controlled flooding, packets flood the entire network, as soon as you receive a packet you send to all your neighbors. However, it is controlled so that only new information will flood and old info will not be propagated.  
+***INTERESTING*** would be interesting to see what percentage of packets received by a node are flooded and what percent is thrown away. How would this change over the course of the network's life? Size?  
+Although Dijkstra's algorithm could be used on a routing table, nowadays the best path is not necessarily the shortest path when considering security and other limitations.  
+```
+Dijkstra's
+
+initialize neighbor priority queue
+start at src node:
+    if src == dest:
+        return cost
+    for each neighbor to src that has not been visited:
+        add neighbor to queue
+    visit closest neighbor
+    save the src + neighbor + cost
+    src = visited neighbor
+```
