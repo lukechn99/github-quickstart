@@ -133,4 +133,8 @@ Link state uses **OSPF** which is open shortest path first, uses dijkstra's and 
 
 The actual internet is not flat with identical routers like we assume. It is hierarchical because there are hundreds of millions of destinations. Due to the wild nature of the internet, it was not designed with security in mind. The global internet is formed from *autonomous systems* interconnected with each other. ASes are used in attempt to compartmentalize and organize the internet. With ASes, you have intra-AS routing where you are moving within a system, and then inter-AS when you move out of the system. **Hierarchical routing** uses areas which connect to other aread through area border routers. The area border routers connect to backbone routers which connect the areas together. 
 
-**Software-Defined Network** (SDN) is slowly being implemented to our switches and routers. 
+**Software-Defined Network** (SDN) is slowly being implemented to our switches and routers. Software defined means that the function of the router or switch is not attached to the hardware; it is not fixed. It can be changed and updated as needed. This also means that we can do programmable switches and routers. Routing information can still be per-router or logically centralized remote controller.  
+Programmable networks mean that we have in-network computing. Switches will have an OS that you can use to specify the rules.  
+P4 language for switches allows you to parse packets and use a match-action pipeline to interpret what action to take based on header value matches.  
+The programmer decides what action is taken for each header key.  
+SDNs are no longer just based on an IP address. Instead it can be 
