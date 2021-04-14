@@ -96,8 +96,9 @@ Types of routing includes hop-by-hop where the packet is given its next hop by e
 
 Distributed routing algorithm can sense the delay of previous packets. It can operate through link state routing or distance vector routing. Link state routing happens when a router measure the cost of each of its links and then shares this information with all of its neighbors. Distance vector assumes that the neighbor will tell you the cost of getting to the destination. With destination X, A will know the distance from A to B and then B will tell A how much more there is to X from B.  
 
-Link state vs distance vector. Link state tells every other node its distance to its neighbors and distance vector tells its neighbors its distance to every other node.  
+**Link state** vs **distance vector**. Link state tells every other node its distance to its neighbors and distance vector tells its neighbors its distance to every other node.  
 Link state means everyone will have the information, essentially the whole topology is known by everyone. . Distance vectors only share information with neighbors. The weakness of distance vectors is that information may be outdated by the time it is received.  
+One weakness of link state means that multiple nodes will interpret one path as the best path and everyone will try to take that path thus causing congestion. 
 Link state will send out small link state packets to other nodes that describe its links to neighbors using controlled flooding. In controlled flooding, packets flood the entire network, as soon as you receive a packet you send to all your neighbors. However, it is controlled so that only new information will flood and old info will not be propagated.  
 ***INTERESTING*** would be interesting to see what percentage of packets received by a node are flooded and what percent is thrown away. How would this change over the course of the network's life? Size?  
 Although Dijkstra's algorithm could be used on a routing table, nowadays the best path is not necessarily the shortest path when considering security and other limitations.  
@@ -114,3 +115,22 @@ start at src node:
     save the src + neighbor + cost
     src = visited neighbor
 ```
+
+### Comparing LS to DV
+Split horizon is where after passing traffic to an intermediate node, you don't tell the intermediate node the cost of you going to the neighbor. Split horizon with poisoned reverse is when you pass traffic and then tell the intermediate node that the cost of you going to the destination is infinity so that it will not be passed back.  
+```
+     [B]         
+     /\
+    /   \
+   /      \
+  /         \
+[A]----9----[C]
+```
+
+Distance vector uses **RIP** or routing information protocol (Cisco's proprietary alg), uses bellman-ford algorithm, may have routing loops. RIP information is exchanged between neighbors every 30 seconds. If no advertisement is heard within 180 seconds, you are declared/assumed dead
+
+Link state uses **OSPF** which is open shortest path first, uses dijkstra's and controlled flooding, may have oscillations.   
+
+The actual internet is not flat with identical routers like we assume. It is hierarchical because there are hundreds of millions of destinations. Due to the wild nature of the internet, it was not designed with security in mind. The global internet is formed from *autonomous systems* interconnected with each other. ASes are used in attempt to compartmentalize and organize the internet. With ASes, you have intra-AS routing where you are moving within a system, and then inter-AS when you move out of the system. **Hierarchical routing** uses areas which connect to other aread through area border routers. The area border routers connect to backbone routers which connect the areas together. 
+
+**Software-Defined Network** (SDN) is slowly being implemented to our switches and routers. 
