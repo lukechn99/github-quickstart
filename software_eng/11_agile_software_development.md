@@ -8,6 +8,7 @@ User stories are about the persona. It allows us to focus on the user. PBI's nee
 Persona's should state what they want and why they want it. There should be no ambiguity; if any of those questions are not understood, then you should work with the user to rewrite the story. We break down the user story into epics which are overarching goals.  
 Only once the epic has been created to be finished within a sprint and everyone agrees on the acceptance criteria/definition of done. A detailed story will need 3-5 acceptance criteria.  
 While some PBI stories come from the user stories, others can just be non-functional requirements that you come up with or dependencies that are separate and do not come from users.  
+**User stories are not technical**, the technical stuff comes from the acceptance criteria. Definition of done is fairly consistent and remains the same. 
   
 [Roman Pichler](https://www.romanpichler.com/wp-content/redirects/Persona-Template.pdf)'s Persona Template
 ```
