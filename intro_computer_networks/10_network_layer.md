@@ -140,4 +140,4 @@ The programmer decides what action is taken for each header key.
 SDNs are no longer just based on an IP address. Instead it can be 
 
 ### Border Gateway Protocol and Routers (BGP)
-Routing inside of an AS is simple with LS or DV. However, inter-AS routing is more difficult and uses the BGP. BGP uses the path vector protocol which lists out the path which is a series of ASes thaat you will pass through in order to get to your destination. 
+Routing inside of an AS is simple with LS or DV. However, inter-AS routing is more difficult and uses the BGP. BGP uses the path vector protocol which lists out the path which is a series of ASes thaat you will pass through in order to get to your destination. First tier service providers don't actually tell anyone how their BGP is implemented. BGP messages are exchanged with TCP
