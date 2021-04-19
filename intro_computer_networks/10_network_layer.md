@@ -138,3 +138,6 @@ Programmable networks mean that we have in-network computing. Switches will have
 P4 language for switches allows you to parse packets and use a match-action pipeline to interpret what action to take based on header value matches.  
 The programmer decides what action is taken for each header key.  
 SDNs are no longer just based on an IP address. Instead it can be 
+
+### Border Gateway Protocol and Routers (BGP)
+Routing inside of an AS is simple with LS or DV. However, inter-AS routing is more difficult and uses the BGP. 
