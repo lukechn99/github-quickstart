@@ -36,6 +36,9 @@ Host connected to switch and only concerns two nodes.
 
 ```
 
+### MAC Protocols
+Taking turns: 
+
 ### Data Link Layer Functions (Summary)
 Error detection, and optional error correction  
 Reliable delivery between nodes  
