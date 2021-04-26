@@ -27,3 +27,18 @@ Multiple MAC addresses in a group where one packet sent will reach everyone in t
 | Preamble (8B) | dest. addr. (6B) | src addr (6B) | type (2B) | data (1500B) | CRC (4B) |
 \---------------|------------------|---------------|-----------|--------------|----------/
 ```
+
+### Point to Point Data Link Control
+Host connected to switch and only concerns two nodes. 
+
+### PPP Data Frame
+```
+
+```
+
+### Data Link Layer Functions (Summary)
+Error detection, and optional error correction  
+Reliable delivery between nodes  
+
+---
+Switch vs Hub: a hub only allows one thing passing through at any time. Switches will build their own routing table through learning. 
