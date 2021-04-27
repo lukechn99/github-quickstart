@@ -57,7 +57,8 @@ For example, 11001000 00010111 00010110 10100001 goes to interface 0
 and 11001000 00010111 00011000 10101010 goes to interface 1  
   
 Anything that matches the longest prefix will go to that interface link.  
-This table will be continually updated. 
+This table will be continually updated.  
+https://condor.depaul.edu/sjost/361/materials/SubnetMask.html
 
 ### IP Datagram Forwarding Model
 The next hop is the least specific one. 
