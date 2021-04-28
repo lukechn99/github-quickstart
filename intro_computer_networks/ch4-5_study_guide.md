@@ -116,3 +116,6 @@ SNMP
 ### Chapter 4
 
 ### Chapter 5
+
+
+The bus architecture for networks does not enable signal propagation as far as the ring architecture because in a ring, the signal is regenerated at each stop. 
