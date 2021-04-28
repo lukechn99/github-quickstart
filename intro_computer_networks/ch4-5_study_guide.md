@@ -111,3 +111,8 @@ Used by hosts, routers, and gateways
 ### Network management and SNMP
 Network management framework  
 SNMP
+
+# Textbook Practice
+### Chapter 4
+
+### Chapter 5
