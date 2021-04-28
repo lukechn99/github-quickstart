@@ -76,11 +76,19 @@ Match, action
 no need to know SDN
 
 # Network Layer Control Plane
-### Routing algorithms
-Link state  
-Distance vector  
+Routing protocols such as RIP, OSPF, and BGP create the routing table.  
+These protocols determine the best route based on criteria such as cost, speed, least congestion, etc.  
+Classical routing paradigms include hop-by-hop where each packet knows where it is going and the router just chooses the next hop for the packet. Another is "source routing" where the sender determines the path the packet should take. 
 
-### Intra-AS routing: OSPF
+### Routing algorithms (distributed)
+Some routing algorithms are centralized which means that a centralized route server does all the managing and route making. The alternative is distributed which includes link state and distance vector.  
+  
+Link state tells every other node its distance to neighbors.  
+Each router keeps link state packets that store the router ID, neighbor's ID, and cost to get to that neighbor. It distributes this packet to all routers with controlled flooding. Computes the routing table with Dijkstra's.  
+
+Distance vector tells neighbors its distance to every other vector. It tells its neighbors the distance between them. **Communication between neighbors only**. After sharing information with neighbors, the Bellman-Form algorithm is used to see which route has the smallest cost. 
+
+### Intra-AS (autonomous system) routing: OSPF
 RIP
 
 ### Inter-AS routing among ISPs: BGP
