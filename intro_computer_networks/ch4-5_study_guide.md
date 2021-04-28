@@ -46,9 +46,30 @@ IPv4 datagram format, fragmentation, addressing
 | data (either TCP or UDP)                                                  |
 \---------------------------------------------------------------------------/
 ```
-
-Network address translation (NAT)  
-IPv6  
+  
+We are starting to move away from IPv4 and towards IPv6 because the 32-bit address space is running out. While IPv4 is made up of four 8-bit chunks, IPv6 uses a 128-bit address space and introduces alphabetical characters in addition to the numbers used in IPv4. Sections are separated by a “.” in IPv4 and a “:” in IPv6.  
+The IPv4 datagram header format is also different from the IPv6 datagram header format. In IPv4, the datagram has a 4 bit IP protocol version number, a 4 bit header length, an 8 bit type of service, a 16 bit representation for the length of the whole datagram. For fragmentation and reassembly, it has a 16 bit identifier, 4 bit flags, and 12 bit fragmentation offset. Next it has a 8 bit time to live which decrements on hops, 8 bits for the upper layer protocol to deliver the payload to, and a 16 bit checksum. Finally, there are 16 bits for the source IP address and 16 bits for the destination IP address.  
+The IPv6 datagram header has some of the same fields, except it has 128 bit address spaces, no checksum or fragmentation. It has a 4 bit version, 8 bit traffic class, 20 bit flow label, 16 bit payload length, 8 bits for the next header, and 8 bits for the hop limit. The IPv6 header is smaller and faster to process.  
+  
+IP fragmentation happens when a datagram goes through a part of the network where the maximum transfer size (MTU) is smaller than the size of the datagram. Datagrams are fragmented to size and given an offset number which tells how to reassemble at the destination host.  
+  
+Network address translation (NAT) is used to conserve IP addresses. Hosts within the same network may have different IP addresses, but once they head out of the network into the greater internet, instead of keeping their IP, they use the IP of the network NAT IP address and use a different port number to show which host they are inside of the local network.   
+  
+IPv6 is a new standard that hasn't been fully adopted. When in use, it will tunnel through the internet, avoiding the IPv4 networks and only going to IPv6 networks.  
+```
+/---------|---------|-------------------------------------------------------\
+| version | header  | flow label                                            |
+|         | length  |                                                       |
+|---------|---------|------------------|------------------|-----------------|
+| payload length                       | next header      | hop limit       |
+|-------------------|------------------|------------------|-----------------|
+| 128 bit source IP address                                                 |
+|---------------------------------------------------------------------------|
+| 128 bit destination IP address                                            |
+|---------------------------------------------------------------------------|
+| data (either TCP or UDP)                                                  |
+\---------------------------------------------------------------------------/
+```  
 
 ### Generalized forwarding and SDN
 Match, action  
@@ -71,6 +92,7 @@ Routing policy
 ### SDN control plane
 
 ### Internet control message protocol (ICMP)
+Used by hosts, routers, and gateways 
 
 ### Network management and SNMP
 Network management framework  
