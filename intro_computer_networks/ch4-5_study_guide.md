@@ -88,14 +88,20 @@ Each router keeps link state packets that store the router ID, neighbor's ID, an
 
 Distance vector tells neighbors its distance to every other vector. It tells its neighbors the distance between them. **Communication between neighbors only**. After sharing information with neighbors, the Bellman-Form algorithm is used to see which route has the smallest cost. 
 
-### Intra-AS (autonomous system) routing: OSPF
-RIP
+### Intra-AS (autonomous system) routing: RIP, OSPF, IS-IS, EIGRP
+Intra-AS routing focuses on performance and uses interior gateway protocols (IGP)
+RIP (routing information protocol) uses the distance vector algorithm and measures distance by number of hops. RIP depends on hearing an advertisement from neighbors every 3 minutes, otherwise it treats the neighbor as dead.  
+  
+OSPF (open shortest path first) uses link state algorithm where a router will flood link state advertisements to the entire AS. Hierarchical OSPF splits the AS into areas that are connected by area border routers
 
 ### Inter-AS routing among ISPs: BGP
-Role of BGP, advertising BGP route information  
+The internet is made up of ASes each of which have border gateway routers that interconnect. 
+BGP allows a subnet to advertise its existence to the rest of the internet. BGP messages include OPEN, KEEPALIVE, UPDATE, and NOTIFICATION exchanged over TCP. A semi-permanent TCP connection is kept between BGPs. It advertises all of the hosts that you can reach through the AS so that other ASes know to use this AS. It can also withdraw advertisements. Once the advertisement is received as an eBGP, the BGP propagates the advertisement to everything inside of its own AS with iBGP. 
+advertising BGP route information  
 Determining best route  
 IP-anycast  
-Routing policy  
+Routing policy can be used to determine who routes through you and who doesn't. If you don't want to take traffic, you can simply not advertise or withdraw your advertisement. ASes want to use hot potato routing and hand off to the closest router minimizing intra-domain cost even if it increases inter-domain cost. 
+Routing policy for inter-AS is typically that the admin wants control over how traffic is routed and who routes through its net focusing on policy over performance. The policy for intra-AS routing is single domain so no policy decisions are needed but typically focuses on performance. 
 
 ### SDN control plane
 
