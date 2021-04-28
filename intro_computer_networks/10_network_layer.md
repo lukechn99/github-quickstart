@@ -1,10 +1,9 @@
 # Network Layer
-It is separated into the data plane and the control plane.  
-Data plane is how the data gets moved and the control plane determines how we do the routing. Routing algorithms are used. The network is very dynamic. 
+The network layer delivers *datagram* from host to host. It is separated into the data plane and the control plane. Data plane is how the data gets moved and the control plane determines how we do the routing. Routing algorithms are used. The network is very dynamic. Typically, the data plane is associated more with forwarding, it is lower level, while the control plane is more about routing; it handles the higher level operations. 
 Out of band control is when the control is done through the control plane, we also have in-band control where control is done with the data plane.  
 
 ### The data plane
-Uses the forwarding table to handle the moves from hop to hop. 
+Uses the forwarding table to forward the datagram moves from hop to hop. 
 Network service models here are virtual circuit (TCP) or datagram (UDP). The router and switches are treated the same. In the data plane, we talk more about the forwarding table which is the data ...  
 DHCP: ISP will reassign your IP to be used when you are offline. 
 You could track a cell phone is you know the MAC address, which is permanent on the NIC Card, and then track the IP address it is coming from and then the location of the IP address.  
