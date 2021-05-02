@@ -113,3 +113,9 @@ Once switched to that branch, do another checkout and the "short" name will be r
 ```
 $ git checkout devel
 ```
+
+### error: The following untracked working tree files would be overwritten by checkout:
+```
+git add *
+git stash
+```
