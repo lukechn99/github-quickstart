@@ -43,5 +43,18 @@ Taking turns:
 Error detection, and optional error correction  
 Reliable delivery between nodes  
 
+### Random access protocols
+Aloha is unslotted and collisions can happen when time frame overlap.  
+Slotted aloha is a protocol that either lets data collide 100% or not collide at all, following the slots. Slotted aloha can double the throughput, but can still have wasted slots. Pure aloha has an efficiency of 17% and slotted aloha is double that efficiency.  
+CSMA (carrier sense multiple access) is when the node listens before transmitting. It is better than aloha because it will wait until the channel is idle before transmitting. Since there are always more than one person waiting for the channel to become empty before transmitting, there is a fixed transmission probability of 0.8 so that not everyone will transmit at once. CSMA can be persistent or nonpersistent. P-persistent will sense idle first and then apply the probability P to see if it should transmit or not. HOwever, collisions can still occur if the propagation delay is long and nodes are not warned in time while other nodes are transmitting.  
+CSMA also has to do collision detection, keep listening while transmitting.  
+
+Ethernet speeds up by powers of 2 until there is a drop. Ethernet has a maximum frame size of 1500 bytes for data. Ethernet carries a preamble of 8 bytes.  
+
+Token ring (hub): different from a bus and can transmit further than a bug. Stations get tokens, and if they have nothing to send, they will pass the tocken onto the next station. Tokens are passed in the form of token bits. When a frame is passed, it has a bit that is set to 0 for token, and 1 if it is carrying data. The token carries 3 bits for priority. For example, 111 is the highest priority and 000 is the lowest. Higher priority data can hijack and take over lower priority data. No collision
+Each ring has a monitor station.  
+
+CDMA uses chip sequences and all chip sequences are orthogonal to each other. The chip sequence is an alternative to using one bit for each. You allow collision using your chip sequence. If the incoming transmission to you is -1 that means no one is transmitting to you, and 0 means they are transmitting a 0 to you and 1 if they are transmitting a 1 to you. 
+
 ---
 Switch vs Hub: a hub only allows one thing passing through at any time. Switches will build their own routing table through learning. 
