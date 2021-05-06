@@ -1,5 +1,20 @@
 # Final Exam Study Guide
 
+### Basics
+The different layers correspond to different data encapsulations. The terminology is super confusing, so we have it laid out here:
+```
+      Layers
+.----[Application]
+|
+| socket
+|
+'--> [Transport] --> Segment
+
+     [Network] --> Packet(Segment)
+     [Data Link] --> Frame(Packet(Segment))
+     [Physical ]
+```
+
 ### Chapter 3: Transport Layer
 ***UDP Checksum*** is used to detect errors in segments. The sender splits the entire segment into 16 bit chunks and then adds them all together and takes the 1's complement. This is the checksum which is then checked by the receiver against the received segment. In calculation, overflows will circle back to the right-most bit.  
 ```
