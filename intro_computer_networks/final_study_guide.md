@@ -13,7 +13,18 @@ The different layers correspond to different data encapsulations. The terminolog
      [Network] --> Packet(Segment)
      [Data Link] --> Frame(Packet(Segment))
      [Physical ]
+```  
+Each layer's encapsulation adds on a new header describing information needed to interpret what's in that encapsulation.  
 ```
+TCP Header - 20 bytes
+Source Port
+Destination Port
+Flags
+Checksum
+Sequence Numbers (which helps in identifying different segments at the receiver end)
+Options (Some other important settings, which convey different meanings)
+```
+
 
 ### Chapter 3: Transport Layer
 ***UDP Checksum*** is used to detect errors in segments. The sender splits the entire segment into 16 bit chunks and then adds them all together and takes the 1's complement. This is the checksum which is then checked by the receiver against the received segment. In calculation, overflows will circle back to the right-most bit.  
