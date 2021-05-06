@@ -34,7 +34,7 @@ Then we find the one's complement
   
 ***GBN, SR, and Sliding Window Scheme*** Go-back-to-N and selective repeat are two methods of transporting segments in the Transport layer.  
 
-***TCP 3-way Hand Shaking*** is done when a new connection is opened.  
+***TCP 3-way Hand Shaking*** is needed before data transfer for a TCP connection. TCP connections are intentional one-on-one connections between two hosts. They must send some preliminary segments to each other to establish the parameters of the ensuing data transfer. This is the time for hosts to set up their TCP state variables. Only the two end-hosts are aware of the TCP protocols. All intermediate switches send the datagrams without regard for what it is. 
 
 ***TCP Closing Sequence*** is used to confirm the closing of both the client and server's connection to the client  
 
