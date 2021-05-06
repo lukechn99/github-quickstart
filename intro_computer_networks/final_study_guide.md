@@ -3,15 +3,15 @@
 ### Basics
 The different layers correspond to different data encapsulations. The terminology is super confusing, so we have it laid out here:
 ```
-      Layers
+      Layers          Data type                      Addressing type
 .----[Application]
 |
 | socket
 |
-'--> [Transport] --> Segment
+'--> [Transport]      --> Segment                    Port number (socket)
 
-     [Network] --> Packet(Segment)
-     [Data Link] --> Frame(Packet(Segment))
+     [Network]        --> Packet(Segment)            IP address
+     [Data Link]      --> Frame(Packet(Segment))     MAC address
      [Physical ]
 ```  
 Each layer's encapsulation adds on a new header describing information needed to interpret what's in that encapsulation.  
@@ -26,9 +26,23 @@ Sequence Numbers (which helps in identifying different segments at the receiver 
 Options (Some other important settings, which convey different meanings)
 ```
 
-After being 
+When being sent down from the transport layer into the network layer, the segment is given a 
+```
+Packet Header - 
+Source IP Address
+Destination IP Address
+TTL
+Identification
 ```
 
+When two computers are sending information back and forth, MAC addresses are used  
+```
+Frame Header
+Source Mac Address
+Destination Mac Address
+Data (Payload - its nothing but the network packet given by the network layer)
+Length (total length of the data - Typically its 1500 bytes.)
+Checksum (CRC)
 ```
 
 ### Chapter 3: Transport Layer
