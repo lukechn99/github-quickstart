@@ -15,8 +15,9 @@ The different layers correspond to different data encapsulations. The terminolog
      [Physical ]
 ```  
 Each layer's encapsulation adds on a new header describing information needed to interpret what's in that encapsulation.  
+The transport layer uses segments that can be tranported with UDP or TCP. The transport layer gets its data from the application layer through the use of sockets. The application layer communicates down with sockets and doesn't care what happens afterwards because those lower level operation are abstracted. The receiving host application also does not need to worry about the lower level abstractions and can just worry about which socket it is receiving from.  
 ```
-TCP Header - 20 bytes
+TCP Segment Header - 20 bytes
 Source Port
 Destination Port
 Flags
@@ -25,6 +26,10 @@ Sequence Numbers (which helps in identifying different segments at the receiver 
 Options (Some other important settings, which convey different meanings)
 ```
 
+After being 
+```
+
+```
 
 ### Chapter 3: Transport Layer
 ***UDP Checksum*** is used to detect errors in segments. The sender splits the entire segment into 16 bit chunks and then adds them all together and takes the 1's complement. This is the checksum which is then checked by the receiver against the received segment. In calculation, overflows will circle back to the right-most bit.  
