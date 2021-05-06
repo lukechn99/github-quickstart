@@ -37,9 +37,9 @@ Identification
 
 When two computers are sending information back and forth, MAC addresses are used. To find the MAC address for for the frame header, the device uses its ARP (address resolution protocol) which translates IP to MAC.  
 The data link layer is only used to communicate on the subnet or local area network (?)  
-Every device has an ARP table, but sometimes, it won't find the IP address is wants to translate. To see if the destination address is even in the same network, it will mask its own address and compare with the destination IP. For example, 127.0.0.1 wants to send to 127.0.0.2 and the network mask is anything inside of 127.0.0.x, then 127.0.0.x is the masked IP and we see that the destination does indeed match with it. If that is the case, then it will sends out an ARP request to the broadcast MAC address ff:ff:ff:ff:ff:ff. The request is basically a "MAC Wanted" poster; any device reading with that IP address will send back its MAC address and the original device can add it to its ARP table.  
-If the destination IP does not match with the devices own masked IP, then it is out of network and the the ARP request will be skipped and a layer 3 packet will be encapsulated in an Ethernet frame which will be forwarded to the host’s default gateway. 
-
+Every device has an ARP table/cache, but sometimes, it won't find the IP address is wants to translate. To see if the destination address is even in the same network, it will mask its own address and compare with the destination IP. For example, 127.0.0.1 wants to send to 127.0.0.2 and the network mask is anything inside of 127.0.0.x, then 127.0.0.x is the masked IP and we see that the destination does indeed match with it. If that is the case, then it will sends out an ARP request to the broadcast MAC address ff:ff:ff:ff:ff:ff or 00:00:00:00:00 should be the same thing. The request is basically a "MAC Wanted" poster; any device reading with that IP address will send back its MAC address and the original device can add it to its ARP table.  
+If the destination IP does not match with the devices own masked IP, then it is out of network and the the ARP request will be skipped and a layer 3 packet will be encapsulated in an Ethernet frame which will be forwarded to the host’s default gateway.  
+As a side note, you can use ```arp -n -e``` to view your computer's ARP table.  
 ```
 Frame Header
 Source Mac Address
