@@ -3,14 +3,19 @@
 ### Basics
 The different layers correspond to different data encapsulations. The terminology is super confusing, so we have it laid out here:
 ```
-      Layers          Data type                      Addressing type
-.----[Application]
+      Layers          Data type                      Addressing type          Explanation
+.----[Application]                                                            Application layer is what the whole network is working to support.
 |
 | socket
 |
-'--> [Transport]      --> Segment                    Port number (socket)
-
-     [Network]        --> Packet(Segment)            IP address
+'--> [Transport]      --> Segment                    Port number (socket)     Transport layer is the logical communication support for app processes, 
+                                                                              enhancing the capabilities of the network, facilitating messages. It 
+                                                                              breaks application messages up into segments and reassembles messages
+                                                                              for applications on the receiving end using either UDP or TCP. It is 
+                                                                              logical in the sense that it thinks its sending directly to the other 
+                                                                              host's transport layer.
+     [Network]        --> Packet(Segment)            IP address               Network layer is the logical communication between hosts. Logically, it
+                                                                              thinks it is sending directly to the other host's network IP. 
      [Data Link]      --> Frame(Packet(Segment))     MAC address
      [Physical ]
 ```  
@@ -39,7 +44,7 @@ When two computers are sending information back and forth, MAC addresses are use
 The data link layer is only used to communicate on the subnet or local area network (?)  
 Every device has an ARP table/cache, but sometimes, it won't find the IP address is wants to translate. To see if the destination address is even in the same network, it will mask its own address and compare with the destination IP. For example, 127.0.0.1 wants to send to 127.0.0.2 and the network mask is anything inside of 127.0.0.x, then 127.0.0.x is the masked IP and we see that the destination does indeed match with it. If that is the case, then it will sends out an ARP request to the broadcast MAC address ff:ff:ff:ff:ff:ff or 00:00:00:00:00 should be the same thing. The request is basically a "MAC Wanted" poster; any device reading with that IP address will send back its MAC address and the original device can add it to its ARP table.  
 If the destination IP does not match with the devices own masked IP, then it is out of network and the the ARP request will be skipped and a layer 3 packet will be encapsulated in an Ethernet frame which will be forwarded to the host’s default gateway.  
-As a side note, you can use ```arp -n -e``` to view your computer's ARP table.  
+As a side note, you can use ```arp -n -e``` to view your computer's ARP table or add one with ```arp  -s  10.12.67.43  12:48:08:bb:a5:bb```.  
 ```
 Frame Header
 Source Mac Address
@@ -83,13 +88,28 @@ Then we find the one's complement
   
 ***GBN, SR, and Sliding Window Scheme*** Go-back-to-N and selective repeat are two methods of transporting segments in the Transport layer.  
 
-***TCP 3-way Hand Shaking*** is needed before data transfer for a TCP connection. TCP connections are intentional one-on-one connections between two hosts. They must send some preliminary segments to each other to establish the parameters of the ensuing data transfer. This is the time for hosts to set up their TCP state variables. Only the two end-hosts are aware of the TCP protocols. All intermediate switches send the datagrams without regard for what it is. 
+***TCP 3-way Hand Shaking*** is needed before data transfer for a TCP connection, UDP does not use this at all since it is connectionless. TCP connections are intentional one-on-one connections between two hosts. They must send some preliminary segments to each other to establish the parameters of the ensuing data transfer. This is the time for hosts to set up their TCP state variables. Only the two end-hosts are aware of the TCP protocols. All intermediate switches send the datagrams without regard for what it is.  
+Step 1: Machine 1 wants to initiate a connection with machine 2, So machine 1 sends a segment with SYN(Synchronize Sequence Number). This segment will inform the machine 2 that Machine 1 would like to start a communication with Machine 2 and informs machine 2 what sequence number it will start its segments with. The sequence number is selected randomly and used to keep data in order.  
+
+
+Step 2: Machine 2 will respond to Machine 1 with "Acknowledgment" (ACK) and SYN bits set. Now machine 2's ACK segment will acknowledge machine 1's SYN segment and inform Machine 1 what sequence number it will start its data with.
+
+Step 3: Now finally machine 1 Acknowledges Machine 2's initial sequence Number and its ACK signal. And then Machine 1 will start the actual data transffer.
 
 ***TCP Closing Sequence*** is used to confirm the closing of both the client and server's connection to the client  
 
 ***Round Trip Time Estimation and Timeout*** RTT is used to measure the expected amount of time needed from one host to another. The first time that two hosts communicate, they will not know the RTT, but over time, they will use estimates and standard deviations to figure out a reasonable RTT.  
 
-***TCP Congestion Control*** is a protocol used to prevent congestion in the transport layer  
+***TCP Congestion Control*** is a protocol used to prevent congestion in the transport layer. It, along with flow control, is exclusive to TCP; UDP does not have these capabilities. Both flow and congestion control slow down the sender's data outflow. Whereas flow control is used to make sure the receiver isn't overwhelmed by the sender, congestion control is to make sure the network isn't overwhelmed by a sender. 
+
+---
+extras!  
+  
+multiplexing and demultiplexing: messages from multiple applications can be combined into one segment (multiplexing) and then taken apart at the receiving end and given to respective applications (demultiplexing)  
+user datagram protocol: it's like a free for all, not connection setup needed, no congestion control, everyone gets to fire off at will  
+transmission control protocol (tcp): uses handshake and closing sequence because it is connection based, uses send and receive buffers, pipelined in-order bytestream  
+
+---
 
 
 ### Chapter 4: The Network Layer - Data Plane
