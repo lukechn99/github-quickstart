@@ -106,20 +106,47 @@ Step 3: Now finally machine 1 Acknowledges Machine 2's initial sequence Number a
 extras!  
   
 multiplexing and demultiplexing: messages from multiple applications can be combined into one segment (multiplexing) and then taken apart at the receiving end and given to respective applications (demultiplexing)  
+  
 user datagram protocol: it's like a free for all, not connection setup needed, no congestion control, everyone gets to fire off at will  
+  
 transmission control protocol (tcp): uses handshake and closing sequence because it is connection based, uses send and receive buffers, pipelined in-order bytestream  
-
+  
+stop and wait protocol: 
 ---
 
 
 ### Chapter 4: The Network Layer - Data Plane
 Forwarding vs. Routing
 
-Packet Fragmentation
+***Packet Fragmentation***
 
-IPv4 and IPv6
+***IPv4 and IPv6*** changes IP addresses from 32 bits to 128 bits. It also changes several other things...  
+No checksum: IPv6 removes the checksum from the header to speed up packet forwarding. The 
+router does not need to recalculate the checksum when editing the hop count or checking the 
+integrity of the header.  
+  
+No fragmentation: In IPv6, end hosts must perform path MTU discovery 
+to decide the length of the packet. No fragmentation reduces the overhead of fragmenting 
+packets of the routers.  
+  
+Fixed-length header: Several fields are dropped or made optional to 
+allow for faster processing of the IP datagram by a router.  
+  
+Expanded addressing capabilities: IPv6 increases the size of the IP address from 32 to 128 bits. This ensures that the world won’t 
+run out of IP addresses. Now, every grain of sand on the planet can be IP-addressable. In 
+addition to unicast and multicast addresses, IPv6 has introduced a new type of address, called 
+an anycast address, that allows a datagram to be delivered to any one of a group of hosts.  
+  
+Flow labeling: This allows “labeling of packets belonging to particular flows for which the sender 
+requests special handling, such as a non-default quality of service or real-time service.” For 
+example, audio and video transmission might likely be treated as a flow. On the other hand, the 
+more traditional applications, such as file transfer and e-mail, might not be treated as flows. It is 
+possible that the traffic carried by a high-priority user (for example, someone paying for better 
+service for their traffic) might also be treated as a flow. What is clear, however, is that the 
+designers of IPv6 foresaw the eventual need to be able to differentiate among the flows, even if 
+the exact meaning of a flow had yet to be determined. 
 
-NAT
+***NAT***
 
 
 ### Chapter 5: The Network Layer - Control Plane
