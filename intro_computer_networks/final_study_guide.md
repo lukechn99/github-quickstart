@@ -238,4 +238,6 @@ Polling: a centralized master invites slaves to transmit in turn which is good f
   
 Token passing: a token for transmitting is passed from node to node typically in a ring of nodes (physically a ring or logical a ring and physically a bus)  
 
+Ethernet: The adapter waits until the channel is idle and then starts to transmit a frame. If the whole frame is transmitted without interruption, an "OK" is transmitted, otherwise the adapter aborts transmission and sends a jam signal. It will then choose a random exponential time of the power of 2 multiplied by 512 and then tries a resend. After 16 aborts, it lets the network layer know that the datagram was not delivered.  
+
 ---
