@@ -1,6 +1,6 @@
 # Final Exam Study Guide
 
-### Basics
+## Basics
 The different layers correspond to different data encapsulations. The terminology is super confusing, so we have it laid out here:
 ```
       Layers          Data type                      Addressing type          Explanation
