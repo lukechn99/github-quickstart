@@ -17,8 +17,8 @@ The different layers correspond to different data encapsulations. The terminolog
      [Network]        --> Packet(Segment)            IP address               Network layer is the logical communication between hosts. Logically, it
                                                                               thinks it is sending directly to the other host's network IP. When used
                                                                               in UDP, packets are referred to as datagrams (?)
-     [Data Link]      --> Frame(Packet(Segment))     MAC address
-     [Physical ]                                                              All data eventually gets sent over a physical medium
+     [Data Link]      --> Frame(Packet(Segment))     MAC address              
+     [Physical ]      --> bit                                                 All data eventually gets sent over a physical medium
 ```  
 Each layer's encapsulation adds on a new header describing information needed to interpret what's in that encapsulation.  
 The transport layer uses segments that can be tranported with UDP or TCP. The transport layer gets its data from the application layer through the use of sockets. The application layer communicates down with sockets and doesn't care what happens afterwards because those lower level operation are abstracted. The receiving host application also does not need to worry about the lower level abstractions and can just worry about which socket it is receiving from.  
