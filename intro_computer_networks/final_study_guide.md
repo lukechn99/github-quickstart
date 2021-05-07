@@ -1,6 +1,6 @@
 # Final Exam Study Guide
 
-## Basics
+### Basics
 The different layers correspond to different data encapsulations. The terminology is super confusing, so we have it laid out here:
 ```
       Layers          Data type                      Addressing type          Explanation
@@ -15,7 +15,8 @@ The different layers correspond to different data encapsulations. The terminolog
                                                                               logical in the sense that it thinks its sending directly to the other 
                                                                               host's transport layer.
      [Network]        --> Packet(Segment)            IP address               Network layer is the logical communication between hosts. Logically, it
-                                                                              thinks it is sending directly to the other host's network IP. 
+                                                                              thinks it is sending directly to the other host's network IP. When used
+                                                                              in UDP, packets are referred to as datagrams (?)
      [Data Link]      --> Frame(Packet(Segment))     MAC address
      [Physical ]                                                              All data eventually gets sent over a physical medium
 ```  
@@ -90,11 +91,8 @@ Then we find the one's complement
 
 ***TCP 3-way Hand Shaking*** is needed before data transfer for a TCP connection, UDP does not use this at all since it is connectionless. TCP connections are intentional one-on-one connections between two hosts. They must send some preliminary segments to each other to establish the parameters of the ensuing data transfer. This is the time for hosts to set up their TCP state variables. Only the two end-hosts are aware of the TCP protocols. All intermediate switches send the datagrams without regard for what it is.  
 Step 1: Machine 1 wants to initiate a connection with machine 2, So machine 1 sends a segment with SYN(Synchronize Sequence Number). This segment will inform the machine 2 that Machine 1 would like to start a communication with Machine 2 and informs machine 2 what sequence number it will start its segments with. The sequence number is selected randomly and used to keep data in order.  
-
-
-Step 2: Machine 2 will respond to Machine 1 with "Acknowledgment" (ACK) and SYN bits set. Now machine 2's ACK segment will acknowledge machine 1's SYN segment and inform Machine 1 what sequence number it will start its data with.
-
-Step 3: Now finally machine 1 Acknowledges Machine 2's initial sequence Number and its ACK signal. And then Machine 1 will start the actual data transffer.
+Step 2: Machine 2 will respond to Machine 1 with "Acknowledgment" (ACK) and SYN bits set. Now machine 2's ACK segment will acknowledge machine 1's SYN segment and inform Machine 1 what sequence number it will start its data with.  
+Step 3: Now finally machine 1 Acknowledges Machine 2's initial sequence Number and its ACK signal. And then Machine 1 will start the actual data transffer.  
 
 ***TCP Closing Sequence*** is used to confirm the closing of both the client and server's connection to the client  
 
@@ -117,38 +115,30 @@ stop and wait protocol:
 
 
 ### Chapter 4: The Network Layer - Data Plane
-Forwarding vs. Routing
+When we talk about the network layer data plane, we're talking about packets/datagrams, IP (IPv4 and IPv6) and fragmentation.  
 
-***Packet Fragmentation***
+***Forwarding vs. Routing***
 
-***IPv4 and IPv6*** changes IP addresses from 32 bits to 128 bits. It also changes several other things...  
-No checksum: IPv6 removes the checksum from the header to speed up packet forwarding. The 
-router does not need to recalculate the checksum when editing the hop count or checking the 
-integrity of the header.  
+***Packet Fragmentation*** happens when a datagram goes through a part of the network where the maximum transfer size (MTU) is smaller than the size of the datagram. Datagrams are fragmented to size and given an offset number which tells how to reassemble at the destination host.  
+
+***IPv4 and IPv6*** changes IP addresses from 32 bits to 128 bits by removing several header fields. It also changes several other things...  
+No checksum: IPv6 removes the checksum from the header to speed up packet forwarding.  
   
-No fragmentation: In IPv6, end hosts must perform path MTU discovery 
-to decide the length of the packet. No fragmentation reduces the overhead of fragmenting 
+No fragmentation: In IPv6, end hosts must perform path MTU discovery to decide the length of the packet. No fragmentation reduces the overhead of fragmenting 
 packets of the routers.  
+    
+Expanded addressing capabilities: 128 bit addresses means we will not run out. In addition to unicast and multicast addresses, IPv6 has introduced a new type of address, called an anycast address, that allows a datagram to be delivered to any one of a group of hosts.  
   
-Fixed-length header: Several fields are dropped or made optional to 
-allow for faster processing of the IP datagram by a router.  
-  
-Expanded addressing capabilities: IPv6 increases the size of the IP address from 32 to 128 bits. This ensures that the world won’t 
-run out of IP addresses. Now, every grain of sand on the planet can be IP-addressable. In 
-addition to unicast and multicast addresses, IPv6 has introduced a new type of address, called 
-an anycast address, that allows a datagram to be delivered to any one of a group of hosts.  
-  
-Flow labeling: This allows “labeling of packets belonging to particular flows for which the sender 
-requests special handling, such as a non-default quality of service or real-time service.” For 
-example, audio and video transmission might likely be treated as a flow. On the other hand, the 
-more traditional applications, such as file transfer and e-mail, might not be treated as flows. It is 
-possible that the traffic carried by a high-priority user (for example, someone paying for better 
-service for their traffic) might also be treated as a flow. What is clear, however, is that the 
-designers of IPv6 foresaw the eventual need to be able to differentiate among the flows, even if 
-the exact meaning of a flow had yet to be determined. 
+Flow labeling: IPv6 allows differentiation of importance among data. Audio and video might be categorized as flows as opposed to email or file transfer. Or data from a more important device will be categorized as a flow and prioritized over other data. 
 
 ***NAT***
 
+---
+
+
+MTU: network links have a maximum transfer size/unit and if the datagram passing through is bigger, then it will be split into smaller datagrams that fit the network links
+
+---
 
 ### Chapter 5: The Network Layer - Control Plane
 Link State Routing Algorithm
