@@ -46,16 +46,17 @@ The data link layer is only used to communicate on the subnet or local area netw
 Every device has an ARP table/cache, but sometimes, it won't find the IP address is wants to translate. To see if the destination address is even in the same network, it will mask its own address and compare with the destination IP. For example, 127.0.0.1 wants to send to 127.0.0.2 and the network mask is anything inside of 127.0.0.x, then 127.0.0.x is the masked IP and we see that the destination does indeed match with it. If that is the case, then it will sends out an ARP request to the broadcast MAC address ff:ff:ff:ff:ff:ff or 00:00:00:00:00 should be the same thing. The request is basically a "MAC Wanted" poster; any device reading with that IP address will send back its MAC address and the original device can add it to its ARP table.  
 If the destination IP does not match with the devices own masked IP, then it is out of network and the the ARP request will be skipped and a layer 3 packet will be encapsulated in an Ethernet frame which will be forwarded to the host’s default gateway.  
 As a side note, you can use ```arp -n -e``` to view your computer's ARP table or add one with ```arp  -s  10.12.67.43  12:48:08:bb:a5:bb```.  
+The data link layer adds adds error checking bits, rdt, flow control
+
 ```
 Frame Header
 Source Mac Address
 Destination Mac Address
 Data (Payload - its nothing but the network packet given by the network layer)
 Length (total length of the data - Typically its 1500 bytes.)
-Checksum (CRC)
+Checksum/Error Detection and Correction Bits (CRC)
 ```
-The data link may transfer over Ethernet on first link, frame relay on intermediate links, 802.11 on last link![image](https://user-images.githubusercontent.com/47294899/117399311-e7761d00-aec5-11eb-94f1-1a5d2f5a77d1.png)
-
+The data link may transfer over Ethernet, frame relay, 802.11, and many others! Link header and encapsulation is different for each protocol.  
 
 ### Chapter 3: Transport Layer
 The transport layer is all about TCP and UDP.  
@@ -165,10 +166,48 @@ MTU: network links have a maximum transfer size/unit and if the datagram passing
  
 
 ### Chapter 6: The Link Layer and LANs
-At this level, we are concerned with the actual links between nodes. These links can be wired, wireless, or LAN. 
+At this level, we are concerned with the actual links between nodes. These links can be wired, wireless, or LAN. The link layer lives on the NIC card that every device has. 
 
 ***Framing: Byte Stuffing or Bit Stuffing*** 
 
-Error Detection: Parity Checking and Cyclic Redundancy Code (CRC)
+***Error Detection: Parity Checking and Cyclic Redundancy Code (CRC)*** 
+Along with the datagram from the link layer, EDC bits are attached at the end in a frame. We take the Data bits and choose ```r + 1``` pattern G and choose r CRC bits R so that <D, R> is exactly divisible by G. If the remainder is not 0 then there is an error.  
+```
+example:
+Given a word 1101101
+and a divisor 10101
+
+division is done with XOR, remember that 1 1 = 0, 1 0 = 1, 0 0 = 0
+
+1) append 0's onto the end of the word equal to the number of bits in the divisor - 1: word = 11011010000, divisor = 10101
+2) use XOR to divide: 
+        1110111
+      _________________
+10101 | 11011010000
+        10101
+        011100
+         10101
+         010011
+          10101
+          001100
+           00000
+           011000
+            10101
+            011010
+             10101
+             011110
+              10101
+              01011
+3) evaluate whether it is 0 or not: remainder is 1011 so there is an error
+4) if there is an error, then add the remainder onto the appended word: 11011011011. If not then you are good to go!
+5) If there was an error then try again with the added value. 
+```
+As an aside, reliable delivery can be used on less dependable mediums (like wireless). These are the same protocols as the network layer: GBN and SR. More reliable forms oflinks like twisted pair or fiber don't need this. 
 
 ***MAC Protocols: CSMA, CSMA/CD, Token Passing, Token Ring, and Ethernet*** 
+
+---
+
+MAC (media access control): 
+
+---
