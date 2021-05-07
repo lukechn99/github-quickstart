@@ -54,6 +54,8 @@ Data (Payload - its nothing but the network packet given by the network layer)
 Length (total length of the data - Typically its 1500 bytes.)
 Checksum (CRC)
 ```
+The data link may transfer over Ethernet on first link, frame relay on intermediate links, 802.11 on last link![image](https://user-images.githubusercontent.com/47294899/117399311-e7761d00-aec5-11eb-94f1-1a5d2f5a77d1.png)
+
 
 ### Chapter 3: Transport Layer
 The transport layer is all about TCP and UDP.  
@@ -141,7 +143,7 @@ Expanded addressing capabilities: 128 bit addresses means we will not run out. I
   
 Flow labeling: IPv6 allows differentiation of importance among data. Audio and video might be categorized as flows as opposed to email or file transfer. Or data from a more important device will be categorized as a flow and prioritized over other data. 
 
-***NAT***
+***NAT*** 
 
 ---
 
@@ -151,20 +153,22 @@ MTU: network links have a maximum transfer size/unit and if the datagram passing
 ---
 
 ### Chapter 5: The Network Layer - Control Plane
-Link State Routing Algorithm
+***Link State Routing Algorithm*** uses Dijkstra's algorithm. This class is super sensitive about how you fill out your routing tables.  
 
-Distance Vector Routing Algorithm
 
-Path Vector Routing Algorithm
+***Distance Vector Routing Algorithm*** 
+
+***Path Vector Routing Algorithm*** 
 
 ***BGP (Boarder Gateway Protocol)*** 
 
  
 
 ### Chapter 6: The Link Layer and LANs
+At this level, we are concerned with the actual links between nodes. These links can be wired, wireless, or LAN. 
 
-Framing: Byte Stuffing or Bit Stuffing
+***Framing: Byte Stuffing or Bit Stuffing*** 
 
 Error Detection: Parity Checking and Cyclic Redundancy Code (CRC)
 
-***MAC Protocols: CSMA, CSMA/CD, Token Passing, Token Ring, and Ethernet***
+***MAC Protocols: CSMA, CSMA/CD, Token Passing, Token Ring, and Ethernet*** 
