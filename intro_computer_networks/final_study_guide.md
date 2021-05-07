@@ -169,6 +169,8 @@ MTU: network links have a maximum transfer size/unit and if the datagram passing
 At this level, we are concerned with the actual links between nodes. These links can be wired, wireless, or LAN. The link layer lives on the NIC card that every device has. *Each protocol uses a different frame header, trailer, etc.*  
 The data link layer's main functions include framing (putting the datagram in a frame and adding header and trailer, assessing whether it's okay or not to send over a link, error detection (through CRC).  
 They can be sent through different link types; point to point is with one sender and one receiver (no need for MAC addressing), protocols that are point to point include PPP and HDLC.  
+Broadcast LAN has multiple people broadcasting into the channel at once and can result in collisions. To solve this, we can partition the channel by time (TDMA), frequency (FDMA), or code (CDMA). We can also use polling or take turns to coordinate access. We can also use random access which allows collisions but rectifies them. 
+![MAC Protocols](https://user-images.githubusercontent.com/47294899/117450180-81f65080-af06-11eb-8aa2-2086c956fac8.png)
 
 
 ***Framing: Byte Stuffing or Bit Stuffing*** 
@@ -210,11 +212,17 @@ division is done with XOR, remember that 1 1 = 0, 1 0 = 1, 0 0 = 0
 As an aside, reliable delivery can be used on less dependable mediums (like wireless). These are the same protocols as the network layer: GBN and SR. More reliable forms oflinks like twisted pair or fiber don't need this. 
 
 ***MAC Protocols: CSMA, CSMA/CD, Token Passing, Token Ring, and Ethernet*** 
+MAC protocols can be grouped into either *random access* or *
+Token rings release their token after reception of a frame while another protocol called FDDI releases the token after it has transmitted its own frame. 
 
 ---
 
 MAC (media access control): physical device address
   
-PPP link: before communication, two hosts need to establish the link, authenticate and configure the network layer, open
+PPP link: before communication, two hosts need to establish the link, authenticate and configure the network layer, open  
+  
+Polling: a centralized master invites slaves to transmit in turn which is good for avoiding collisions but bad because of overhead  
+  
+Token passing: a token for transmitting is passed from node to node typically in a ring of nodes (physically a ring or logical a ring and physically a bus)  
 
 ---
