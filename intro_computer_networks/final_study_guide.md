@@ -166,16 +166,21 @@ MTU: network links have a maximum transfer size/unit and if the datagram passing
  
 
 ### Chapter 6: The Link Layer and LANs
-At this level, we are concerned with the actual links between nodes. These links can be wired, wireless, or LAN. The link layer lives on the NIC card that every device has. 
+At this level, we are concerned with the actual links between nodes. These links can be wired, wireless, or LAN. The link layer lives on the NIC card that every device has. *Each protocol uses a different frame header, trailer, etc.*  
+The data link layer's main functions include framing (putting the datagram in a frame and adding header and trailer, assessing whether it's okay or not to send over a link, error detection (through CRC).  
+They can be sent through different link types; point to point is with one sender and one receiver (no need for MAC addressing), protocols that are point to point include PPP and HDLC.  
+
 
 ***Framing: Byte Stuffing or Bit Stuffing*** 
+Since PPP puts everything in one long bit-string, there needs to be differentiation between data and flags. If the bit string 01111110 is used as a piece of data, it is followed by another 01111110 so that the receiver knows it was intended to be data. Otherwise it is not followed and the receiver knows it was a flag. 
+
 
 ***Error Detection: Parity Checking and Cyclic Redundancy Code (CRC)*** 
 Along with the datagram from the link layer, EDC bits are attached at the end in a frame. We take the Data bits and choose ```r + 1``` pattern G and choose r CRC bits R so that <D, R> is exactly divisible by G. If the remainder is not 0 then there is an error.  
 ```
 example:
-Given a word 1101101
-and a divisor 10101
+Given a word (D) 1101101
+and a divisor (G) 10101
 
 division is done with XOR, remember that 1 1 = 0, 1 0 = 1, 0 0 = 0
 
@@ -208,6 +213,8 @@ As an aside, reliable delivery can be used on less dependable mediums (like wire
 
 ---
 
-MAC (media access control): 
+MAC (media access control): physical device address
+  
+PPP link: before communication, two hosts need to establish the link, authenticate and configure the network layer, open
 
 ---
