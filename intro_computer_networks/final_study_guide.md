@@ -56,6 +56,8 @@ Checksum (CRC)
 ```
 
 ### Chapter 3: Transport Layer
+The transport layer is all about TCP and UDP.  
+
 ***UDP Checksum*** is used to detect errors in segments. The sender splits the entire segment into 16 bit chunks and then adds them all together and takes the 1's complement. This is the checksum which is then checked by the receiver against the received segment. In calculation, overflows will circle back to the right-most bit.  
 ```
 For segment 1100110011001100 1011101110111011 1001100110011001, we split into 16 bit chunks
@@ -97,6 +99,12 @@ Step 3: Now finally machine 1 Acknowledges Machine 2's initial sequence Number a
 ***TCP Closing Sequence*** is used to confirm the closing of both the client and server's connection to the client  
 
 ***Round Trip Time Estimation and Timeout*** RTT is used to measure the expected amount of time needed from one host to another. The first time that two hosts communicate, they will not know the RTT, but over time, they will use estimates and standard deviations to figure out a reasonable RTT.  
+
+We have to periodically measure RTT because too long of a timeout will slow down your program and too short will make you miss things due to a premature timeout.  
+```EstimatedRTT' = (1 - alpha) * EstimatedRTT + alpha * sampleRTT``` typically alpha is 0.125  
+In other words, the updated RTT is 7/8 of the previous RTT and 1/8 of a sample RTT  
+```DevRTT' = (1 - beta) * DevRTT  + beta * abs(SampleRTT - EstimatedRTT)``` where beta typically equals 0.25  
+```TimeoutInterval = EstimatedRTT' + 4*DevRTT'```
 
 ***TCP Congestion Control*** is a protocol used to prevent congestion in the transport layer. It, along with flow control, is exclusive to TCP; UDP does not have these capabilities. Both flow and congestion control slow down the sender's data outflow. Whereas flow control is used to make sure the receiver isn't overwhelmed by the sender, congestion control is to make sure the network isn't overwhelmed by a sender. 
 
