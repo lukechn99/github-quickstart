@@ -112,6 +112,7 @@ user datagram protocol: it's like a free for all, not connection setup needed, n
 transmission control protocol (tcp): uses handshake and closing sequence because it is connection based, uses send and receive buffers, pipelined in-order bytestream  
   
 stop and wait protocol: 
+
 ---
 
 
