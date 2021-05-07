@@ -90,6 +90,7 @@ Then we find the one's complement
 
   
 ***GBN, SR, and Sliding Window Scheme*** Go-back-to-N and selective repeat are two methods of transporting segments in the Transport layer.  
+GBN has a maximum window size of one less than the possible sequence number while SR has a maximum window size of half the possible sequence number. 
 
 ***TCP 3-way Hand Shaking*** is needed before data transfer for a TCP connection, UDP does not use this at all since it is connectionless. TCP connections are intentional one-on-one connections between two hosts. They must send some preliminary segments to each other to establish the parameters of the ensuing data transfer. This is the time for hosts to set up their TCP state variables. Only the two end-hosts are aware of the TCP protocols. All intermediate switches send the datagrams without regard for what it is.  
 Step 1: Machine 1 wants to initiate a connection with machine 2, So machine 1 sends a segment with SYN (Synchronize Sequence Number). This segment will inform the machine 2 that Machine 1 would like to start a communication with Machine 2 and informs machine 2 what sequence number it will start its segments with. The sequence number is selected randomly and used to keep data in order.  
@@ -129,6 +130,7 @@ When we talk about the network layer data plane, we're talking about packets/dat
 
 ***Packet Fragmentation*** happens when a datagram goes through a part of the network where the maximum transfer size (MTU) is smaller than the size of the datagram. Datagrams are fragmented to size and given an offset number which tells how to reassemble at the destination host.  
 
+
 ***IPv4 and IPv6*** changes IP addresses from 32 bits to 128 bits by removing several header fields. It also changes several other things...  
 No checksum: IPv6 removes the checksum from the header to speed up packet forwarding.  
   
@@ -155,7 +157,7 @@ Distance Vector Routing Algorithm
 
 Path Vector Routing Algorithm
 
-BGP (Boarder Gateway Protocol)
+***BGP (Boarder Gateway Protocol)*** 
 
  
 
@@ -165,4 +167,4 @@ Framing: Byte Stuffing or Bit Stuffing
 
 Error Detection: Parity Checking and Cyclic Redundancy Code (CRC)
 
-MAC Protocols: CSMA, CSMA/CD, Token Passing, Token Ring, and Ethernet
+***MAC Protocols: CSMA, CSMA/CD, Token Passing, Token Ring, and Ethernet***
