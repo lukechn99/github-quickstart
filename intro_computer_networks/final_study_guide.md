@@ -129,7 +129,7 @@ stop and wait protocol:
 ### Chapter 4: The Network Layer - Data Plane
 When we talk about the network layer data plane, we're talking about packets/datagrams, IP (IPv4 and IPv6) and fragmentation.  
 
-***Forwarding vs. Routing***
+***Forwarding vs. Routing*** Routing happens in the control plane while forwarding happens in the data plane. 
 
 ***Packet Fragmentation*** happens when a datagram goes through a part of the network where the maximum transfer size (MTU) is smaller than the size of the datagram. Datagrams are fragmented to size and given an offset number which tells how to reassemble at the destination host.  
 
@@ -157,12 +157,20 @@ MTU: network links have a maximum transfer size/unit and if the datagram passing
 ***Link State Routing Algorithm*** uses Dijkstra's algorithm. This class is super sensitive about how you fill out your routing tables.  
 
 
-***Distance Vector Routing Algorithm*** 
+***Distance Vector Routing Algorithm*** Routes are advertised by
 
-***Path Vector Routing Algorithm*** 
+Distance - How far the destination network is based upon a metric such as hop count.
+Vector - The direction (next-hop router or egress interface) required to get to the destination.
+This routing information is exchanged between directly connected neighbours.[2] Therefore when a node receives a routing update, it has no knowledge of where the neighbour learned it from. In other words, the node has no visibility of the network past its own neighbour. This part of distance vector is also known as "routing by rumour".
 
-***BGP (Boarder Gateway Protocol)*** 
+Furthermore, routing updates are sent in full (rather than delta-based updates) and at regular intervals, resulting in extremely slow convergence times - one of the key downfalls to distance vector protocols. In addition due to the slow convergence times and "routing by rumour", distance vector protocols are prone to routing loops.
 
+However, on the flipside, the resource consumption is low compared to link-state, due to not having to hold the full state of the entire topolog
+
+***Path Vector Routing Algorithm*** is like distance vector but on the inter-AS level and is a part of the border gateway protocol. 
+
+***BGP (Border Gateway Protocol)*** The BGP will filter route advertisements from neighbors based on its own policies, be in charge of the route selection to other ASes, and filter the sending of information/advertisements to others. Basically, it selectively hears and is very cunning about what it tells, always prioritizing its own policy.  
+The border gateways are also where peering happens and different providers can exchange traffic. Of course they are trying to optimize their own costs even at cost to others. However, due to the trading nature of the relationship, no money is exchanged, just favors. 
  
 
 ### Chapter 6: The Link Layer and LANs
@@ -212,8 +220,13 @@ division is done with XOR, remember that 1 1 = 0, 1 0 = 1, 0 0 = 0
 As an aside, reliable delivery can be used on less dependable mediums (like wireless). These are the same protocols as the network layer: GBN and SR. More reliable forms oflinks like twisted pair or fiber don't need this. 
 
 ***MAC Protocols: CSMA, CSMA/CD, Token Passing, Token Ring, and Ethernet*** 
-MAC protocols can be grouped into either *random access* or *
+MAC protocols can be grouped into either *random access* or *ontrolled access*  
+Controlled access are token passing, token ring, and ethernet.  
 Token rings release their token after reception of a frame while another protocol called FDDI releases the token after it has transmitted its own frame. 
+
+  
+Random access are ALOHA, slotted ALOHA, CSMA, CSMA/CD, and CSMA/CA. They need to know how to detect or avoid collisions and recover.  
+
 
 ---
 
