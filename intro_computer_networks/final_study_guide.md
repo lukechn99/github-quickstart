@@ -18,8 +18,20 @@ The different layers correspond to different data encapsulations. The terminolog
                                                                               thinks it is sending directly to the other host's network IP. When used
                                                                               in UDP, packets are referred to as datagrams (?)
      [Data Link]      --> Frame(Packet(Segment))     MAC address              
-     [Physical ]      --> bit                                                 All data eventually gets sent over a physical medium
+     [Physical ]      --> bit                                                 All data eventually gets sent over a physical medium like pairs of 
+                                                                              copper twisted together — called TP, fiber optics, etc. 
 ```  
+Computer networks are made up of 5 layers (some sources say 7 layers). End hosts like computers, cell phones, and IoT devices typically use all 5 layers while devices like routers and switches only use the bottom 3 layers. The top 2 layers are the application layer, which is creating the data to send, and the transport layer which is a way to interface the application layer with the rest of the stack. Routers and switches don't need to have these 2 layers because they do not need run any applications (as far as I know) when routing data. The use flow might look like...  
+```
+ My computer                                                                                                                         Your computer
+[application | Facebook sends "hi" to you where your FB is browser port is 443, IP is..., etc.   ]                                  [application]
+[transport   | segment(port=443 | "hi")                                                          ]                                  [transport  ]
+[network     | packet(IP=67.228.23.200 | segment(port=443 | "hi"))                               ] -> [network  ] -> [network  ] -> [network    ]
+[data link   | frame(MAC=00:1A:C2:7B:00:47 | packet(IP=67.228.23.200 | segment(port=443 | "hi")))]    [data link]    [data link]    [data link  ]
+[physical    | beep beep boop 10101100 11101010...                                               ]    [physical ]    [physical ]    [physical   ]
+
+```
+
 Each layer's encapsulation adds on a new header describing information needed to interpret what's in that encapsulation.  
 The transport layer uses segments that can be tranported with UDP or TCP. The transport layer gets its data from the application layer through the use of sockets. The application layer communicates down with sockets and doesn't care what happens afterwards because those lower level operation are abstracted. The receiving host application also does not need to worry about the lower level abstractions and can just worry about which socket it is receiving from.  
 ```
