@@ -25,7 +25,7 @@ Computer networks are made up of 5 layers (some sources say 7 layers). End hosts
 ```
  My computer                                                                                                                         Your computer
 [application | Facebook sends "hi" to you where your FB is browser port is 443, IP is..., etc.   ]                                  [application]
-[transport   | segment(port=443 | "hi")                                                          ]                                  [transport  ]
+[transport   | segment(port=443 | "hi")                                                          ]     Router         Router        [transport  ]
 [network     | packet(IP=67.228.23.200 | segment(port=443 | "hi"))                               ] -> [network  ] -> [network  ] -> [network    ]
 [data link   | frame(MAC=00:1A:C2:7B:00:47 | packet(IP=67.228.23.200 | segment(port=443 | "hi")))]    [data link]    [data link]    [data link  ]
 [physical    | beep beep boop 10101100 11101010...                                               ]    [physical ]    [physical ]    [physical   ]
