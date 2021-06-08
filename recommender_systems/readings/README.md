@@ -11,10 +11,12 @@ Ideas:
 Personalized top lists, new lists, trending, etc.
 What a hypothesis of what this model would do?
 
+Problems:  
 New ranking algorithm that is not one dimensional
 How do we get input for this system? What implicit inputs can be leveraged, which explicit ones need to be asked for
 Sentiment analysis of critics for "good acting" "good action"?
-Multi-dimensional using zoom-ins
+Multi-dimensional using zoom-ins  
+How can we decrease bias and balance reliability with risk? We don't want to recommend Star Wars to someone who has already watched it. 
 
 Games and fun
 "favorite film with a car crash"
