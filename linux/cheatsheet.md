@@ -54,6 +54,8 @@ OTHER COMMANDS
 ```>> ifconfig```  
 
 
+```>> whoami```
+
 ### Helpful Tools
 ```Tab```  
 
