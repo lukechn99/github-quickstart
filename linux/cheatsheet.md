@@ -64,7 +64,20 @@ grep is used to look for patterns in the specified file. A common option to use 
 Piping, represented by ```|``` is used to transfer the output of one command into another command just as a pipe connects multiple things. For example, we know that the command ```>> ls -l``` returns a LONG list of all files and directories in your current directory, but what if we don't want to see such a long list? Then we can pipe the output of ```>> ls -l``` into ```more``` which will restrict how many lines we see at a time. The full command would be ```>> ls -l | more```. 
 
 ```>> join <file> <file>```
-Joining two files will combine corresponding lines of the two files. The best way to do this is to redirect the output to another file so that it can be saved; ```>> join file1.txt file2.txt > new_file.txt```
+Joining two files will combine corresponding lines of the two files. The best way to do this is to redirect the output to another file so that it can be saved; ```>> join file1.txt file2.txt > new_file.txt```.  
+```
+EXAMPLE (with the above command)
+
+file1.txt           file2.txt           new_file.txt
+apples              2                   apples 2
+bananas             5                   bananas 5
+oranges        +    1              =    oranges 1
+avocados            0                   avocados 0
+watermelons         1                   watermelons 1
+tomatos
+```
+notice how tomatos were not copied over because there was no corresponding line in file2.txt
+
 
 ```>> vi <file>```  
 Opens the Vim editor for files. Will edit a file if it exists and create the file if it does not exist. 
