@@ -17,12 +17,23 @@ tar
 
 ps
 
-chmod
+```>> chmod```
+chmod is used for changing the permissions field of a file or directory. This field looks like xxx_xxx_xxx where the first group represents the owner, group, and all users respectively. Each permission (owner, group, all users) has three bits that represent read, write, execute. So xxx_xxx_xxx looks like rwx_rwx_rwx when all permissions are allowed.  
+For example, ```chmod 700 file.txt``` means you are changing permissions to ```rwx_---_---``` where the owner can read, write and execute, but other users have no permissions. The 7 in ```chmod 700``` is 111 in bits and the 00 are 000_000.  
+Another common 
 
-rm
+```>> rm```
 
 ln
 
+```
+>> view
+>> cat
+>> less
+>> more
+>> tail
+>> head
+```
 
 ---
 OTHER COMMANDS
