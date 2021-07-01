@@ -19,8 +19,9 @@ changes directory. For a list of relative path options, use ```>> ls -a```. For 
 cp copies a file or directory from one location to another. You can use relative or absolute paths when doing this. In addition to moving a file, you can also use ```cp``` to rename a file with ```>> cp <file> <valid new name>```. 
 
 ```>> tar <option> <files...>```  
-```tar``` compresses files into a .tar folder/file. Common options are -cf and -xf which are used for create .tar and extract .tar respectively. 
+```tar``` archives files into a .tar folder/file. Common options are -cf and -xf which are used for create .tar and extract .tar respectively. 
 
+```>> zip ```
 
 ```>> chmod```  
 chmod is used for changing the permissions field of a file or directory. This field looks like xxx_xxx_xxx where the first group represents the owner, group, and all users respectively. Each permission (owner, group, all users) has three bits that represent read, write, execute. So xxx_xxx_xxx looks like rwx_rwx_rwx when all permissions are allowed.  
