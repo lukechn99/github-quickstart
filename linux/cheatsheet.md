@@ -9,22 +9,25 @@ ls
 
 pwd
 
-cd
+```>> cd```
 
-cp
+```>> cp <file/directory> <file/directory>```  
+cp copies a file or directory from one location to another. You can use relative or absolute paths when doing this. In addition to moving a file, you can also use ```cp``` to rename a file with ```>> cp <file> <valid new name>```. 
 
-tar
+```>> tar```
 
-ps
 
-```>> chmod```
+
+```>> chmod```  
 chmod is used for changing the permissions field of a file or directory. This field looks like xxx_xxx_xxx where the first group represents the owner, group, and all users respectively. Each permission (owner, group, all users) has three bits that represent read, write, execute. So xxx_xxx_xxx looks like rwx_rwx_rwx when all permissions are allowed.  
 For example, ```chmod 700 file.txt``` means you are changing permissions to ```rwx_---_---``` where the owner can read, write and execute, but other users have no permissions. The 7 in ```chmod 700``` is 111 in bits and the 00 are 000_000.  
-Another common 
+Another common use is ```chmod 777 file.txt``` which gives all permissions for all users.  
 
-```>> rm```
+```>> rm```  
+Removes a file or directory. You can also remove a whole directory through ```>> rm -r <directory>```
 
-ln
+```>> ln <target> <link name>```  
+creates links to a target
 
 ```
 >> view
@@ -34,11 +37,13 @@ ln
 >> tail
 >> head
 ```
+Are all for viewing files
 
 ---
 OTHER COMMANDS
 ---
 ### Get Information About Your Computer
+```>> ps```  
 
 
 ### Helpful Tools
