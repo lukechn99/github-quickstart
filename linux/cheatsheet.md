@@ -49,18 +49,21 @@ OTHER COMMANDS
 ### Get Information About Your Computer
 ```>> ps```  
 
-```>> ifconfig```
+
+```>> ifconfig```  
+
 
 ### Helpful Tools
-*Tab*
+```Tab```  
 
 
-*Control + r*
+```Control + r```  
+
 
 ```>> grep <pattern> <file>```  
 grep is used to look for patterns in the specified file. A common option to use is ```>> grep -i <pattern> <file>``` which will ignore case sensitivity when searching. To look for a file *name* that fits the pattern in the current directory, use ```>> find . | grep <pattern>```. 
 
-*piping*  
+```piping```  
 Piping, represented by ```|``` is used to transfer the output of one command into another command just as a pipe connects multiple things. For example, we know that the command ```>> ls -l``` returns a LONG list of all files and directories in your current directory, but what if we don't want to see such a long list? Then we can pipe the output of ```>> ls -l``` into ```more``` which will restrict how many lines we see at a time. The full command would be ```>> ls -l | more```. 
 
 ```>> join <file> <file>```
