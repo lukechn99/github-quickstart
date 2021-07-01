@@ -57,7 +57,14 @@ OTHER COMMANDS
 ```Tab```  
 
 
-```Control + r```  
+```Ctrl + r```  
+
+
+```Ctrl + c```  
+
+
+```Ctrl + a```  
+Moves the cursor to the beginning of the line. It can be very helpful for adding ```sudo``` to a long command because you won't have to keep pressing the arrow key. 
 
 
 ```>> grep <pattern> <file>```  
