@@ -4,10 +4,10 @@ Note whenever ```<keyword>``` is used, it is meant to be a placeholder and shoul
 ### Commonly Used Commands
 Sudo is 
 ```>> sudo```  
+This command gives you root user access and allows you to perform actions you might otherwise not be able to do. For example, executing ```>> whoami``` will return your username, but executing ```>> sudo whoami``` should return root user regardless of who you are.  
 
-
-```>> ls```  
-
+```>> ls <options> <directory>```  
+This command lists directory contents. Some common ways to use it include a simple ```>> ls``` that just shows the files and directories from where you currently are in your computer's directory structure
 
 ```>> pwd```
 
@@ -22,6 +22,9 @@ cp copies a file or directory from one location to another. You can use relative
 ```tar``` archives files into a .tar folder/file. Common options are -cf and -xf which are used for create .tar and extract .tar respectively. 
 
 ```>> zip ```
+
+```>> gzip```  
+Creates compressed tar files, use ```>> gzip -d <file.gz>``` to decompress. 
 
 ```>> chmod```  
 chmod is used for changing the permissions field of a file or directory. This field looks like xxx_xxx_xxx where the first group represents the owner, group, and all users respectively. Each permission (owner, group, all users) has three bits that represent read, write, execute. So xxx_xxx_xxx looks like rwx_rwx_rwx when all permissions are allowed.  
@@ -42,7 +45,7 @@ creates links to a target
 >> tail <file>
 >> head <file>
 ```
-Are all for viewing files
+Are all for viewing files. ```cat``` is good for small short files because it just prints it out with no ```:q``` needed. 
 
 ---
 OTHER COMMANDS
