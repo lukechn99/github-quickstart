@@ -4,6 +4,9 @@ what the command does and the typical situations in which it is used
 make sure to commit before doing anything...  (don't try resolving merge conflicts without committing........)
 
 ### config
+The very first setup steps you should perform after the install are setting username and email.
+```$ git config --global user.name "Luke Chen"```  
+```$ git config --global user.email "lukechn99@gmail.com```  
 Git config is used to configure Git settings. It is used to setup email, username, and editor in Github the first time you use it.  
 ```$ git config --global core.editor emacs```  
 It is also used to set aliases, which are shortcuts for other commands.  
@@ -24,6 +27,10 @@ Git clone reproduces a Github repository on your local directory. Navigate into 
 ```$ git clone <tags> <repository>```  
 The clone command also does branch tracking.  
 Using Git clone will implicitly add the ```origin``` remote for you. Other remotes can be manually added.  
+
+### init
+Git init is the alternative to cloning; instead of cloning a repository that exists on Github, it initializes a new repository In your current directory. 
+```$ git init```
   
 ### remote
 ```$ git remote``` shows you the server you've cloned from.  
@@ -35,22 +42,35 @@ In this way, we can use the shortname instead of the whole URL if we want to per
 ### status
 ```$ git status``` allows you to check the status of a directory. This command will tell you if the local directory is up to date with the main branch.  
 You can also use it when navigating between branches.  
+
+### log
+```$ git log``` shows the commit log.  
+
 ### commit
 ```$ git commit``` commits all of the files of the current index.  
 It is typically used with a ``` -m "<message>"``` that is a short explanation of what was committed in this update.  
+
 ### push
 ```$ git push``` can be used to add all of the local refs to the remote ref. 
 It can be used to with tags to specify which branches should be committed. 
 The most common is ```--all``` which pushes all of them. 
 ### pull
 ```$ git pull``` updates the local directory with the remote repository. It is helpful to use pull before working on code to make sure that the code you're working on is the most up to date. Local changes must be committed or stashed before a pull can be done.   
+
 ### add
-```$ git add``` is used to incrementally add changes to the index before committing. It must be used to add all new files to the local repository before commit is used.  
+```$ git add``` is used to stage changes to the index before committing. It must be used to add all new files to the local repository before commit is used.  
+It can be used as ```$ git add --all``` to stage all files, or you can replace ```--all``` with an actual file name to only stage that file.  
+
+### reset
+Reset unstages the changes but doens't change anything about the file on your local computer. It is the opposite of ```add```.  
+
 ### rm
 removes a specified file  
 Typically used as ```$ git rm text.txt```  
+
 ### stash
 saves your local changes, and takes them off the stage for committing and pushing  
+
 ### checkout
 shows which branch you're on. If you use command ```$ git checkout <name>``` then it either switches you over to that branch if it exists or creates it as a new branch and switches you over. **BRANCH CREATION** uses ```$ git checkout -b <branch name>```  
   
