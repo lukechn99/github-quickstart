@@ -12,3 +12,12 @@ Positive votes could
 Showing th efull distribution is basically just giving the user the raw data, but it also makes it more complicated for the user to comprehend
 Maybe we could use an aggregate of all these simple displays to show a gradient. For example we could use a limiting function like e^1/x or something to reflect the full distribution.  
 We could also let the user select their own metric, like Reddit letting you sort by best, hottest, newest, etc. 
+
+### Average Rating
+Shows of the people who vote, how many liked it but doesn't show the popularity
+
+### Net Upvotes
+Shows the popularity but loses the dimension of controversy
+
+### % Greater than 4*
+Only shows the positive
