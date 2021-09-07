@@ -11,6 +11,10 @@ Product association is where products are linked by users who rate them.
 Content-based figures out a profile for what you like.  
 Collaborative uses opinions of the community to figure out what else you might like.  
 
+### Ideas
+How to recommend items that fall through the cracks  
+Time-weighted recommendations
+
 ---
 Rating : is an expression of preference that can be given explicitly (rating an item) or implicitly (through behavior cues)  
 Prediction : estimation of preference  
