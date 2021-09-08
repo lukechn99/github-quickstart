@@ -22,7 +22,7 @@ How to recommend items that fall through the cracks
 Time-weighted recommendations  
 Being "too good" at recommendations turns out to be bad  
 You could take the average ratings for a person and divide all other ratings by that one to normalize things  
-
+Ads optimize for: engagement (how long they stay on the ad), click rate, contextuality (applicability, either on a personal level or societal context)
 
 ---
 Rating : is an expression of preference that can be given explicitly (rating an item) or implicitly (through behavior cues)  
