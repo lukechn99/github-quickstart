@@ -6,6 +6,7 @@ The real recommendations sometimes came from the psychology of buying
 Item-item was also too slow and lost information. This was when we started computing recommendations more smartly. We start using SVD to provide each user with a vector that represents them. This was still too slow and didn't operate well on sparse matrices.  
 Taking advantage of the sparsity of the matrix, people stopped trying to factor and just tried to optimize for the products of the vectors to minimize the distance from the existing scores and filling in the missing ones. SVD, stochastic descent, least squares were all methods people used to do this.  
 The final wave, and current trends, in recsys involves machine learning.  
+How discounts are run, brand loyalty, price sensitivity, and consumer knowledge are a huge part of what goes into sales and coupons at checkout. The money given to the consumer through coupons, loyalty programs, and other promotions are offset by either attracting a new customer or bringing customers into the marketplace more often.  
 
 ### General Model
 Users will contribute *user experience*, which is added to the big data pool that's being gathered, and a recommendation, based on the many others who have their data in the pool will be considered and a recommendation is given back to the user. 
