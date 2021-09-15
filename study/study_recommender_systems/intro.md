@@ -19,7 +19,7 @@ Collaborative uses opinions of the community to figure out what else you might l
 
 ### Ideas
 How to recommend items that fall through the cracks  
-Time-weighted recommendations  
+Time-weighted recommendations; "you don't want to recommend the most popular article from last year" how does that apply to movies? Are ratings more relevant from years ago or days ago? And how much effect should those ratings have on the recommendations for you?  
 Being "too good" at recommendations turns out to be bad  
 You could take the average ratings for a person and divide all other ratings by that one to normalize things  
 Ads optimize for: engagement (how long they stay on the ad), click rate, contextuality (applicability, either on a personal level or societal context)
