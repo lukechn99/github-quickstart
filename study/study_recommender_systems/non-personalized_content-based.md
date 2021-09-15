@@ -1,5 +1,5 @@
 # Non-Personalized and Content-Based
-Data needs to be gathered about a user before recommendations can be made
+Data needs to be gathered about a user before recommendations can be made, whether that's demographic, contextual/ephemeral, or personal data-based.  
 
 ### Preference Data
 Can be explicit (directly ask for input, like a star rating) or implicit (user interactions)   
