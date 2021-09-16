@@ -8,4 +8,7 @@ In DFS we store everything in a stack and only store as we go, in BFS we store e
 No matter the algorithm, some properties that hold are: 1). it is complete, a.k.a. it will *find* a solution if it exists 2). cost optimality (optimal is a set of best solutions, optimum is the single best), time, and space  
 
 ### Which one to use?
-DFS is best for memory, BFS and UC are best for performance (finding optimal solutions) but are terrible for time-space complexity. DFS can be made slightly better by having more awareness of the problem and setting a depth limit or multiple depth limits that could iteratively increase. The depths are used to start backtracking when hit. Bi-directional search works well when there's a funnelling point in the middle so that the two search paths can converge. 
+DFS is best for memory, BFS and UC are best for performance (finding optimal solutions) but are terrible for time-space complexity. DFS can be made slightly better by having more awareness of the problem and setting a depth limit or multiple depth limits that could iteratively increase. The depths are used to start backtracking when hit. Bi-directional search works well when there's a funnelling point in the middle so that the two search paths can converge.  
+
+### Search space
+Graphs can be expanded into a tree
