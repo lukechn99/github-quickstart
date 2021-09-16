@@ -1,5 +1,6 @@
 ### Representing a problem
 Representing a problem as a graph of states, we can find the solution by soving the graph. Some questions to answer then are: 1). how do we keep track of the parent in order to recreate the solution path and 2). where do we store the graph.  
+Uinformed search algorithms don't care about the specifics of the problem as opposed to using problem specific details to guide the search.  
 
 ### The different algorithms
 In DFS we store everything in a stack and only store as we go, in BFS we store everything in a queue and only store as we go, in Uniform Cost (Dijkstra's) we put everything into a sorted queue (this gives optimal cost solution), in bi-directional search you know the goal node and work in both directions from start towards end and end towards start.  
