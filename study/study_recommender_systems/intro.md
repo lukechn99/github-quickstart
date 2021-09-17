@@ -22,7 +22,8 @@ How to recommend items that fall through the cracks
 Time-weighted recommendations; "you don't want to recommend the most popular article from last year" how does that apply to movies? Are ratings more relevant from years ago or days ago? And how much effect should those ratings have on the recommendations for you?  
 Being "too good" at recommendations turns out to be bad  
 You could take the average ratings for a person and divide all other ratings by that one to normalize things  
-Ads optimize for: engagement (how long they stay on the ad), click rate, contextuality (applicability, either on a personal level or societal context)
+Ads optimize for: engagement (how long they stay on the ad), click rate, contextuality (applicability, either on a personal level or societal context)  
+Your Spotify playlist is actually not very novel. But the bigger it gets the more novel it becomes. I think the new problem space for serendipity should look like a large circle for everything that might work with you based on your tastes and then another smaller roaming circle that recommends small subsets of that outer circle to provide novelty. The more open your tastes are the bigger that outer circle. 
 
 ---
 Rating : is an expression of preference that can be given explicitly (rating an item) or implicitly (through behavior cues)  
