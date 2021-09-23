@@ -16,6 +16,14 @@ f(n) = h(n) + g(n) is the total solution cost
 Now we sort the frontier by f(n) costs. Some observations that can be made are that the g(n) cost will increase as you travel along, the h(n) cost will decrease, and the f(n) cost should remain fairly constant. When h(n) is 0 then A* is basically just uniform cost, and if h(n) is very large then we have an overestimate h(n) > h*(n). And is 0 <= h(n) <= h*(n) then A* is admissible and is guaranteed to find the optimal solution. It allows you to be faster in searching for your solution because it makes some assumptions and improves over uniform cost, g(n), which only operates on known knowledge. This is only true if h(n) is a good function that never overestimates and is fairly accurate. So we can see that for a good h(n), f(n) as a solution cost is better than g(n).  
 h(n) must be an underestimate and must be positive.  
 
+### A*
+Optimality is the property of computation  
+Admissiblilty guarantees optimal solution  
+If h(n) is admissible, then the solution found by A* is cost optimal. ***h(n) is consistent if h(n) is always <= h(n') + c(n, n')***. This is just saying that h(n) is shorter than any other path thatgoes through other nodes n' to reach the goal.  
+If h(n) is admissible, A* will find the cost optimal solution.  
+If h(n) is consistent, then the solution will be found as soon as A* begins expanding the first node (it is hard to find a function that is not consistent).  
+Consistency is a subset of admissibility
+
 ### Iterative deepening of A*
 Can be used to save memory in A* because A* is fairly memory intensive. 
 
