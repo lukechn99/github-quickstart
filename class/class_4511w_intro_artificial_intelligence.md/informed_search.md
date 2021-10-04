@@ -39,6 +39,9 @@ Comes from metallurgy where metals are harder to reshape when they cool down. Th
 ### Iterative deepening of A*
 Can be used to save memory in A* because A* is fairly memory intensive. 
 
+### Evolutionary Algorithms
+**Genetic Algorithms** take the idea of randomness, inheriting DNA from parents, and fitness. 
+
 ### Questions
 So if something changes and you have to re-estimate h(n), would you also have to re-sort the priority queue? How expensive is the calculation of h(n) compared to just using g(n)? One case in which something would change is if you realize the cost, g(n), along some route and now other nodes whose h(n) is dependent on that cost have to be re-estimated.  
 How much knowledge of  
