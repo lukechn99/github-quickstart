@@ -35,6 +35,8 @@ Did not use pre-existing knowledge and instead uses use interaction to create re
 - Search engine optimization is when people try to game the system to get more views
 - The vector space model cannot tell the difference between frequency and importance
 
+### Interaction
+
 ### Questions
 If we filter by what you like then how do we avoid confirmation bias?  
 Attibutes also need to be standardized.  
