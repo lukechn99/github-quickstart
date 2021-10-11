@@ -35,7 +35,13 @@ Did not use pre-existing knowledge and instead uses use interaction to create re
 - Search engine optimization is when people try to game the system to get more views
 - The vector space model cannot tell the difference between frequency and importance
 
-### Interaction
+### Recsys and search
+The lines between search and recommenders have become blurred. Search now really just means search and recommend. Search almost never has just ranking based on occurences, but will give results based on popularity, context, or other factors. 
+
+### Weaknesses
+Non-linear recommendable things are hard. It's hard to say "I like Jackie Chan in comedy but not in romance." or "I like ice cream and steak, but not together."  
+These cannot be expressed in a vector space model.  
+How do we deal with synonomy? Things that mean the same thing. British people searching for informatics should also get computer science, they are the same thing. So how do we get from words to the core concept or idea? One solution is to index by semantics instead of words. This means that an index of 10000 words could become an index of 50 concepts.   
 
 ### Questions
 If we filter by what you like then how do we avoid confirmation bias?  

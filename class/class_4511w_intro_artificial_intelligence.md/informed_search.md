@@ -1,3 +1,5 @@
+informed == heuristic
+
 ### Frontier
 We explore along a frontier starting with the nodes closest to the start node and then expand the frontier along the cheapest routes. To do this, we sort the frontier costs and explore/expand the lowest cost node. If the closest frontier node happens to be a goal node, then you're done.  
 
@@ -34,7 +36,7 @@ Gradient descent, **hill climbing**, not everything is visible. Local decisions 
 **Beam search** is another local search algorithm that aims to reduce the size of the search. In normal BFS, the frontier grows very fast. To limit this, you set a beam width that limits how many nodes are used from using every node in a layer to only using the best K nodes. Stochastic methods to choose. Beam search is not complete because it could possibly elimintate the solution at some level. You sacrifice accuracy for speed. One idea is that you could have iterative beam search where you start with choosing the k best, but if that doesn't work then you choose the (n - k) / 2 best nodes, and keep increasing up to n for the level so that the algorithm becomes complete. 
 
 ### Simulated Annealing
-Comes from metallurgy where metals are harder to reshape when they cool down. This method changes the algorithm as time goes by. It follows a "cooling schedule." In the beginning, you move more randomly and quickyl and later on you move more slowly. Once you find the right direction, you are less likely to diverge off of the path. 
+Comes from metallurgy where metals are harder to reshape when they cool down. This method changes the algorithm as time goes by. It follows a "cooling schedule." In the beginning, you move more randomly and quickly and later on you move more slowly. Once you find the right direction, you are less likely to diverge off of the path. 
 
 ### Iterative deepening of A*
 Can be used to save memory in A* because A* is fairly memory intensive. 
