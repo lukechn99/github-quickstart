@@ -53,5 +53,16 @@ O + O = R + C1 * 10
 ```
 We would choose to start with variable T or F because it has the most constraints (can't be 0)
 
+### Local Search
+Can be very efficient, especially with those things that have multiple solutions.  
+An example is the 8 queens problem with a heuristic of minimizing conflict
+
+### AC-3
+Looks at all possible choices for values and removed inconsistent choices by looking at arc consistency.  
+Looking at 2D images and converting to 3D is one of those problems. 
+![possible types of junctions for trihedral vertices](./The-basic-trihedral-label-set-depicting-the-possible-junction-labels-for-trihedral-with.png)  
+For each vertice in the picture, we need to test the above possible junctions.  
+As we make subsequent choices, it may become apparent that previous choices are not consistent, so we can eliminate those. 
+
 ### Questions
 So a constraint satisfaction search really just is a permuations expansion with hueristics/constraints?  
