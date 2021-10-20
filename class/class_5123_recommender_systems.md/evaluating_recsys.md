@@ -70,7 +70,11 @@ Averaging by user will equalize all users because someone who has 200 values for
 1b). you could also do an iterative train-test split, start with 20% to train and then have it predict the next ones while also adding it to the model  
 1c). cross validation can be done by switching the training and test sets, you could do this up to n-fold where you train your model on everything except for one value
 
-# Top-K metrics
+# Massive A/B testing
+Massive A/B testing tests a, b, c, d, e, f, g... at the same time. But before starting, you should...    
+1). Try an A/A test to do a power analysis and test the experimental infrastructure (it is a sanity check that there isn't something out there like time zone differences that would ruin your experiment)  
+2). Look at interference for users that might be in more than one group and make sure users aren't being subjected to two interfering experiments  
+3). Limit experiment size to only what you need so that people are not experiment fatigued  
 
 ### Issues
 if our training set had none of the items in the top-k, then we have nDCG and Precision@K of 0 because we don't know if the test items we had are the top. 

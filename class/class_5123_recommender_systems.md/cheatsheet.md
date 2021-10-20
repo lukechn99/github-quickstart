@@ -27,15 +27,16 @@
 |       `---> 
 `---> Evaluation
         |---> User studies
-        |       `---> Surveys and explicit engagement
+        |       |---> Field experiments (A/B studies)
+        |       `---> Lab experiments (explicit engagement)
         |---> Online evaluation
         |       `---> A/B testing
         `---> Offline evaluation
-                `---> Accuracy measures
-                        |---> MAE
-                        |---> RMSE
-                        `---> Top-K metrics
-                                |---> nDCG@k
-                                `---> Precision@K
-                |---> Evaluation goals
+                |---> Accuracy measures
+                |       |---> MAE
+                |       |---> RMSE
+                |       `---> Top-K metrics
+                |               |---> nDCG@k
+                |               `---> Precision@K
+                `---> Evaluation goals
 ```
