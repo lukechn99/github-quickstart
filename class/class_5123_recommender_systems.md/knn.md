@@ -26,7 +26,7 @@ Explainability
 - Some algorithms are harder to explain
 Confidence
 - How sure the algorithm is
-The best metric to use varies with what you're recommending. Recommending 1 product should be measured with precision@k and nDCG@k, a list of 5 should probably be evaluated with intra-list similarity/diversity.  
+The best metric to use varies with what you're recommending. Recommending 1 product should be measured with precision@k and nDCG@k (normalized discounted cumulative gain at K), a list of 5 should probably be evaluated with intra-list similarity/diversity.  
 We could use damping in user-user, so that those who are not as similar to you  
 With limited inventory, you don't want to just recommend the most popular Airbnb  
 Sometimes, you advertise the most popular and common item and then they buy extra things.  

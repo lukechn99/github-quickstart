@@ -37,6 +37,7 @@ So, for MAX nodes, we prune values >= beta and for MIN nodes, we prune value <= 
 * beta is the best value so far for MIN.  beta starts at + ∞ and can decrease as the search progresses.
 * At a MAX node, if the value v of a child is $ v >=beta, then prune the search and return the value v, else alpha = max(alpha, v)
 * At a MIN node if the value v of a child is v <= alpha, then prune the search and return the value v, else beta = min(beta, v)
+* In alpha beta pruning, you only prune the nodes you haven't looked at, that's the whole point of pruning
 
 
 ### Stochastic Games

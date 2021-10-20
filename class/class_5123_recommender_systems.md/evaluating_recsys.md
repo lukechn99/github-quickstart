@@ -17,7 +17,7 @@ Data from candid online users are gathered while they naturally use the recommen
 We can actively test different recommendation algorithms with the use of A/B testing where we use algorithm A on one group and algorithm B on another group. Or we can use A and B interchangeable and at random among everyone. Additionally, it can also be a set of different algorithms (A, B, C, D...) that we test randomly following a multi-armed bandit approach where we use reinforcement learning to use the best algorithm 90% of the time and try the other algorithms the other 10% of the time and reprioritize as necessary.  
 
 ### Offline Evaluation
-Offline methods are the most statistcally robust because they use existing data sets. Many standardized frameworks exist for this purpose. The drawback of offline evaluation is that they don't look at the user's likelihood of doing something in the future
+Offline methods are the most statistically robust because they use existing data sets. Many standardized frameworks exist for this purpose. The drawback of offline evaluation is that they don't look at the user's likelihood of doing something in the future (try to predict and then confirm the prediction)
 
 ### Questions
 Why are offline evaluations not able to look at future interactions? They can still predict right? I suppose they would have to predict something and then wait for a new offline phase to see if their prediction was correct. 
@@ -53,6 +53,24 @@ Diversity is important so that at least one recommendation (of a list) could be 
 A system must withstand some fake ratings or quickly changing trends.  
 
 ### Questions
-What is overfitting and underfitting?  
+What is overfitting and underfitting? Training a recommender on a dataset could cause overfitting where the recommender becomes too good at recommending what's already there. So you want to split your data between a training set and a testing set.   
 How does overestimating and underestimating accuracy work?  
-It's interesting how some ratings might be completely subjective while other objective. For books people are rating physical quality but are also rating a story/content. For food items you might be rating taste or quality of construction for a pot. 
+It's interesting how some ratings might be completely subjective while other objective. For books people are rating physical quality but are also rating a story/content. For food items you might be rating taste or quality of construction for a pot.  
+Are the goals evaluated in online or offline evaluation?
+
+# MAE
+
+### Calculation
+We take the ```abs(predicted_rating - actual_rating)``` and then we can find the average of these differences by the user or for everyone.  
+Averaging by user will equalize all users because someone who has 200 values for ```abs(predicted_rating - actual_rating)``` will impact MAE the same as someone with 5 values. 
+
+### Training on MAE
+1). train-test split (usually 80%-20%)  
+1a). this can be split by item, user, recency, limit number of ratings/user or ratings/item  
+1b). you could also do an iterative train-test split, start with 20% to train and then have it predict the next ones while also adding it to the model  
+1c). cross validation can be done by switching the training and test sets, you could do this up to n-fold where you train your model on everything except for one value
+
+# Top-K metrics
+
+### Issues
+if our training set had none of the items in the top-k, then we have nDCG and Precision@K of 0 because we don't know if the test items we had are the top. 

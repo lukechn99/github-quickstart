@@ -16,42 +16,59 @@ Most constraint satisfaction problems can be represented as search algorithms. O
 
 ### Heuristics
 While A* uses domain dependent heuristics (context is needed to make predictions), constraint satisfaction should use domain independent heuristics to *speed up the search*.  
-One such heuristic could be to *select the **variables** with the smallest number of possible values to explore* first because with less values to explore, the possibility of failing faster and moving on it higher as opposed to testing many values early on.  
+One such heuristic could be to *select the **variables** with the smallest number of possible values to explore* (Minimum Remaining Value MRV) first because with less values to explore, the possibility of failing faster and moving on it higher as opposed to testing many values early on.  
 Another heuristic is to *start with the **variables** with most constraints*. This also encourages failing faster.  
 Another heuristic is to *select the **value** with least constraint because this is the one that is most likely to succeed*.  
+To apply heuristics to other problems, you can relax the constraints and then look for a solution, this is a good heuristic. 
 
 ### Crypto Arithmetic
 ```
-    TWO
-  + TWO
---------
-   FOUR
-```
-Assign a digit to each letter to satisfy the arithmetic, first digit can't be 0, must satisfy arithmetic, and are all different.  
-```
-Set-up
-T != 0
-F != 0
-O + O = R + C1 * 10
-W + W + C1 = U + C2 * 10
-T + T + C2 = O + C3 * 10
-F = C3
+    EAT +
+   THAT =
+-----------
+  APPLE
 
-Solve (for fun)
-T + T + C2 = O + F * 10
->> C2 = O + F * 10 - T - T
+{A,E,H,L,P,T} can each be [0:9]
+E, T, A != 0
+A = 1
 
-W + W + C1 = U + C2 * 10
->> W + W + C1 = U + (O + F * 10 - T - T) * 10
->> C1 = U + (O + F * 10 - T - T) * 10 - W - W
+T = 9
+E = 8
+L = 3
+P = 0
+E + H = 10
+H = 2
 
-O + O = R + C1 * 10
->> O + O = R + (U + (O + F * 10 - T - T) * 10 - W - W) * 10
->> O + O = R + (U + (O + 10F - 2T) * 10 - W - W) * 10
->> O + O = R + (U + 10O + 100F - 20T - 2W) * 10
->> O + O = R + 10U + 100O + 1000F - 200T - 20W
+819 + 9219 = 10038
 ```
-We would choose to start with variable T or F because it has the most constraints (can't be 0)
+
+Explanation:
+```
+With MRV Heuristic we choose to explore A first
+A is in [1]
+We know that, T + c3 = P + 10A
+T + c3 = P + 10
+c3 = [0,1] but T + 0 = P + 10 cannot have a solution
+So c3 = 1
+T + 1 = P + 10
+T - P = 9
+The only possible solution for that would be T = 9 and P = 0
+This leaves us with T=9, we know that T + T = E + 10c1
+18 = E + 10c1
+8 + 10 = E + 10c1
+That leaves us with c1 = 1 and E = 8
+A + A + c1 = L + 10c2
+1 + 1 + 1 = L + 10c2
+3 + 0 = L + 10c2
+So L=3 and c2 = 0
+E + H + c2 = P + 10c3
+8 + H + 0 = 0 + 10
+So H = 2
+```
+With degree constraint, we would use "A" to solve first since A occurs the most, we know A = 1 so we can quickly solve for "L" which is 2.  
+
+### Constraints
+For cryptoarithmetic, some constraints include first digits not equalling 0, and sums with more digits than the parts having "1" as the leading digit. 
 
 ### Local Search
 Can be very efficient, especially with those things that have multiple solutions.  
