@@ -71,9 +71,9 @@ Averaging by user will equalize all users because someone who has 200 values for
 1c). cross validation can be done by switching the training and test sets, you could do this up to n-fold where you train your model on everything except for one value
 
 # Massive A/B testing
-Massive A/B testing tests a, b, c, d, e, f, g... at the same time. But before starting, you should...    
+Massive A/B testing tests a, b, c, d, e, f, g... at the same time so that we can maximize test and minimize the number of test subjects. It comes from a fast paced culture where they didn't want to wait for A/B and instead wanted a framework that would be able to just accept new experiments on the fly. But before starting, you should...    
 1). Try an A/A test to do a power analysis and test the experimental infrastructure (it is a sanity check that there isn't something out there like time zone differences that would ruin your experiment)  
-2). Look at interference for users that might be in more than one group and make sure users aren't being subjected to two interfering experiments  
+2). Look at interference for users that might be in more than one group and make sure users aren't being subjected to two interfering experiments. The number of people you put into these experiments is enough to tease out which experiment caused the change  
 3). Limit experiment size to only what you need so that people are not experiment fatigued  
 
 ### Issues
