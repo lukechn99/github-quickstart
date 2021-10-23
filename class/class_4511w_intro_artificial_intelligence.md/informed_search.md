@@ -21,7 +21,7 @@ h(n) must be an underestimate and must be positive.
 ### A*
 Optimality is the property of computation  
 Admissiblilty guarantees optimal solution  
-If h(n) is admissible, then the solution found by A* is cost optimal. ***h(n) is consistent if h(n) is always <= h(n') + c(n, n')***. This is just saying that h(n) is shorter than any other path thatgoes through other nodes n' to reach the goal.  
+If h(n) is admissible, then the solution found by A* is cost optimal. ***h(n) is consistent if h(n) is always <= h(n') + c(n, n')***. This is just saying that h(n) is shorter than any other path that goes through other nodes n' to reach the goal.  
 If h(n) is admissible, A* will find the cost optimal solution. For this to happen, h(n) <= h*(n).   
 If h(n) is consistent, then the solution will be found as soon as A* begins expanding the first node (it is hard to find a function that is not consistent).  
 Consistency is a subset of admissibility.  
