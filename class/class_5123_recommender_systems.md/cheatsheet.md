@@ -19,7 +19,6 @@
 |       `---> Personalized
 |               |---> Neighborhood methods
 |               |      `---> Use dimensionality reduction to condense the sparse ratings matrix to create latent models
-|               |---> Item  recommendation
 |               |---> Content-based collaborative filtering
 |               |---> Item-based collaborative filtering
 |               `---> User-based collaborative filtering
