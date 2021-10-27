@@ -14,14 +14,13 @@
 |               `---> season/weather
 |---> Recommendations
 |       |---> Non-personalized
-|       |       |---> Content-based recommenders
+|       |       |---> 
 |       |       `---> 
 |       `---> Personalized
-|               |---> Neighborhood methods
-|               |      `---> Use dimensionality reduction to condense the sparse ratings matrix to create latent models
-|               |---> Content-based collaborative filtering
-|               |---> Item-based collaborative filtering
-|               `---> User-based collaborative filtering
+|               |---> CF (collab. filtering)
+|               |       |---> UUCF
+|               |       `---> IICF
+|               `---> CBF (content based filtering)
 |---> Summary statistics
 |       `---> 
 `---> Evaluation
