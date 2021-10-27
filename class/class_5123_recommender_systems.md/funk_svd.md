@@ -7,3 +7,9 @@ Netflix has then posed a "quiz" which consists of a bunch of question marks plop
 ### Approach
 100 million ratings in a sparse matrix means the matrix has around 8.5 billion entries, most of which are empty.  
 A fun property of machine learning is that this reasoning works in reverse too: If meaningful generalities can help you represent your data with fewer numbers, finding a way to represent your data in fewer numbers can often help you find meaningful generalities. Compression is akin to understanding and all that.  
+
+# Funk SVD
+It is less expensive and doesn't require filler data.  
+Qualms: If you follow where the data goes, there's no guarantee that you'll reach the same place as SVD. As a shortcut, it doesn't preserve all the original properties. Alongside this issue, there is no normalizing, users and items with more ratings had more impact over the resulting vectors. 
+Lack of orthogonality... why is that a problem?  
+Optimized versions of SVD and other recommenders are harder to explain. 
