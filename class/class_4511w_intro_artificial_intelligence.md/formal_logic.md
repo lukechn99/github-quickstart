@@ -29,5 +29,50 @@ KB|= α
 Knowledge base KB entails sentence α  
 if and only if α is true in all worlds where KB is true  
 
+Assume whatever is in the Knowledge Base is True, so we want to see if the new sentence is also true. Entailment: can we derive the new sentence from the Knowledge Base? This is entailment |=
+
 ### Conjunctive Normal Form
 The simplified form of logical sentences is disjunctions of conjunctions. Conjunctions are one or more terms connected by AND (^) which form a clause (conjunction). Conjunctions are connected by disjunctions 
+
+### Example of CNF and resolution
+KB:  
+1). "If the maid stole the jewelry then the butler is not guilty"  
+2). "Either the maid stole the jewelry or she milked the cow"  
+3). "If the maid milked the cow then the butler got the cream"  
+4). Show: "If the butler is guilty then he got the cream"  
+
+Represent the phrases with acronyms (MSJ = maid stole jewelry):  
+1). MSJ -> ~BG  
+2). MSJ V MMC  
+3). MMC -> BGC  
+4). (entailed) BG -> BGC  
+
+Convert all to CNF:  
+1). ~MSJ V ~BG
+2). MSJ V MMC
+3). ~MMC V BGC
+4). ~BG V BGC
+
+Negate the entailed sentence to prove by contradiction:  
+4). BG ^ ~BGC  
+Since this is a conjunction, we are proving that both BG and ~BGC are entailed, so 4 is split in to 2  
+4). BG  
+5). ~BGC  
+
+Write out the sentences to use when proving:
+1). ~MSJ V ~BG
+2). MSJ V MMC
+3). ~MMC V BGC  
+4). BG  
+5). ~BGC  
+
+Use the sentences in any order to disprove the contradiction:  
+Using (1) and (2) we have (~MSJ V ~BG) ^ (MSJ V MMC) to produce (6)  
+6). ~BG V MMC  
+Using (6) and (3) we have (~BG V MMC) ^ (~MMC V BGC) to produce (7)  
+7). ~BG V BGC  
+Using (7) results in either ~BG or BGC being true which contradicts with (4) and (5)  
+Therefore the sentence BG -> BGC must be entailed.  
+If there is no contradiction found, you can say it is not entailed because propositional logic is decidable.  
+
+### Horn Clauses
