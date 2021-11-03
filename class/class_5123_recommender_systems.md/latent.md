@@ -1,3 +1,6 @@
+# Latent Factor Models
+
+
 ### Progression
 Nearest neighbor -> matrix factorization -> latent factors  
 Nearest neighbor is **very good** in terms of results, but it has lots of sparse areas and could be better in terms of efficiency.  

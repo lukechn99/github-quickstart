@@ -20,6 +20,8 @@
 |               |---> CF (collab. filtering)
 |               |       |---> UUCF
 |               |       `---> IICF
+|               |---> Trust based
+|               |---> Latent Factor Model
 |               `---> CBF (content based filtering)
 |---> Summary statistics
 |       `---> 
