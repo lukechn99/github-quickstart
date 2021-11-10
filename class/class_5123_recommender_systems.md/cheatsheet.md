@@ -19,11 +19,13 @@
 |       `---> Personalized
 |               |---> Neighborhood Based Collaborative Filtering
 |               |       |---> UUCF
-|               |       `---> IICF
+|               |       |---> IICF
+|               |       `---> Better when there's lots of data known about the item
 |               |---> Model Based Collaborative Filtering
 |               |       `---> Latent Factor Model
 |               |---> Trust based
 |               `---> Content Based Recommender System
+|                       `---> Good for new items where collaboration isn't possible and there's lots of item information
 |---> Summary statistics
 |       `---> 
 `---> Evaluation
