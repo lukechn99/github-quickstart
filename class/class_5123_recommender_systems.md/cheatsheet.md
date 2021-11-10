@@ -13,16 +13,17 @@
 |               |---> demographic
 |               `---> season/weather
 |---> Recommendations
+|       |---> Hybrid
 |       |---> Non-personalized
-|       |       |---> 
-|       |       `---> 
+|       |       `---> Cold start problem
 |       `---> Personalized
-|               |---> CF (collab. filtering)
+|               |---> Neighborhood Based Collaborative Filtering
 |               |       |---> UUCF
 |               |       `---> IICF
+|               |---> Model Based Collaborative Filtering
+|               |       `---> Latent Factor Model
 |               |---> Trust based
-|               |---> Latent Factor Model
-|               `---> CBF (content based filtering)
+|               `---> Content Based Recommender System
 |---> Summary statistics
 |       `---> 
 `---> Evaluation
