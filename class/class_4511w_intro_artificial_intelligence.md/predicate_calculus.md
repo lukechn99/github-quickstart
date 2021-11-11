@@ -107,23 +107,53 @@ We skolem-ize it, but y depends on x, so y is a function of x and we use skolem 
 
 ∀x[A(x,S(x)) v C(S(x))]
 ```
-```
-example
 
-KB:
-if a course is easy, some students are happy
-if a course has a final, no students are happy
+***example***  
+1). If a course is easy, some students are happy  
+2). If a course has a final, no students are happy    
+G: f a course has a final, the course is not easy  
 
-show:
-if a course has a final, the course is not easy
+write expressions:  
+1). ∀x easy(x) -> ∃y happy(y,x)  
+2). ∀x∀y final(x) -> ~happy(y,x)  
+3). ∀x final(x) -> ~easy(x)  
 
-write expressions:
-∀x easy(x) -> ∃y happy(y,x)
-∀x∀y final(x) -> ~happy(y,x)
-∀x final(x) -> ~easy(x)
+simplify:  
+1).  
+∀x∃y easy(x) -> happy(y,x)  
+∀x easy(x) -> happy(S(x),x)  
+~easy(x) v happy(S(x), x)  
 
-simplify:
-1).
-∀x∃y easy(x) -> happy(y,x)
-∀x easy(x) -> happy(S(x),x)
-```
+2).   
+~final(z) v happy(y, z)  
+
+3).   
+~final(x) v ~easy(x)  
+negate for proof by contradiction  
+final(x) ^ easy(x)  
+final(S<sub>0</sub>) (3)  
+easy(S<sub>0</sub>) (4)  
+
+resolution:  
+(3) and (2) make (5) ~happy(y, S<sub>0</sub>)  
+use bindings {z/S<sub>0</sub>} and {y/S(x), x/S<sub>0</sub>}  
+so that equation (1) and (5) make ~easy(S<sub>0</sub>) which contradicts with (4) easy(S<sub>0</sub>)  
+
+***example***
+1). Everyone has a parent  
+2). A parent of a parent is a grandparent  
+G: Who is the grandparent of John?  
+
+write the equations:  
+define predicates as parent(y, x) means y is the parent of x and grandparent(y, x)  
+1). ∀x∃y parent(y, x), which simplifies to parent(S(x), x)
+2). ∀x∀y∀z parent(x, y) ^ parent(y, z) -> grandparent(x, z), which simplifies to ~parent(w, y) v ~parent(y, z) v grandparent(w, z) *where we change x to w because x is used in the previous equation*  
+G: ∃p grandparent(p, John), we negate this for resolution to have ~grandparent(p, John)  
+3). ~grandparent(p, John)  
+
+resolution:
+unify ~parent(w, y) v ~parent(y, z) v grandparent(w, z) and ~grandparent(p, John) with {p/w, z/John} to replace w with p and z with John  
+4). ~parent(p, y) v ~parent(y, John)  
+unify ~parent(p, y) v ~parent(y, John) with parent(S(x), x) using {p/S(x), y/x} we get ~parent  
+5). ~parent(x, John)  
+We then use ~parent(x, John) and parent(S(x), x), replacing x with a in the first equation gives ~parent(x, John) and parent(S(a), a). Then with {x/S(a), a/John} produces the contradiction that we need. 
