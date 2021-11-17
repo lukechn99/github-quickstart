@@ -37,6 +37,8 @@ We can see that there exists at least one person, but only one that hates dogs.
 ∀x∀y Loves(x,y) everyone loves everyone
 ∃x∃y Loves(x,y) there are two people who love each other
 ```
+When there is a existential quantifier outside of the universal quantifer, then it is saying there exists one for everyone. 
+
 
 ### Unification
 Unification only works when the predicates are the same
@@ -139,7 +141,7 @@ resolution:
 use bindings {z/S<sub>0</sub>} and {y/S(x), x/S<sub>0</sub>}  
 so that equation (1) and (5) make ~easy(S<sub>0</sub>) which contradicts with (4) easy(S<sub>0</sub>)  
 
-***example***
+***example***  
 1). Everyone has a parent  
 2). A parent of a parent is a grandparent  
 G: Who is the grandparent of John?  

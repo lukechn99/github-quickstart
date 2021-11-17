@@ -13,3 +13,9 @@ It is less expensive and doesn't require filler data.
 Qualms: If you follow where the data goes, there's no guarantee that you'll reach the same place as SVD. As a shortcut, it doesn't preserve all the original properties. Alongside this issue, there is no normalizing, users and items with more ratings had more impact over the resulting vectors. 
 Lack of orthogonality... why is that a problem?  
 Optimized versions of SVD and other recommenders are harder to explain. 
+
+### How it Works
+It uses gradient descent to approximate SVD.  
+Sparse rating matrix *R* is decomposed into *U* and *V<sup>T</sup>* where *U* is a user-feature matrix and *V<sup>T</sup>* is a feature-item matrix. It works by minimizing the error on known values. What does this mean? We take a user-item pair for which the rating is known in *R* and then calculate the dot product of the randomly generated user-feature and feature-item vectors for the user-item pair as *R<sub>predicted</sub>*. Since the user-feature and item-feature matrices in FunkSVD are generated stochastically, there is an error between the dot product and the actual raw_rating. We minimize this error to conform other stochastically generated values, for entries that don't have a raw rating for example, to move towards an accurate prediction. 
+
+What is the learning rate for? The learning rate controls how much the error adjustment affects the rest of the ratings. 

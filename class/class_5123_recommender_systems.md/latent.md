@@ -1,5 +1,5 @@
 # Latent Factor Models
-
+The latent factors are abstract dimensions computed to be orthogonal and to minimize the error in reconstructing the ratings matrix. These factors are the same for users (preferences) and items (characteristics).  
 
 ### Progression
 Nearest neighbor -> matrix factorization -> latent factors  

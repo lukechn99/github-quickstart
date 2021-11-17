@@ -78,3 +78,8 @@ Massive A/B testing tests a, b, c, d, e, f, g... at the same time so that we can
 
 ### Issues
 if our training set had none of the items in the top-k, then we have nDCG and Precision@K of 0 because we don't know if the test items we had are the top. 
+
+# N-fold cross validation
+N-fold cross validation allows you to get more test cases (and therefore more accurate results) than a simple train/test split.  
+N-fold cross validation may not be as useful as other techniques in situations where the time sequence of items rated or consumed is an important part of making predictions.   
+N-fold cross validation ensures that all of the data points get to participate in the training (model) and also in the test.  

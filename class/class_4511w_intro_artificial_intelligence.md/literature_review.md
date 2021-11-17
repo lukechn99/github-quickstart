@@ -1,0 +1,2 @@
+It is always important tot look at prior work.  
+Don't write a laundry list of the sources and discuss them in a list. Instead, organize the work done logically as a taxonomy. This could be organized historically, or by approach, or some other logical sequence. 
