@@ -11,25 +11,3 @@ Input layer -> embedding layer (condenses the sparse input layer) -> neural CF l
 ```  
 After many layers, you end up with an idea and lose the details.  
 The depth of the network matters for how well it does. Generally, the more layers the better it is. 
-
-### Time and Place
-Time
-- Seasonality
-    - anchor events
-- time of day
-- evolving preferences
-    - life events
-    - demographic evolving preferences
-- product space changes
-    - product aging/relevance
-- sequential dependencies
-- availability
-
-Place
-- where you are
-    - travelling vs. at home
-- place as a demographic
-- things near me
-- local preferences
-- local availability/legality
-- changes in how products are associated with each other in different places (fries and ketchup vs. fries and mayo)
