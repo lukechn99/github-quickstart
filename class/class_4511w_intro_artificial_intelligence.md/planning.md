@@ -52,7 +52,24 @@ Then does that mean Oscar, as an individual, is endangered and studied by enthom
 We have representations as "object attribute value"  
 Is the semantic network a tree or a graph?
 
-Some **properties** include exceptions (Clyde might not have two wings like other birds), there is inheritance (so you don't need to redundantly describe)
+Some **properties** include exceptions (Clyde might not have two wings like other birds), there is inheritance (so you don't need to redundantly describe)  
+
+In general we use trees for these networks because typically, classes, subclasses, instances, and properties typically operate in a tree-like structure, especially when you think about subclasses and instances using their parent properties. However, it can get complicated when an instance belongs to two classes because then you have two choices when inheriting properties. One way we can get around this in knowledge graphs is to do a DFS or BFS and see which class comes first, in other words, take the closest available property.  
+
+Ontologies: structure in knowledge information, how do structure the knowledge we have. 
+
+```
+Example: 
+
+Table: 
+    Properties: legs, top, etc.
+```
+
+### CYC
+Common sense knowledge
+- Theory
+- write a lot of rules/examples
+GPT-3 for learning
 
 ### Questions
 Symbolic representation vs neural networks

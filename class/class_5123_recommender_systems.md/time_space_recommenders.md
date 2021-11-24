@@ -32,3 +32,6 @@ It's difficult to determine a hard time.
 Filter the candidates (pre-pre-filter), filter the input data (pre-filter), filter/re-rank the top-k (post-filter).  
 Pre-filtering can be done by selecting a time and only recommending for that time. Post-filtering can be done by collapsing all times together and then filtering by time of day currently and season.  
 Product space changes reflect the changes in society, product aging happens when a product loses its relevance. 
+
+### Place
+Place can be talked about in a hierarchy, in a category, but place is mostly hierarchy. Places may define taste, either in a soft way or with hard boundaries; sometimes the taste is a preference, but in other times taste cannot even be communicated across boundaries. Place can also act as a pre-filter or post-filter, acting as a constraint. When taking place into context, it's not just about preference anymore. It is also about what the person needs. Google Maps operates on the principle of reasonability. It is simply not reasonable to walk to Las Vegas, so those options are no longer recommended. 
