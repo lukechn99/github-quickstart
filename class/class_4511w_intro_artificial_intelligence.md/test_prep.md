@@ -17,7 +17,7 @@ Representing abstract concepts with Events, Time, Physical Objects, and Beliefs.
 
 **10.5.1 Semantic Networks**  
 Relationships include member of, is a, subset of, etc.
-![semantic network](/semantic_network.png)
+![semantic network](https://github.com/lukechn99/github-quickstart/blob/master/class/class_4511w_intro_artificial_intelligence.md/semantic_network.png)
 
 ### Chapter 11 (Planning): only 11.1, 11.2.1, 11.2.2 (this is Chapter 10 in the 3d edition)
 Air cargo problem:  
