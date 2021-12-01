@@ -29,7 +29,7 @@ new airport when it is unloaded. So At really means “available for use at a gi
 [Load(C1,P1,SFO),Fly(P1,SFO,JFK),Unload(C1,P1,JFK),
 Load(C2,P2,JFK),Fly(P2,JFK,SFO),Unload(C2,P2,SFO)]
 ```
-![aircargo](/aircargo.png)
+![aircargo](https://github.com/lukechn99/github-quickstart/blob/master/class/class_4511w_intro_artificial_intelligence.md/aircargo.png)
 
 **Forward state planning**  
 We solve planning by applying heuristic search algorithms. We take the initial state and transform it by unifying it with actions to search forward for goal states, or we can use  
