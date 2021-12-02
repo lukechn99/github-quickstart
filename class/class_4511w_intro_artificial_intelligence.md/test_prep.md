@@ -3,13 +3,27 @@ Resolution: How to do it?
 1. Eliminate <=>
 2. Eliminate =>
 3. Move negations in front of literals
-4. rewrite as conjunctions of disjunctions A v (B ^ C) -> (A v B) ^ (A v C)
+4. rewrite as conjunctions of disjunctions A v (B ^ C) -> (A v B) ^ (A v C)  
+
+A sentence of the form "p only if q" is not the same as q ⇒ p. Most of you made this mistake, and it is admittedly fairly confusing as to why it is wrong. It is clear that when we say "p if q", that we mean  q ⇒ p, but for "p only if q", we are saying that p can only be true whenever q is true. In other words, the truth of q is necessary for the truth of p. This rules out the possibility that p is true, but that q is false because, again, the truth of q is necessary for p to be true -- p is true only if q is true. The truth table for implication is false exactly when p is true but q is false, so it rules out the same possibility that "p only if q" rules out. Hence, "p only if q" is actually the same as  p ⇒ q.  
 
 ### Chapter 8 (First-order Logic): only 8.1 and 8.2
 
+
+[related homework](https://docs.google.com/document/d/1DaskZZoNo4PmNn2nEs2XS3HO5vD50acCwnhNaeVaxnE/edit?usp=sharing)  
+[related exercise](https://docs.google.com/document/d/1HRfpFde3BVu3J0w_ceL3aPbIXNV2dcp1_y80zt92-pE/edit?usp=sharing)
+
 ### Chapter 9 (Inference in 1st Order Logic): only 9.1, 9.2, 9.5 up to 9.5.3 (included)
 We are sometimes faced with first-order inference problems, we can solve them by converting to propositional inference.  
-This is where we do unifications {x/A}, Skolemizations, and other things. Take a look at [predicate calculus](/predicate_calculus.md) which has more details. 
+This is where we do unifications {x/A}, Skolemizations, and other things. Take a look at [predicate calculus](/predicate_calculus.md) which has more details.  
+Unification can only happen with the following rules:  
+You can unify a variable and a constant {x/Jane}  
+You cannot unify two constants
+You can also unify two variables.  
+You cannot unify a variable to a constant twice.  
+You can unify a variable and a constant {x/f(w)}  
+[related homework](https://docs.google.com/document/d/1DaskZZoNo4PmNn2nEs2XS3HO5vD50acCwnhNaeVaxnE/edit?usp=sharing)  
+[related exercise](https://docs.google.com/document/d/1HRfpFde3BVu3J0w_ceL3aPbIXNV2dcp1_y80zt92-pE/edit?usp=sharing)
 
 ### Chapter 10 (Knowledge Representation): only 10.1 and 10.5.1 (this is Chapter 12 in the 3rd edition)
 **10.1 Ontological Engineering**
@@ -34,8 +48,9 @@ Load(C2,P2,JFK),Fly(P2,JFK,SFO),Unload(C2,P2,SFO)]
 **Forward state planning**  
 We solve planning by applying heuristic search algorithms. We take the initial state and transform it by unifying it with actions to search forward for goal states, or we can use  
 **Backward search** (regression search)  
-Starts at the goal state and moves backwards. 
+Starts at the goal state and moves backwards.  
 
+[related exercise](https://docs.google.com/document/d/1Ny5Dk5leMLG8n5uObxn3tn-npzhi-xwoiQb66x99P3s/edit?usp=sharing)
 
 ### Tidbits
 look at aircargo problem in textbook

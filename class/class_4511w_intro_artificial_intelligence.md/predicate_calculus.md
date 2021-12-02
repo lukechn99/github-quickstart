@@ -59,8 +59,11 @@ With modus ponus, we can say that if man(x) then mortal(x), but we cannot direct
 {x/Socrates} so we can safely say man(Socrates) -> mortal(Socrates)
 ```
 Given man(Socrates) and man(Plato), you cannot unify them.  
+You can unify a variable and a constant {x/Jane}  
+You cannot unify two constants
 You can also unify two variables.  
-You cannot unify a variable to a constant twice. 
+You cannot unify a variable to a constant twice.  
+You can unify a variable and a constant {x/f(w)}
 ```
 man(x) and man(f(x)) can be unified, variable and function
 {x/f(w)}
