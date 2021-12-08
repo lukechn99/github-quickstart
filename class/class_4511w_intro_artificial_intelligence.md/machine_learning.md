@@ -9,7 +9,8 @@ binary classification: f({cat, non-cat}) = {1, 0}
 
 ### Process
 We have training data, often a vector of length k  
-Then we create the input matrix by putting together all the training data together, either as columns or rows
+Then we create the input matrix by putting together all the training data together, either as columns or rows  
+Overfit models will fail when given an outlier input
 
 ### Logistic Regression
 part of the linear family of classification models. it is a nn without a hidden layer. It will find a decision boundary with which to make choices; it will learn what line or plane best separates the data. 
@@ -45,3 +46,28 @@ For gradient descent, we just have J(w) = avg(L(ypred, ytrue))
 So the loss just optimizes w, we calculate derivatives/gradients to move w towards the lowest j. 
 
 Forward propagation calculates the values
+
+### Logistic Regression Training
+Predates NN, and can even be said to be a shallow NN. 
+
+### Neural Networks
+Standard - feed forward multi level perceptron NN, very general, not very good on specific fit  
+Convolutional - sequences of vectors/matrices/tensors, more used in CV  
+
+In standard NN, the hidden nodes each have a value that are produced like in logistic regression (like sig(w * x + b))  
+Each layer has several nodes, we pass the activation from the previous layer to the new layer. The logistic regression process happens at each node of each layer. 
+
+![nn](/nn.png)
+
+### Activation function
+Sigmoid helps capture signal strength, is good for output layers.  
+Besides sigmoid activation functions, there are others like ReLU (rectified linear unit, which basically converts negatives to 0, and integer z otherwise), there's also hyperbolic tangent which is kind of like sigmoid, except it centers around (0,0)
+
+### Parameters vs. Hyperparameters
+Hyperparameters are set before training, they can include learning rate, number of training iterations, number of hidden layers, size of hidden layers, choice of activation function
+
+### Implementation
+Train test split  
+Define layers and the activation for the layer as well as a output layer  
+Compile  
+Fit to the training data  
