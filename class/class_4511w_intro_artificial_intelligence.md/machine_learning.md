@@ -71,3 +71,8 @@ Train test split
 Define layers and the activation for the layer as well as a output layer  
 Compile  
 Fit to the training data  
+
+### Supervised Learning, Unsupervised Learning, Reinforcement
+- Supervised is NN (like taking a class, examples are given). You want to divide the data into 3 sets (training, validation, testing). Once trained, you can optionally tune hyperparameters on the validation data, and then test it on the test set. How big/many layers should the network have? Not necessarily the more the better. Too few will mean you might not classify correctly, and too many means the network may be overfit on the data. 
+- Unsupervised is like coming up with concepts by yourself, it is becoming more popular because having labelled data is hard to come by. K-means is one example of unsupervised learning. It tries to group by classes/clusters using points in an n-dimensional space. 
+- Reinforcement Learning is done through interactions with the environment  
