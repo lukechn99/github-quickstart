@@ -24,4 +24,4 @@ Rauls
 Veil of ignorance, you ask a question while considering everyone both winner and loser  
 
 ### Considerations
-Is it okay to recommend Asian clothes to Hmong just because we don't have much data on Hmong? How about offer black prducts to Jamaicans?
+Is it okay to recommend Asian clothes to Hmong just because we don't have much data on Hmong? How about offer black products to Jamaicans?
