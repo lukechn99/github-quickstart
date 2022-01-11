@@ -17,8 +17,8 @@ Making forecasts, valuations, and price targets are important for knowing when t
 * Fundamental analysis uses earnings per share (EPS), price to earnings ratio (P/E ratio), price to earnings growth, and dividend yield.  
 * Technical analysis looks at statistical patterns like latent features. Better for short term trades.  
 * They can be used together; using fundamental analysis to select a candidate and technical analysis to figure out an entry or exit point.  
-    * Breakout strategy
-    * Pullback strategy
+    * Breakout strategy is to look for extreme movement in the trend direction. 
+    * Pullback strategy is to look for short term movements against the long term trend. Determine if the move is safe by looking at trade volume, super high trade volumes paired with a downward break in trend could mean something bad, but low trade volume is typically good. For a good pullback buy, the closing price should be near the opening price and oscillator lines should not be over-sold
 * Growth investing looks for high potential companies 
 * Value investing looks for stable, successful companies; typically good divident yield, low PE, and price less than book value is good
 
@@ -27,3 +27,7 @@ Buy at a low price when you forecast a higher price coming in the future.
 
 ### Overvalued
 Shorting a stock means buying it at a high price and lending it out with the agreement that you will buy it back after a set amount of time regardless of price. Usually, you short when you think that the price will go down. 
+
+### Sources
+https://www.schwab.com/resource-center/insights/content/how-to-pick-stocks-using-fundamental-technical-analysis
+
