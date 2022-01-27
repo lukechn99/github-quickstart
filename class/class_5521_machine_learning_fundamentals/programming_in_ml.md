@@ -33,7 +33,19 @@ delta = x.T.dot(y.dot(v.T)*z)
 ```
 We are using matrix multiplication to simultaneously perform the summation and multiplication. 
 
-
 ### ML Code Organization
+Organize as "data processing", "training", and "evaluation".  
 
-###
+
+Training uses two loops, outer loop for each epoch, where a epoch runs through the data once, and the inner loop is for training
+
+Evaluation compares prediction against ground truth. 
+
+### Analyzing Results
+Look at differences, identify the reasons behind the differences, connect settings/parameters to results
+
+### Libraries
+*Can't be used in this class*  
+Sci-kit learn  
+Pytorch and Tensorflow for deep learning  
+Kaggle for activities to practice ML
