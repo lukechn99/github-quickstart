@@ -28,4 +28,14 @@ Maximum likelihood uniform prior is *$\theta$<sub>ML</sub> = argmax<sub>$\theta$
 *$\theta$<sub>MAP</sub> = argmax<sub>$\theta$</sub>p($\theta$|X)*
 
 ### Parametric Classification
-Discriminant: *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)* which is the product of the likelihood and prior. It can also be expressed as *g<sub>i</sub> = log(p(x|C<sub>i</sub>)) + log(P(C<sub>i</sub>))*
+Discriminant: *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)* which is the product of the likelihood and prior. It can also be expressed as *g<sub>i</sub> = log(p(x|C<sub>i</sub>)) + log(P(C<sub>i</sub>))*  
+Depending on what we're working with (multivariate or otherwise), the *p(x|C<sub>i</sub>)* will be different. 
+
+### Multivariate Data
+Refers to data where each instance has many features. In this case, you can arrange the instances in a matrix of their feature vectors where each column is made up of an instance's feature vector. Of course, rows and columns are interchangeable. For N instances with d features, we get an N by d matrix.   
+Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix. 
+
+### Questions
+Why are the prior, sample mean, and sample variance included in the discriminant?  
+How exactly does the discriminant work? It helps locate the class with mean closest to the sample.   
+What is Mahalanobis distance and naive bayes?
