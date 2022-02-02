@@ -17,15 +17,15 @@ Define the model based on parameters. Or in other words, we are trying to maximi
 For a points that follow a normal distribution, the model would probably include parameters like the mean and variance.  
 
 ### Maximum Likelihood Estimation
-*l($\theta$|X)* is the likelihood of $\theta$ given sameple X.  
-*L($\theta$|X) = $\sum_{t=1}^{N}$ log(p(x<sup>t</sup> | $\theta$))*  
+*l(&theta;|X)* is the likelihood of &theta; given sameple X.  
+*L(&theta;|X) = $\sum_{t=1}^{N}$ log(p(x<sup>t</sup> | &theta;))*  
 then is the log likelihood, it does not alter the parameters at all.  
-The maximum likelihood estimator is then *$\theta$<sup>*</sup> = argmax<sub>$\theta$</sub>L($\theta$|X)* which is a maximization of the log likelihood.  
+The maximum likelihood estimator is then *&theta;<sup>*</sup> = argmax<sub>&theta;</sub>L(&theta;|X)* which is a maximization of the log likelihood.  
 With something like a bernoulli distribution, the parameter is just the sample mean. With multinomial distributions, gaussian distributions, etc., the parameters are estimated differently.  
-Maximum likelihood uniform prior is *$\theta$<sub>ML</sub> = argmax<sub>$\theta$</sub>p(X|$\theta$)*
+Maximum likelihood uniform prior is *&theta;<sub>ML</sub> = argmax<sub>&theta;</sub>p(X|&theta;)*
 
 ### Maximum a Posteriori Estimation
-*$\theta$<sub>MAP</sub> = argmax<sub>$\theta$</sub>p($\theta$|X)*
+*&theta;<sub>MAP</sub> = argmax<sub>&theta;</sub>p(&theta;|X)*
 
 ### Parametric Classification
 Discriminant: *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)* which is the product of the likelihood and prior. It can also be expressed as *g<sub>i</sub> = log(p(x|C<sub>i</sub>)) + log(P(C<sub>i</sub>))*  
