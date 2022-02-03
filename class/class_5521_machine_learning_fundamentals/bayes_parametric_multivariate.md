@@ -29,13 +29,34 @@ Maximum likelihood uniform prior is *&theta;<sub>ML</sub> = argmax<sub>&theta;</
 
 ### Parametric Classification
 Discriminant: *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)* which is the product of the likelihood and prior. It can also be expressed as *g<sub>i</sub> = log(p(x|C<sub>i</sub>)) + log(P(C<sub>i</sub>))*  
-Depending on what we're working with (multivariate or otherwise), the *p(x|C<sub>i</sub>)* will be different. 
+Depending on what we're working with (multivariate or otherwise), the *p(x|C<sub>i</sub>)* will be different.  
+Classification needs to determine the class *given* the data, so it is always a P(C|x) type of problem (posterior form which has prior, ...)  
+Then the posteriors form a discriminant.  
+This is different from gaussian density estimation because it uses new parameters for each class as opposed to a gaussian distribution which just has one mean and variance. In fact, each class of the classification could have its own gaussian distribution. In this case, the gaussians are the likelihood functions *P(C<sub>i</sub>)*.  
+*g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)*
+Once we have a model (made up of parameters like mean and variance for a gaussian), we try the new data point *x* with each model using the discriminant function form and see which model yields the highest score. *x* is classified as belonging to that class. 
 
 ### Multivariate Data
 Refers to data where each instance has many features. In this case, you can arrange the instances in a matrix of their feature vectors where each column is made up of an instance's feature vector. Of course, rows and columns are interchangeable. For N instances with d features, we get an N by d matrix.   
-Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix. 
+Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix.  
+S<sub>i</sub> is the estimate for the covariance, it replaces the variance used for bivariate classification.  
+When variances are the same, the discriminant can be reduced to a nearest mean classifier because it no longer relies on the variance. 
+
+### Model Selection
+With limited data, we want a simpler model to avoid overfitting. More data means we can use more complicated models. 
+
+### Example
+**Given** a set of N iid rv X={x<sub>1</sub>, x<sub>2</sub>, ...} that follow P(x|&lambda;) = &lambda;e<sup>-&lambda;x</sup>, such that 0<= x < inf and &lambda; > 0  
+
+**Find the MLE** of &lambda;: L(&lambda; | X) = L(&lambda; | x<sub>1</sub>, x<sub>2</sub>, ...) = log(productof(P(x<sub>i</sub> | &lambda;))) = summation(log(P(x<sub>i</sub> | &lambda;))) = summation(log(&lambda;e<sup>-&lambda;x</sup>)) = summation(log(&lambda;) - &lambda;x<sub>i</sub>)  
+Then we take the partial derivative and set it equal to zero which will help us find the maximum of the Log: (&delta;L(&lambda; | X)) / &delta;&lambda; = N/&lambda; - summation(x<sub>i</sub>) = 0  
+
+**Find the MAP** of &lambda; where P(&lambda; | &alpha;, &beta;) = &lambda;<sup>&alpha; - 1</sup>e<sup>-&beta;&lambda;</sup>  
+We use the general form P(&lambda; | x) = P(X | &lambda;) * P(&lambda; | &alpha;, &beta;)  
+&lambda;<sub>MAP</sub> = (&alpha; + N - 1) / summation(x<sub>i</sub> + &beta;)
 
 ### Questions
-Why are the prior, sample mean, and sample variance included in the discriminant?  
+Why are the prior, sample mean, and sample variance included in the discriminant for parametric classification?  
 How exactly does the discriminant work? It helps locate the class with mean closest to the sample.   
-What is Mahalanobis distance and naive bayes?
+What is Mahalanobis distance and naive bayes?  
+What is gaussian density? It is the y-axis of the bell curve gaussian distribution graph.  
