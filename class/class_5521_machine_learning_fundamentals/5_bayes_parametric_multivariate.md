@@ -5,7 +5,8 @@ The unobservable values are made observable through a deterministic function and
 ```
 x = f(z) where x is observable when function f makes unobservable z observable
 ```
-A variable X is bernoulli if it has binary outcome. The probability of one outcome is *p* and the other is *1-p*. Then the expected value is E(X) = *p* and variance is Var(X) = *p(1-p)*. Variance is the expected deviation from the mean, or E[(e - mean)<sup>2</sup>]
+A random variable X is bernoulli if it has binary outcome. The probability of one outcome is *p* and the other is *1-p*. Then the expected value is E(X) = *p* and variance is Var(X) = *p(1-p)*. Variance is the expected deviation from the mean, or E[(e - mean)<sup>2</sup>]  
+Bernoulli probability: *P(X=i)=p<sup>i</sup>(1-p)<sup>1-i</sup>*, *i* = 0, 1
 
 ### Classification
 These problems attempt to sort data into groups based on characteristics of each datapoint. Classification can be binary or n-ary.  
@@ -17,10 +18,19 @@ Define the model based on parameters. Or in other words, we are trying to maximi
 For a points that follow a normal distribution, the model would probably include parameters like the mean and variance.  
 
 ### Maximum Likelihood Estimation
-*l(&theta;|X)* is the likelihood of &theta; given sameple X.  
-*L(&theta;|X) = $\sum_{t=1}^{N}$ log(p(x<sup>t</sup> | &theta;))*  
+*l(&theta;|X)* is the likelihood of &theta; given sample X. It is calulated as the product of all *p(x<sub>i</sub>|&theta;)*  
+
+We want to find &theta; that maximizes *l(&theta;|X)*  
+Using log likelihood simplifies some calulations because now we can use a summation instead of Pi notation. Using the log product rule.  
+
+*L(&theta;|X) = log(l(&theta;|X)) = $\sum_{t=1}^{N}$ log(p(x<sup>t</sup> | &theta;))*  
 then is the log likelihood, it does not alter the parameters at all.  
-The maximum likelihood estimator is then *&theta;<sup>*</sup> = argmax<sub>&theta;</sub>L(&theta;|X)* which is a maximization of the log likelihood.  
+The maximum likelihood estimator is then *&theta;<sup>*</sup> = argmax<sub>&theta;</sub>L(&theta;|X)* which is a maximization of the log likelihood. (Alpaydin 66)  
+
+MLE is used with ALL kinds of distributions. Bernoulli is K = 2 classes and can be generalized to multinomial distributions where K > 2. The Gaussian distribution is used when inputs are numeric. 
+For multinomial distributions, MLE spits out a series of probabilities that correspond to the available classes. 
+$\hat{p}=\frac{\sum_{t} x^{t}_i}{N}$
+
 With something like a bernoulli distribution, the parameter is just the sample mean. With multinomial distributions, gaussian distributions, etc., the parameters are estimated differently.  
 Maximum likelihood uniform prior is *&theta;<sub>ML</sub> = argmax<sub>&theta;</sub>p(X|&theta;)*
 
@@ -36,6 +46,12 @@ This is different from gaussian density estimation because it uses new parameter
 *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)*
 Once we have a model (made up of parameters like mean and variance for a gaussian), we try the new data point *x* with each model using the discriminant function form and see which model yields the highest score. *x* is classified as belonging to that class. 
 
+### Densities
+Bernouli Density
+Multinomial Density
+Gaussian Density
+
+
 ### Multivariate Data
 Refers to data where each instance has many features. In this case, you can arrange the instances in a matrix of their feature vectors where each column is made up of an instance's feature vector. Of course, rows and columns are interchangeable. For N instances with d features, we get an N by d matrix.   
 Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix.  
@@ -46,7 +62,8 @@ When variances are the same, the discriminant can be reduced to a nearest mean c
 With limited data, we want a simpler model to avoid overfitting. More data means we can use more complicated models. 
 
 ### Example
-**Given** a set of N iid rv X={x<sub>1</sub>, x<sub>2</sub>, ...} that follow P(x|&lambda;) = &lambda;e<sup>-&lambda;x</sup>, such that 0<= x < inf and &lambda; > 0  
+**Given** a set of N iid (independent and identically distributed) rv (random value) X={x<sub>1</sub>, x<sub>2</sub>, ...} that follow *P(x|&lambda;) = &lambda;e<sup>-&lambda;x</sup>*, such that 0<= x < inf and &lambda; > 0  
+*P(x|&lambda;)* is a probability density function.  
 
 **Find the MLE** of &lambda;: L(&lambda; | X) = L(&lambda; | x<sub>1</sub>, x<sub>2</sub>, ...) = log(productof(P(x<sub>i</sub> | &lambda;))) = summation(log(P(x<sub>i</sub> | &lambda;))) = summation(log(&lambda;e<sup>-&lambda;x</sup>)) = summation(log(&lambda;) - &lambda;x<sub>i</sub>)  
 Then we take the partial derivative and set it equal to zero which will help us find the maximum of the Log: (&delta;L(&lambda; | X)) / &delta;&lambda; = N/&lambda; - summation(x<sub>i</sub>) = 0  
@@ -60,3 +77,4 @@ Why are the prior, sample mean, and sample variance included in the discriminant
 How exactly does the discriminant work? It helps locate the class with mean closest to the sample.   
 What is Mahalanobis distance and naive bayes?  
 What is gaussian density? It is the y-axis of the bell curve gaussian distribution graph.  
+On slide 13/34 of Bayes_Parametric_Multivariate.pdf, how do we maximize the log-likelihood with respect to p? Is it a partial derivative?
