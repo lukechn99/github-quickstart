@@ -17,25 +17,25 @@ $p(x)$, the *evidence* is the probability of $x$ occuring independent of other e
 ## Classification
 These problems attempt to sort data into groups based on characteristics of each datapoint. Classification can be binary or n-ary.  
 The input is a vector of features and the output is a class chosen from a set of classes.  
-How this is predicted can be done in a few ways. We could use a threshold, *P(C = class<sub>1</sub> | features)* or we can choose the class with highest probability based on Bayes' Rule. Given classes *C<sub>1</sub>, C<sub>2</sub>, C<sub>3</sub>...*, we classify an instance with feature set {f<sub>1</sub>, f<sub>2</sub>, f<sub>3</sub>...} by choosing the *C<sub>i</sub>* with the highest *P(C<sub>i</sub> | x)*
+How this is predicted can be done in a few ways. We could use a threshold, $P(C = class_1|features)$ or we can choose the class with highest probability based on Bayes' Rule. Given classes $C_1, C_2, C_3...$, we classify an instance with feature set $\{f_1, f_2, f_3...\}$ by choosing the *C<sub>i</sub>* with the highest $P(C_i|x)$
 
 ## Parametric Methods
 Define the model based on parameters. Or in other words, we are trying to maximize the likelihood that the data is modeled by a set of parameters, theta.  
 For a points that follow a normal distribution, the model would probably include parameters like the mean and variance.  
 
 ## Maximum Likelihood Estimation
-*l(&theta;|X)* is the likelihood of &theta; given sample X. It is calulated as the product of all *p(x<sub>i</sub>|&theta;)*  
+$l(\theta|X)$ is the likelihood of $\theta$ given sample X. It is calulated as the product of all $p(x_i|\theta)$  
 
-We want to find &theta; that maximizes *l(&theta;|X)*  
+We want to find $\theta$ that maximizes $l(\theta|X)$  
 Using log likelihood simplifies some calulations because now we can use a summation instead of Pi notation. Using the log product rule.  
 
-*L(&theta;|X) = log(l(&theta;|X)) = $\sum_{t=1}^{N}$ log(p(x<sup>t</sup> | &theta;))*  
+$L(\theta|X) = log(l(\theta|X)) = \sum_{t=1}^{N} log(p(x_t|\theta))$  
 then is the log likelihood, it does not alter the parameters at all.  
 The maximum likelihood estimator is then *&theta;<sup>*</sup> = argmax<sub>&theta;</sub>L(&theta;|X)* which is a maximization of the log likelihood. (Alpaydin 66)  
 
-MLE is used with ALL kinds of distributions. Bernoulli is K = 2 classes and can be generalized to multinomial distributions where K > 2. The Gaussian distribution is used when inputs are numeric. 
+MLE is used with ALL kinds of distributions. Bernoulli is $K=2$ classes and can be generalized to multinomial distributions where $K>2$. The Gaussian distribution is used when inputs are numeric. 
 For multinomial distributions, MLE spits out a series of probabilities that correspond to the available classes. 
-$\hat{p}=\frac{\sum_{t} x^{t}_i}{N}$
+$\hat{p}=\frac{\sum_{t}x^{t}_i}{N}$
 
 With something like a bernoulli distribution, the parameter is just the sample mean. With multinomial distributions, gaussian distributions, etc., the parameters are estimated differently.  
 Maximum likelihood uniform prior is *&theta;<sub>ML</sub> = argmax<sub>&theta;</sub>p(X|&theta;)*
@@ -68,15 +68,20 @@ When variances are the same, the discriminant can be reduced to a nearest mean c
 With limited data, we want a simpler model to avoid overfitting. More data means we can use more complicated models. 
 
 ## Example
-**Given** a set of N iid (independent and identically distributed) rv (random value) X={x<sub>1</sub>, x<sub>2</sub>, ...} that follow *P(x|&lambda;) = &lambda;e<sup>-&lambda;x</sup>*, such that 0<= x < inf and &lambda; > 0  
+**Given** a set of N iid (independent and identically distributed) rv (random value) $X=\{x_1, x_2, ...\}$ that follow $P(x|\lambda)=\lambda e^{-\lambda x}$, such that 0<= x < inf and &lambda; > 0  
 *P(x|&lambda;)* is a probability density function.  
 
-**Find the MLE** of &lambda;: L(&lambda; | X) = L(&lambda; | x<sub>1</sub>, x<sub>2</sub>, ...) = log(productof(P(x<sub>i</sub> | &lambda;))) = summation(log(P(x<sub>i</sub> | &lambda;))) = summation(log(&lambda;e<sup>-&lambda;x</sup>)) = summation(log(&lambda;) - &lambda;x<sub>i</sub>)  
-Then we take the partial derivative and set it equal to zero which will help us find the maximum of the Log: (&delta;L(&lambda; | X)) / &delta;&lambda; = N/&lambda; - summation(x<sub>i</sub>) = 0  
+**Find the MLE** of $\lambda$: $L(\lambda|X)$  
+$=L(\lambda|x_1, x_2, ...)$  
+$=log(\prod(P(x_i| \lambda)))$  
+$=\sum(log(P(x_i|\lambda)))$  
+$=\sum(log(\lambda^{-\lambda x}))$  
+$=\sum(log(\lambda) - \lambda x_i)$  
+Then we take the partial derivative and set it equal to zero which will help us find the maximum of the Log: $\frac{\delta L(\lambda|X)}{\delta \lambda}=\frac{N}{\lambda}-\sum x_i=0$
 
-**Find the MAP** of &lambda; where P(&lambda; | &alpha;, &beta;) = &lambda;<sup>&alpha; - 1</sup>e<sup>-&beta;&lambda;</sup>  
-We use the general form P(&lambda; | x) = P(X | &lambda;) * P(&lambda; | &alpha;, &beta;)  
-&lambda;<sub>MAP</sub> = (&alpha; + N - 1) / summation(x<sub>i</sub> + &beta;)
+**Find the MAP** of $\lambda$ where $P(\lambda|\alpha,\beta) = \lambda^{\alpha-1}e^{-\beta \lambda}$  
+We use the general form $P(\lambda|x)=P(X|\lambda)*P(\lambda|\alpha,\beta)$  
+$\lambda_{MAP}=\frac{\alpha+N-1}{\sum x_i+\beta}$
 
 ## Questions
 Why are the prior, sample mean, and sample variance included in the discriminant for parametric classification?  
