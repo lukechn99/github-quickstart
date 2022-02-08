@@ -1,23 +1,29 @@
 # Probability Theory, Bayes' Rule, Parametric Method, Parametric Classification, Maximum Likelihood (ML), Maximum a Posteriori (MAP)
 
-### Probability Theory
+## Probability Theory
 The unobservable values are made observable through a deterministic function and its probability can be drawn.  
 ```
 x = f(z) where x is observable when function f makes unobservable z observable
 ```
-A random variable X is bernoulli if it has binary outcome. The probability of one outcome is *p* and the other is *1-p*. Then the expected value is E(X) = *p* and variance is Var(X) = *p(1-p)*. Variance is the expected deviation from the mean, or E[(e - mean)<sup>2</sup>]  
-Bernoulli probability: *P(X=i)=p<sup>i</sup>(1-p)<sup>1-i</sup>*, *i* = 0, 1
+A random variable X is bernoulli if it has binary outcome. The probability of one outcome is $p$ and the other is $1-p$. Then the expected value is $E(X) = p$ and variance is $Var(X) = p(1-p)$. Variance is the expected deviation from the mean, or $E[(e - mean)^{2}]$  
+Bernoulli probability: $P(X=i)=p^{i}(1-p)^{1-i}$, $i=\{0,1\}$
 
-### Classification
+## Bayes' Rule
+$P(C|x)=\frac{P(C)p(x|C)}{p(x)}$  
+Where $P(C)$ is the *prior*, the prior knowledge of the probabiliy of the class regardless of what data we're currently looking at. The $\sum_{i=0}^{n}P(C_i)=1$, which just says that the probability of all classes added together has to be 100%.  
+$p(x|C)$, the *class likelihood*, is the probability that an data point belonging to the class $C$ has value $x$.  
+$p(x)$, the *evidence* is the probability of $x$ occuring independent of other events. It is calculated as the $\sum_{k=1}^{K}P(C_k|x)P(C_k)$ which is the sum of the probability of seeing $x$ in each class.  
+
+## Classification
 These problems attempt to sort data into groups based on characteristics of each datapoint. Classification can be binary or n-ary.  
 The input is a vector of features and the output is a class chosen from a set of classes.  
 How this is predicted can be done in a few ways. We could use a threshold, *P(C = class<sub>1</sub> | features)* or we can choose the class with highest probability based on Bayes' Rule. Given classes *C<sub>1</sub>, C<sub>2</sub>, C<sub>3</sub>...*, we classify an instance with feature set {f<sub>1</sub>, f<sub>2</sub>, f<sub>3</sub>...} by choosing the *C<sub>i</sub>* with the highest *P(C<sub>i</sub> | x)*
 
-### Parametric Methods
+## Parametric Methods
 Define the model based on parameters. Or in other words, we are trying to maximize the likelihood that the data is modeled by a set of parameters, theta.  
 For a points that follow a normal distribution, the model would probably include parameters like the mean and variance.  
 
-### Maximum Likelihood Estimation
+## Maximum Likelihood Estimation
 *l(&theta;|X)* is the likelihood of &theta; given sample X. It is calulated as the product of all *p(x<sub>i</sub>|&theta;)*  
 
 We want to find &theta; that maximizes *l(&theta;|X)*  
@@ -34,10 +40,10 @@ $\hat{p}=\frac{\sum_{t} x^{t}_i}{N}$
 With something like a bernoulli distribution, the parameter is just the sample mean. With multinomial distributions, gaussian distributions, etc., the parameters are estimated differently.  
 Maximum likelihood uniform prior is *&theta;<sub>ML</sub> = argmax<sub>&theta;</sub>p(X|&theta;)*
 
-### Maximum a Posteriori Estimation
+## Maximum a Posteriori Estimation
 *&theta;<sub>MAP</sub> = argmax<sub>&theta;</sub>p(&theta;|X)*
 
-### Parametric Classification
+## Parametric Classification
 Discriminant: *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)* which is the product of the likelihood and prior. It can also be expressed as *g<sub>i</sub> = log(p(x|C<sub>i</sub>)) + log(P(C<sub>i</sub>))*  
 Depending on what we're working with (multivariate or otherwise), the *p(x|C<sub>i</sub>)* will be different.  
 Classification needs to determine the class *given* the data, so it is always a P(C|x) type of problem (posterior form which has prior, ...)  
@@ -46,22 +52,22 @@ This is different from gaussian density estimation because it uses new parameter
 *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)*
 Once we have a model (made up of parameters like mean and variance for a gaussian), we try the new data point *x* with each model using the discriminant function form and see which model yields the highest score. *x* is classified as belonging to that class. 
 
-### Densities
+## Densities
 Bernouli Density
 Multinomial Density
 Gaussian Density
 
 
-### Multivariate Data
+## Multivariate Data
 Refers to data where each instance has many features. In this case, you can arrange the instances in a matrix of their feature vectors where each column is made up of an instance's feature vector. Of course, rows and columns are interchangeable. For N instances with d features, we get an N by d matrix.   
 Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix.  
 S<sub>i</sub> is the estimate for the covariance, it replaces the variance used for bivariate classification.  
 When variances are the same, the discriminant can be reduced to a nearest mean classifier because it no longer relies on the variance. 
 
-### Model Selection
+## Model Selection
 With limited data, we want a simpler model to avoid overfitting. More data means we can use more complicated models. 
 
-### Example
+## Example
 **Given** a set of N iid (independent and identically distributed) rv (random value) X={x<sub>1</sub>, x<sub>2</sub>, ...} that follow *P(x|&lambda;) = &lambda;e<sup>-&lambda;x</sup>*, such that 0<= x < inf and &lambda; > 0  
 *P(x|&lambda;)* is a probability density function.  
 
@@ -72,7 +78,7 @@ Then we take the partial derivative and set it equal to zero which will help us 
 We use the general form P(&lambda; | x) = P(X | &lambda;) * P(&lambda; | &alpha;, &beta;)  
 &lambda;<sub>MAP</sub> = (&alpha; + N - 1) / summation(x<sub>i</sub> + &beta;)
 
-### Questions
+## Questions
 Why are the prior, sample mean, and sample variance included in the discriminant for parametric classification?  
 How exactly does the discriminant work? It helps locate the class with mean closest to the sample.   
 What is Mahalanobis distance and naive bayes?  
