@@ -57,7 +57,6 @@ Bernouli Density
 Multinomial Density
 Gaussian Density
 
-
 ## Multivariate Data
 Refers to data where each instance has many features. In this case, you can arrange the instances in a matrix of their feature vectors where each column is made up of an instance's feature vector. Of course, rows and columns are interchangeable. For N instances with d features, we get an N by d matrix.   
 Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix.  
@@ -71,11 +70,13 @@ With limited data, we want a simpler model to avoid overfitting. More data means
 **Given** a set of N iid (independent and identically distributed) rv (random value) $X=\{x_1, x_2, ...\}$ that follow $P(x|\lambda)=\lambda e^{-\lambda x}$, such that 0<= x < inf and &lambda; > 0  
 *P(x|&lambda;)* is a probability density function.  
 
-**Find the MLE** of $\lambda$: $L(\lambda|X)$  
+**Find the MLE** of $\lambda$:  
+$L(\lambda|X)$  
+$X=\{x_1,x_2,...,x_N\}$  
 $=L(\lambda|x_1, x_2, ...)$  
 $=log(\prod(P(x_i| \lambda)))$  
 $=\sum(log(P(x_i|\lambda)))$  
-$=\sum(log(\lambda^{-\lambda x}))$  
+$=\sum(log(\lambda e^{-\lambda x}))$  
 $=\sum(log(\lambda) - \lambda x_i)$  
 Then we take the partial derivative and set it equal to zero which will help us find the maximum of the Log: $\frac{\delta L(\lambda|X)}{\delta \lambda}=\frac{N}{\lambda}-\sum x_i=0$
 
