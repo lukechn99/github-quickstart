@@ -44,7 +44,7 @@ Maximum likelihood uniform prior is *&theta;<sub>ML</sub> = argmax<sub>&theta;</
 *&theta;<sub>MAP</sub> = argmax<sub>&theta;</sub>p(&theta;|X)*
 
 ## Parametric Classification
-Discriminant: *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)* which is the product of the likelihood and prior. It can also be expressed as *g<sub>i</sub> = log(p(x|C<sub>i</sub>)) + log(P(C<sub>i</sub>))*  
+Discriminant: $g_i = p(x|C_i)P(C_i)$ which is the product of the likelihood and prior. It can also be expressed as $g_i = log(p(x|C_i))+log(P(C_i))$  
 Depending on what we're working with (multivariate or otherwise), the *p(x|C<sub>i</sub>)* will be different.  
 Classification needs to determine the class *given* the data, so it is always a P(C|x) type of problem (posterior form which has prior, ...)  
 Then the posteriors form a discriminant.  
