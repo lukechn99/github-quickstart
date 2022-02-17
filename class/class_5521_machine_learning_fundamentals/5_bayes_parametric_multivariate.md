@@ -41,16 +41,20 @@ With something like a bernoulli distribution, the parameter is just the sample m
 Maximum likelihood uniform prior is *&theta;<sub>ML</sub> = argmax<sub>&theta;</sub>p(X|&theta;)*
 
 ## Maximum a Posteriori Estimation
-*&theta;<sub>MAP</sub> = argmax<sub>&theta;</sub>p(&theta;|X)*
+MAP uses $p(\theta|X)$ while MLE uses $p(X|\theta)$ and assumes priors are equal.  
+MAP is good for parametric classification
+$\theta_MAP=argmax_\theta p(\theta|X)$
 
 ## Parametric Classification
 Discriminant: $g_i = p(x|C_i)P(C_i)$ which is the product of the likelihood and prior. It can also be expressed as $g_i = log(p(x|C_i))+log(P(C_i))$  
 Depending on what we're working with (multivariate or otherwise), the *p(x|C<sub>i</sub>)* will be different.  
+MAXIMIZE G(X)  
 Classification needs to determine the class *given* the data, so it is always a P(C|x) type of problem (posterior form which has prior, ...)  
 Then the posteriors form a discriminant.  
 This is different from gaussian density estimation because it uses new parameters for each class as opposed to a gaussian distribution which just has one mean and variance. In fact, each class of the classification could have its own gaussian distribution. In this case, the gaussians are the likelihood functions *P(C<sub>i</sub>)*.  
 *g<sub>i</sub> = p(x|C<sub>i</sub>)P(C<sub>i</sub>)*
-Once we have a model (made up of parameters like mean and variance for a gaussian), we try the new data point *x* with each model using the discriminant function form and see which model yields the highest score. *x* is classified as belonging to that class. 
+Once we have a model (made up of parameters like mean and variance for a gaussian), we try the new data point *x* with each model using the discriminant function form and see which model yields the highest score. *x* is classified as belonging to that class.  
+The likelihood based approach uses Bayes' rule to calculate posterior densities, the discriminant based approach doesn't use density to estimate the discriminant (Lecture 5: Bayes Decision Theory, Parametric Methods, and Multivariate Methods 43:00)
 
 ## Densities
 Bernouli Density
@@ -59,9 +63,14 @@ Gaussian Density
 
 ## Multivariate Data
 Refers to data where each instance has many features. In this case, you can arrange the instances in a matrix of their feature vectors where each column is made up of an instance's feature vector. Of course, rows and columns are interchangeable. For N instances with d features, we get an N by d matrix.   
-Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix.  
-S<sub>i</sub> is the estimate for the covariance, it replaces the variance used for bivariate classification.  
-When variances are the same, the discriminant can be reduced to a nearest mean classifier because it no longer relies on the variance. 
+Here, the mean E(x) is a vector of the feature-wise means. Covariance is a d by d matrix. It *captures the relationship between two features*, not related to the number of data points N, but rather just looks at the features, hence the d by d.    
+S<sub>i</sub> is the estimate for the covariance, it replaces the variance used for bivariate classification. Definition of covariance (Lecture 5: Bayes Decision Theory, Parametric Methods, and Multivariate Methods, 50:10)  
+When variances are the same, the discriminant can be reduced to a nearest mean classifier because it no longer relies on the variance.  
+The covariance matrix is a diagonal matrix when the features are completely independent (there is no relation between two different features, hence the 0's off diagonal)  
+
+## Parametric Classification in Multivariate Data
+The discriminant function is now $g_i(x)=-\frac{1}{2}log|S_i|-\frac{1}{2}(x-m_i)^{T}S_{i}^{-1}(x-m_i)+log \hat{P}(C_i)$  
+Where $S_i$ is the covariance, $m_i$ is the mean and $\hat{P}(C_i)$ is the prior. 
 
 ## Model Selection
 With limited data, we want a simpler model to avoid overfitting. More data means we can use more complicated models. 
