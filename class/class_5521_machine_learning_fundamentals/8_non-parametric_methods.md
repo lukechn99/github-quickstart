@@ -47,6 +47,20 @@ With kNN classification, we choose the class with most neighbors within a neighb
 ## k and h
 Small values mean single instances matter more. Bigger k and h values means we average over more instances and create a smoother curve. We can finetune k and h
 
+## Main Idea
+```
+Kernel Estimator
+    |- uniform
+    |   |- different uniform
+    `- Gaussian
+        |- different Gaussian
+KNN
+    `- KNN with different Ks
+```
+
+## Example
+
+
 ## Questions
 So does that mean non-parametric methods don't find global parameters?  
 What do the curves tell you?
