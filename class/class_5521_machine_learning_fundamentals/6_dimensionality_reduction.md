@@ -24,7 +24,7 @@ We want to choose a $k < d$ such that $\frac{\lambda_1+\lambda_2+...+\lambda_k}{
 Or in other words, we want to retain 90%+ of the data. 
 
 ## Steps for Computing Principal Component Analysis
-1. Subtract the mean of the dataset from each datapoint to center the data (only after $\nu=0$ can we use $XX^{T}$ as the covariance matrix)
+1. Subtract the mean of the dataset from each datapoint to center the data (only after $\mu=0$ can we use $XX^{T}$ as the covariance matrix)
 2. For the covariance matrix $XX^{T}$
 3. Find the eigenvalues and eigenvectors of the covariance matrix
 4. Rearrange the eigenvectors and eigenvalues
