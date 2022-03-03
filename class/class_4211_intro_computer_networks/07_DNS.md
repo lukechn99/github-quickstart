@@ -4,8 +4,8 @@ MAC Addresses are flat and permanent, but IP is two layered. For example, 128.10
 
 ### Internet Domain Names
 They are organized in a hierarchy and can go infinitly deep. Domain names are explored down a root like a tree. For example it might start from .com .edu .org, then look at things like umn.edu, google.com, trees.org. **Fully qualified domain names** are commonly organized as  
-<host name>.<sub-domain, local domain name>.<second level domain>.<top-level domain, root domain> 
-For example afer.cs.umn.edu  
+<host name>.<sub-domain, local domain name>.<second level domain>.<top-level domain, root domain>  
+The FQDN is the host name + the domain name, where a host name is commonly something like www. or, in the case of a private host, like afer.cs.umn.edu, it would be afer.  
 [Hierarchy descriptions](https://www.inetdaemon.com/tutorials/internet/dns/operation/hierarchy.shtml) should be taken with a grain of salt because it seems like different sources have different names for the hierarchy.  
 There exist 13 root servers in total. When searching for a DNS, host DNS queries will first search the local name servers, then the root server, and then down to other local DNS servers (authoritative server) until the name is either found or it returns DNE. DNS is decentralized. After a DNS search, a mapping is created for quicker lookup next tie. Each DNS server has a database that can look up host names.  
 
