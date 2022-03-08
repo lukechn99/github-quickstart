@@ -18,4 +18,4 @@ E is log likelihood, we use gradient descent to optimize it.
 
 Q: Cross Entropy: $E(w|X)=-\sum_t (r^tlogy^t+(1-r^t)log(1-y^t))$  
 Find the update equation of $w_j$  
-$w_j=w_j+\delta w_j$
+$w_j=w_j+\delta w_j$, $\delta w_j=-\eta \frac{\delta E}{\delta w_j$
