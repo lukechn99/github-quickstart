@@ -8,7 +8,7 @@ No assumed distribution. However, similar inputs have similar outputs and functi
 We rely on neighboring datapoints to interpolate from instead of having a global model.  
 We use a sample set to derive an estimator of the PDF and CDF and decide on a neighborhood size for the neighborhoods.  
 
-## Culumative Density Function
+## Cumulative Density Function
 $\hat{F}(x)=\frac{number \ of \ data \ points \ < \ input \ data}{total \ number \ of \ data points \ (N)}$
 
 ## Probability Density Function
