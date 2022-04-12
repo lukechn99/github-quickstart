@@ -1,4 +1,6 @@
-# Support Vector Machines
+# Kernels
+
+## Support Vector Machines
 
 While many linear discriminants are valid for dividing classes, we want to make it so that it the discriminant is maximally distant from both classes.  
 
@@ -16,7 +18,7 @@ $w^Tx^t+w_0 \leq -1$ for data $x^t$ that is in class, $r^t=-1$
 
 Or $r^t(w^Tx^t+w_0)\geq 1$
 
-We want to maximize $\rho$ which means minimizing $||w||$ subject to the constraint that $r^t(w^Tx^t+w_0) \geq 1$. In total there will be one contraint for each data point, so many contraints. We construct a dual problem by using a lagrange multiplier $\alpha^t$
+We want to maximize $\rho$ which means minimizing $||w||$ subject to the constraint that $r^t(w^Tx^t+w_0) \geq 1$. In total there will be one contraint for each data point, so there will be many contraints. **In order to address all the contraints while solving the minimization problem, we use Lagrange and get a primal problem that has contraints integrated into the objective function**. We construct a dual problem by using a lagrange multiplier $\alpha^t$ **so that we don't have to solve for *w* which is complicated and instead solve for $\alpha$ which is much simpler**.
 
 We have $min\frac{1}{2}||w||^2$ subject to $r^t(w^Tx^t+w_0)\geq 1$
 
@@ -47,7 +49,7 @@ Allows for some of the support vector points to be outside fo the margins. $r^t(
 
 The soft error is $\sum_t \xi^t$
 
-The new primal is $L_p=\frac{1}{2}||w||^2+C\sum_t \xi^t-\sum_t\alpha^t[r^t(w^Tx^t+w_0)-1+\xi^t]-\sum_t\mu^t\xi^t$. This new primal function has the two obejctive functions that are being minimized, the lagrange multiplier $\alpha$, and a langrage multiplier on the slack variable.
+The new primal is $L_p=\frac{1}{2}||w||^2+C\sum_t \xi^t-\sum_t\alpha^t[r^t(w^Tx^t+w_0)-1+\xi^t]-\sum_t\mu^t\xi^t$. This new primal function has the two objective functions that are being minimized, the lagrange multiplier $\alpha$, and a langrage multiplier on the slack variable. One objective function is the $||w||$ portion which accounts for optimizing the margin and $C$ which can be adjusted to accomodate for how much you care about the error. A $C=0$ means we don't care about error and only want to optimize the margin (distances to hyperplane).
 
 ## Hinge Loss
 
@@ -57,6 +59,22 @@ $L_{hinge}=0$ if $y^tr^t \geq 1$ which means there was a correct prediction, oth
 
 $L_{hinge}=1-y^tr^t$ which is however much difference there was between 1 and the prediction
 
+## Non-linear SVMs
+
+Sometimes one linear hyperplane cannot separate the data, so we need to move up a dimension to 3D. To do this, we use some basis function $\phi$ such that $z=\phi(x)$ where $x$ is the 2D data and $z$ is the 3D data.
+
+Kernels map previously unseparable data into a higher space where they are separable. The kernel function is a function equivalent to the inner product in some feature space. $K(x, y)=\phi(x)^T \phi(y)$
+
+We can still use the previous SVM equations just by substituting $x$ with a $z$ or $\phi(x)$. Typically, we will use the kernel directly without knowing the exact transformation. Kernels can be linear, quadratic, radial, etc. Every semi-positive definite symmetric function is a kernel.
+
+In a lot of cases, we don't know what kernel to use, so we could use a multiclass kernel machine that tests out different kernels
+
+## Linear SVM vs Perceptron
+
+Both can produce a linear separator, but perceptrons don't care about a margin. This means that an SVM can be better generalizeable to new data because we maximize the margin, then we are also more tolerant of non-training data that stray further in than the support vectors.
+
+In the SVM case, we use a kernel to make it non-linear. For a perceptron, we stack them to make a multi-layer perceptron.
+
 ## Questions
 
 What is primal versus dual problem?
@@ -64,3 +82,5 @@ What is primal versus dual problem?
 What is $\alpha$? The lagrange multiplier
 
 Why a dual? What exactly is the significance of the kernel?
+
+Why are we learning SVMs *and* kernels at the same time? Are they commonly applied together?
