@@ -75,6 +75,16 @@ Both can produce a linear separator, but perceptrons don't care about a margin. 
 
 In the SVM case, we use a kernel to make it non-linear. For a perceptron, we stack them to make a multi-layer perceptron.
 
+We can also change the perceptron error functions to incorporate margin. So the two are not necessarily mutally exclusive.
+
+## Hard Margin vs Soft Margin
+
+Soft margin provides a way to deal with fitting noisy data.
+
+## Kernel vs Linear
+
+A kernel is needed when data is not linearly separable. There is a difference between noise in linearly separable data and non-linearly separable data. Noise can be handled by a soft margin SVM, but non-linearly separable needs to use a kernel in higher dimension space.
+
 ## Questions
 
 What is primal versus dual problem?
