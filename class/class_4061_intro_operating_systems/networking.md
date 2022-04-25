@@ -5,7 +5,7 @@ Network layer : protocols include VoIP, video conference, P2P file share, IM, we
 Link layer
 Physical layer
 
-Thera re so many IP's so we use a DNS to assign a name for easier use.  
+There are too many IP addresses to remember so we use a DNS to assign a name for easier use.  
 
 ### Creating a network app
 applications that run on different end systems and communicate over a network
