@@ -44,15 +44,15 @@ if (sigprocmask(SIG_BLOCK, &st, NULL)) {
 ### Threads
 Benefits:
 
-– Concurrency:multiple pieces of code can be executed simultaneously
-– Modularity:decompose functionality
-– Parallelism:threads running in parallel (multi-core)
-– Scale:more threads available than processors
-– Overhead:multiple threads cheaper than multiple processes
+* Concurrency:multiple pieces of code can be executed simultaneously  
+* Modularity:decompose functionality
+* Parallelism:threads running in parallel (multi-core)
+* Scale:more threads available than processors
+* Overhead:multiple threads cheaper than multiple processes
 Drawbacks:
 
-– Sharing and thread safety:requires synchronization
-– Global variables: per thread global variables may be required
+* Sharing and thread safety:requires synchronization
+* Global variables: per thread global variables may be required
 
 ### Synchronization
 Locks
