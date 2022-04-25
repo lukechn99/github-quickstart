@@ -157,7 +157,7 @@ int main() {
 			// close write
 			close(fds[i][1]);
 			read(fds[0], &i, 1);
-			printf("%l\n", factorial(i);
+			printf("%l\n", factorial(i));
 		}
 		else if (pid > 0) {
 			// close read
