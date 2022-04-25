@@ -49,6 +49,7 @@ Benefits:
 * Parallelism:threads running in parallel (multi-core)
 * Scale:more threads available than processors
 * Overhead:multiple threads cheaper than multiple processes
+
 Drawbacks:
 
 * Sharing and thread safety:requires synchronization
