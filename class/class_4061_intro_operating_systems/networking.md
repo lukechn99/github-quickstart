@@ -31,7 +31,7 @@ packets are sent as soon as the host sends it
 Low latency, timing critical, and tolerates loss
 
 # Network Programming
-Sockets are a ket abstraction for end points of server programming. A socket can be created as ``` int socket(int domain, int type, int protocol)``` which gives us a file descriptor to use. The domain will usually be IPv4 or IPv6 which would be PF_INET, type would be either TCP or UDP using SOCK_STREAM or SOCK_DGRAM respectively. A common socket creation may look like ```fd = socket(PF_INET, SOCK_STREAM)```
+Sockets are a key abstraction for end points of server programming. A socket can be created as ``` int socket(int domain, int type, int protocol)``` which gives us a file descriptor to use. The domain will usually be IPv4 or IPv6 which would be PF_INET, type would be either TCP or UDP using SOCK_STREAM or SOCK_DGRAM respectively. A common socket creation may look like ```fd = socket(PF_INET, SOCK_STREAM)```
 
 ### Server
 The **socket** for the server needs to be known by everyone. It needs an open socket that is **binded** to a network address. Then, it needs to set up a queue for incoming connection requests with **listen**. Finally, we need to **accept** connections from the queue.  
