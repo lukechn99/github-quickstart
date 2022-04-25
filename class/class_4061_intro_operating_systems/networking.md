@@ -11,7 +11,7 @@ There are too many IP addresses to remember so we use a DNS to assign a name for
 applications that run on different end systems and communicate over a network
 
 ### Application architectures
-Client-server: always on host and permanent IP servers. Clients can come and go, change IP, be intermittent, do not communicate with each other, etc.
+Client-server: always on host and permanent IP servers. Clients can come and go, change IP, be intermittent, do not communicate with each other, etc.  
 Peer-to-peer: no always-on server, end systems directly communicate, anyone can change, very fluid, highly scalable, but not easy to manage
 
 ### Sockets
