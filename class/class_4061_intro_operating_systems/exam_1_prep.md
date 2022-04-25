@@ -178,6 +178,7 @@ There WILL be a question on I/O and Fork/Exec
 # Exam Debrief
 ### Question 1
 *What is the problem with this code if executed in the sequence below? You can assume “aa” exists and that “bb” and “cc” do not. Use arrows to show links.*
+
 *symlink (“aa”, “bb”);*  
 *symlink (“bb”, “cc”);*  
 *unlink (“aa”);*  
