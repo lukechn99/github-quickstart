@@ -1,24 +1,29 @@
-# Non-Parametric Methods
+# Parametric and Non-Parametric Methods
 
 ## Parametrics Methods
+
 Data is assumed to come from some known model like a gaussian distribution or bernoulli distribution.
 
 ## Non-Parametric Methods
+
 No assumed distribution. However, similar inputs have similar outputs and functions change smoothly.  
 We rely on neighboring datapoints to interpolate from instead of having a global model.  
 We use a sample set to derive an estimator of the PDF and CDF and decide on a neighborhood size for the neighborhoods.  
 
 ## Cumulative Density Function
+
 $\hat{F}(x)=\frac{number \ of \ data \ points \ < \ input \ data}{total \ number \ of \ data points \ (N)}$
 
 ## Probability Density Function
+
 $\hat{p}(x)=\frac{1}{h}[\frac{number \ of \ data \ points \ less \ than \ x+h \ minus \ number \ of \ data \ points \ less \ than \ x}{N}]$   
 Where $h$ is the bin size (neighborhood size)
 
 ## Histogram Estimator
+
 $\hat{p}(x)=\frac{number \ of \ datapoints \ in \ bin}{Nh}$  
 Where $\hat{p}(h)$ is the height of each column and $h$ is the width of each column.  
-The smaller the $h$, the more accurate each bucket is, however, the less datapoints we're able to consider per bucket. The higher the $h$, the smoother the overall curve. 
+The smaller the $h$, the more accurate each bucket is, however, the less datapoints we're able to consider per bucket. The higher the $h$, the smoother the overall curve.
 
 ## The Naive Estimator
 
