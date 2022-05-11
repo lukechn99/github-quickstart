@@ -29,3 +29,5 @@ Random forests average multiple deep decision trees trained on different parts o
 ## Questions
 
 How would you rebalance a decision tree as more information comes in?
+
+Is the only reason to choose an SVM over a linear discriminant the generalizability/margins?

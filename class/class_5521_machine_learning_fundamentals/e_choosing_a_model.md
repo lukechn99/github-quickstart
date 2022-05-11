@@ -38,3 +38,5 @@ Detect pedestrians in an image: Convolutional neural network if there are many i
 Self driving cars: need a fast and simple model
 
 Medical field diagnostics: accuracy and interpertability are most important.
+
+Kernels are not limited to SVM but can be used in any scenario where it would be advantageous to transform data from one space to another space.
