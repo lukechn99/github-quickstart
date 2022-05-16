@@ -42,7 +42,7 @@ mask 300 configures so that everyone can r/w/x, user can only read
 
 ### Hard links
 ### Unix file attributes, inodes, file types, semantics, permissions
-i-nods are a representation of the file
+i-nodes are a representation of the file
 ### Memory-mapped files (if time)
 ```
 void *mmap (void *start, size_t length, int prot, int flags, int fd, off_t offset)
