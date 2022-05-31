@@ -77,6 +77,16 @@ shows which branch you're on. If you use command ```$ git checkout <name>``` the
 ### diff
 compares the differences between your local file(s) and the one(s) on Github.
 
+# Inspect and Compare
+
+### git log
+shows the commit history for the current branch
+
+You can also specify ```git log branchA..branchB``` to see what's on A but not B
+
+### git show [SHA]
+Shows text info on git object
+
 # Typical Workflow  
 On creation
 ```
