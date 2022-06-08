@@ -1,15 +1,20 @@
 # Supervised Learning
-Supervised Learning uses labelled data. The other two types, unsupervised and reinforcement, use other methods. 
+Supervised Learning uses labelled data. The other two types, unsupervised and reinforcement, use other methods.
 
-# Classification
-Classification problems use discrete class labels. 
+## Classification
+
+Classification problems use discrete class labels.
 
 ### Features
-A feature vector is an n-dimensional vecture used to represent an object. Feature vectors live in the feature space which has the same number of dimensions as the data it holds. Feature extraction is often hand-coded; this was more common in older days. Today, we do feature extraction with deep learning. 
+
+A feature vector is an n-dimensional vecture used to represent an object. Feature vectors live in the feature space which has the same number of dimensions as the data it holds. Feature extraction is often hand-coded; this was more common in older days. Today, we do feature extraction with deep learning.
 
 ### Empirical Error, Generalization Error
-We have a training set X   
-We have a hypothesis class *H = {h}* which takes an input of x and outputs a class label. *H* represents the type model (linear or quadratic) and *h* is the specific linear, quadratic, or plane that it corresponds to. The ultimate goal is to have *Error(h|H) = 0* for some really good *h*. The case when we have h|H is called **realizable learning**. However, if the function needed to make the error 0 is not found in H, then it is an **unrealizable learning** and we just try to approximate the best we can.    
+
+We have a training set X
+
+We have a hypothesis class *H = {h}* which takes an input of x and outputs a class label. *H* represents the type model (linear or quadratic) and *h* is the specific linear, quadratic, or plane that it corresponds to. The ultimate goal is to have *Error(h|H) = 0* for some really good *h*. The case when we have h|H is called **realizable learning**. However, if the function needed to make the error 0 is not found in H, then it is an **unrealizable learning** and we just try to approximate the best we can.
+
 The empirical error rate is calculated by counting the number of times the calculated value is different from the predicted on the *training set* (error increases by 1 when the output from H(x) doesn't match the label on training data)  
 The generalization error comes from the performance on the *testing set*  
 
