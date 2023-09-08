@@ -9,6 +9,8 @@ Classification problems use discrete class labels.
 
 A feature vector is an n-dimensional vecture used to represent an object. Feature vectors live in the feature space which has the same number of dimensions as the data it holds. Feature extraction is often hand-coded; this was more common in older days. Today, we do feature extraction with deep learning.
 
+To give more context, I think what I was saying above is that the set of features originally were decided upon by the researcher. For an object like a tree, features could be leaf shape and color, tree bark patterns, branch shape, etc. In more modern feature vectors each feature is an abstract idea about the object that the deep learning model will "decide" on.
+
 ### Empirical Error, Generalization Error
 
 We have a training set X
