@@ -1,0 +1,24 @@
+1. 
+	I. B, D
+	II. C, D?
+	III. A, C
+	IV. A, C?, 
+
+2. 
+	a. When looking at the k nearest neighbors when k = 1, x should be classified as class 1 because the nearest neighbor is of class 1
+	b. When expanding the KNN to k = 20, x is classified as class 2 because 13/20 of the nearest neighbors are of class 2
+	c. class 1 because there are more of them? within that uniform kernel. considers all data points uniformly
+
+d is the length of the axis of the plot
+
+
+3. 
+	a. TODO
+	b. 0.05, we look at the bucket that x would land in, and it has p(x) = 0.05
+	c. increasing the bucket size generally smoothes out the curve more
+
+
+4. 
+	a. bernoilli dist, thetak = x_n
+
+the first term in the product of Bern(x|theta sub k) is raised to the power of 'x'

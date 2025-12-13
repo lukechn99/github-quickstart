@@ -1,0 +1,9 @@
+Confusion Matrix for Gaussian Discriminant with class-dependent covariance
+[[14  5]
+ [16 65]]
+Confusion Matrix for Gaussian Discriminant with class-independent covariance
+[[29  9]
+ [ 1 61]]
+Confusion Matrix for Gaussian Discriminant with diagonal covariance
+[[26 11]
+ [ 4 59]]
